@@ -1,0 +1,1 @@
+Add your fxml files to src\fxml package ^_^
