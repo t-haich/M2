@@ -2,10 +2,9 @@ package main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 
 public class app extends Application {
     public static void main(String[] args) {
@@ -14,14 +13,16 @@ public class app extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = new FXMLLoader().load(getClass().getResource("/fxml/Main.fxml"));
-        Scene scene = new Scene(root, 600, 400);
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
 
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("M.U.L.E");
+        Pane myPane = myLoader.load();
+
+        MainController controller = myLoader.getController();
+
+        controller.setPrevStage(primaryStage);
+
+        Scene myScene = new Scene(myPane);
+        primaryStage.setScene(myScene);
         primaryStage.show();
-
-
-
     }
 }
