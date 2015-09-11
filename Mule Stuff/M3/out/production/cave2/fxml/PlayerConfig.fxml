@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+
+<Pane maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField layoutX="46.0" layoutY="97.0" />
+      <ComboBox layoutX="225.0" layoutY="97.0" prefWidth="150.0" visibleRowCount="5">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Mechtron" />
+                <String fx:value="Humanoid" />
+                <String fx:value="Flubber" />
+            </FXCollections>
+        </items>
+        <value>
+          <String fx:value="Mechtron" />
+        </value>
+      </ComboBox>
+      <Label layoutX="46.0" layoutY="69.0" text="Player Name:" />
+      <ComboBox layoutX="407.0" layoutY="97.0" prefWidth="150.0" visibleRowCount="5">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Blue" />
+                <String fx:value="Red" />
+                <String fx:value="Green" />
+            </FXCollections>
+        </items>
+        <value>
+          <String fx:value="Blue" />
+        </value>
+      </ComboBox>
+
+      <Label layoutX="205.0" layoutY="14.0" text="Player Configuration">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button layoutX="20.0" layoutY="17.0" mnemonicParsing="false" text="Back" />
+      <Button layoutX="249.0" layoutY="308.0" mnemonicParsing="false" text="Begin Game">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="225.0" layoutY="69.0" prefHeight="17.0" prefWidth="40.0" text="Race:" />
+      <Label layoutX="407.0" layoutY="69.0" prefHeight="17.0" prefWidth="40.0" text="Color:" />
+   </children>
+</Pane>
