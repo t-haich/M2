@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GameConfigDisplayController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.5">
          <image>
@@ -58,6 +58,6 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Button layoutX="271.0" layoutY="336.0" mnemonicParsing="false" text="Okay" />
+      <Button layoutX="271.0" layoutY="336.0" mnemonicParsing="false" onAction="#toPlayerConfig" text="Okay" />
    </children>
 </AnchorPane>
