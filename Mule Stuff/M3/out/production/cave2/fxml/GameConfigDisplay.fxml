@@ -58,6 +58,6 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Button layoutX="271.0" layoutY="336.0" mnemonicParsing="false" onAction="#toPlayerConfig" text="Okay" />
+      <Button layoutX="271.0" layoutY="336.0" mnemonicParsing="false" onAction="#toPlayerScreen" text="Okay" />
    </children>
 </AnchorPane>

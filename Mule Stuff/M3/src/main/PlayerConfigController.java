@@ -21,13 +21,11 @@ public class PlayerConfigController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    public void toPlayerConfig() throws IOException {
-        Stage stage = new Stage();
-        stage.setTitle("Player Config Screen");
+    public void toMapScreen() throws IOException {
         Pane myPane;
-        myPane = FXMLLoader.load(getClass().getResource("/fxml/PlayerConfig.fxml"));
+        myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
         Scene scene = new Scene(myPane);
-        prevStage.setScene(scene);
+        app.primaryStage.setScene(scene);
     }
 
 

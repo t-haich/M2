@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
 
-<Pane maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.PlayerConfigController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.39">
          <image>
@@ -47,7 +47,7 @@
          </font>
       </Label>
       <Button layoutX="20.0" layoutY="17.0" mnemonicParsing="false" text="Back" />
-      <Button layoutX="249.0" layoutY="308.0" mnemonicParsing="false" text="Begin Game">
+      <Button layoutX="249.0" layoutY="308.0" mnemonicParsing="false" onAction="#toMapScreen" text="Begin Game">
          <font>
             <Font size="15.0" />
          </font>

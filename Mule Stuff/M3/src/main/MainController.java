@@ -22,13 +22,9 @@ public class MainController implements Initializable {
     }
 
     public void toConfigScreen() throws IOException {
-        Stage stage = new Stage();
-        stage.setTitle("Game Config Screen");
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/GameConfigDisplay.fxml"));
         Scene scene = new Scene(myPane);
-
         prevStage.setScene(scene);
     }
-
 }

@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class app extends Application {
-    //static Stage primaryStage;
+    static Stage primaryStage;
 
     public static void main(String[] args) {
         launch(args);
@@ -17,7 +17,7 @@ public class app extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //this.primaryStage = primaryStage;
+        this.primaryStage = primaryStage;
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
 
         Pane myPane = myLoader.load();
@@ -31,4 +31,5 @@ public class app extends Application {
         primaryStage.show();
 
     }
+
 }
