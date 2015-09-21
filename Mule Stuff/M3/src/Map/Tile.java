@@ -9,8 +9,8 @@ public class Tile {
     boolean hasMule;
     Location x;
     Location y;
-    int final tileHeight = ;
-    int final tileWidth = ;
+    double final tileHeight = 85.71;
+    double final tileWidth = 80;
     Player owner;
 
     public Tile(Terrain type, Location x, Location y) {
