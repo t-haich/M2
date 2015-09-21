@@ -1,3 +1,6 @@
+package Map;
+import Characters.Mule;
+
 public class Tile {
     //Player owner;
     Terrain terrain;

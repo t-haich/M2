@@ -46,7 +46,7 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <Button layoutX="20.0" layoutY="17.0" mnemonicParsing="false" text="Back" />
+      <Button layoutX="20.0" layoutY="17.0" mnemonicParsing="false" onAction="#toConfigScreen" text="Back" />
       <Button layoutX="249.0" layoutY="308.0" mnemonicParsing="false" onAction="#toMapScreen" text="Begin Game">
          <font>
             <Font size="15.0" />

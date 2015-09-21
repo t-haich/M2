@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PlayerConfigController implements Initializable {
+public class TownDisplayController implements Initializable {
 
     Stage prevStage;
 
@@ -21,19 +21,13 @@ public class PlayerConfigController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    public void toMapScreen() throws IOException {
+    public void toTownScreen() throws IOException {
         Pane myPane;
-        myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
-        Scene scene = new Scene(myPane);
-        app.primaryStage.setScene(scene);
-    }
-
-    public void toConfigScreen() throws IOException {
-        Pane myPane;
-        myPane = FXMLLoader.load(getClass().getResource("/fxml/GameConfigDisplay.fxml"));
+        myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
         Scene scene = new Scene(myPane);
         app.primaryStage.setScene(scene);
     }
 
 
 }
+
