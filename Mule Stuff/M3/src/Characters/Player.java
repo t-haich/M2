@@ -1,8 +1,8 @@
-
+package Characters;
 
 public class Player {
     private String name;
-    private Color color;
+    private PColor color;
     private Race race;
     private int smithore;
     private int food;
@@ -12,7 +12,7 @@ public class Player {
     private boolean hasMule;
     private Mule mule;
 
-    public player (String name, Color color, Race race) {
+    public Player (String name, PColor color, Race race) {
         this.name = name;
         this.color = color;
         this.race = race;
@@ -40,7 +40,7 @@ public class Player {
         return turn;
     }
 
-    public setTurn(boolean set) {
+    public void setTurn(boolean set) {
         turn = set;
     }
 

@@ -1,8 +1,8 @@
 package Characters;
 public enum Race {
-    MECHTRON("Mechtron", *****),
-    HUMANOID("Humanoid",*****),
-    FLUBBER("Flubber",*****);
+    MECHTRON("Mechtron", 1,1,1,1),
+    HUMANOID("Humanoid",2,2,2,2),
+    FLUBBER("Flubber",3,3,3,3);
 
     private final String race;
     private final int smithore;
@@ -11,7 +11,7 @@ public enum Race {
     private final int money;
 
 
-    public Race(String race, int smithore, int food, int energy, int money) {
+    Race(String race, int smithore, int food, int energy, int money) {
         this.race = race;
         this.smithore = smithore;
         this.food = food;
