@@ -5,13 +5,42 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="258.0" layoutY="49.0" text="MAP">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
+      <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="00" />
+      <Button layoutY="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="01" />
+      <Button layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="02" />
+      <Button layoutY="240.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="03" />
+      <Button layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="04" />
+      <Button layoutX="514.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="60" />
+      <Button layoutX="514.0" layoutY="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="61" />
+      <Button layoutX="514.0" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="62" />
+      <Button layoutX="514.0" layoutY="240.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="63" />
+      <Button layoutX="514.0" layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="64" />
+      <Button layoutX="85.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="10" />
+      <Button layoutX="85.0" layoutY="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="11" />
+      <Button layoutX="85.0" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="12" />
+      <Button layoutX="85.0" layoutY="240.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="13" />
+      <Button layoutX="85.0" layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="14" />
+      <Button layoutX="171.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="20" />
+      <Button layoutX="171.0" layoutY="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="21" />
+      <Button layoutX="171.0" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="22" />
+      <Button layoutX="171.0" layoutY="240.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="23" />
+      <Button layoutX="171.0" layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="24" />
+      <Button layoutX="257.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="30" />
+      <Button layoutX="257.0" layoutY="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="31" />
+      <Button layoutX="257.0" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="Town" />
+      <Button layoutX="257.0" layoutY="240.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="33" />
+      <Button layoutX="257.0" layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="34" />
+      <Button layoutX="342.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="40" />
+      <Button layoutX="342.0" layoutY="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="41" />
+      <Button layoutX="342.0" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="42" />
+      <Button layoutX="342.0" layoutY="240.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="43" />
+      <Button layoutX="342.0" layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="44" />
+      <Button layoutX="428.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="50" />
+      <Button layoutX="428.0" layoutY="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="51" />
+      <Button layoutX="428.0" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="52" />
+      <Button layoutX="428.0" layoutY="240.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="53" />
+      <Button layoutX="428.0" layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="54" />
    </children>
 </AnchorPane>
