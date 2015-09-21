@@ -1,10 +1,11 @@
 import javafx.scene.paint.Color;
+package Characters;
 
 
 public enum Color {
-    BLUE("Blue", Color.BLUE);
-    RED("Red", Color.RED);
-    GREEN("Green", Color.GREEN);
+    BLUE("Blue", Color.BLUE),
+    RED("Red", Color.RED),
+    GREEN("Green", Color.GREEN),
     PINK("Pink", Color.PINK);
 
     private String color;
@@ -16,7 +17,7 @@ public enum Color {
         this.paint = paint;
     }
 
-    public color() {
+    public String color() {
         return color;
     }
 }

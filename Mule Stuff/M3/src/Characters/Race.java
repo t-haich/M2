@@ -1,7 +1,7 @@
-
+package Characters;
 public enum Race {
-    MECHTRON("Mechtron", *****);
-    HUMANOID("Humanoid",*****);
+    MECHTRON("Mechtron", *****),
+    HUMANOID("Humanoid",*****),
     FLUBBER("Flubber",*****);
 
     private final String race;
@@ -19,23 +19,23 @@ public enum Race {
         this.money = money;
     }
 
-    public race() {
+    public String race() {
         return race;
     }
 
-    public smithore() {
+    public int smithore() {
         return smithore;
     }
 
-    public food() {
+    public int food() {
         return food;
     }
 
-    public energy() {
+    public int energy() {
         return energy;
     }
 
-    public money() {
+    public int money() {
         return money;
     }
 }

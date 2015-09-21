@@ -1,7 +1,8 @@
+package Characters;
 public enum Mule {
-    FARMER("Farmer");
-    MINER("Miner");
-    ENERGY("Energy");
+    FARMER("Farmer"),
+    MINER("Miner"),
+    ENERGY("Energy"),
     EMPTY("Empty");
 
     private final String outfit;
@@ -10,7 +11,7 @@ public enum Mule {
         this.outfit = outfit;
     }
 
-    public outfit() {
+    public String outfit() {
         return outfit;
     }
 }
