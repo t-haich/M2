@@ -1,0 +1,6 @@
+TODO
+
+1. MapConfig
+		Set Town button to enter Town.fxml
+2. Display the 4 locations of Town
+3. LandSelection
