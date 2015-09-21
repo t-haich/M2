@@ -1,19 +1,29 @@
 package Map;
 
 public enum Terrain {
-    PLAIN(1, 2, 3),
-    RIVER(0, 4, 2),
-    MOUNTAIN(3, 1, 1);
+    PLAIN(2, 4, 1),
+    RIVER(4, 2, 1),
+    MOUNTAIN(1, 2, 4);
 
-    private final int smithore;
-    private final int food;
-    private final int energy;
+    private int smithore;
+    private int food;
+    private int energy;
 
-    Terrain (int smithore, int food, int energy) {
-        this.smithore = smithore;
-        this.food = food;
+    Terrain(int energy, int food, int smithore) {
         this.energy = energy;
+        this.food = food;
+        this.smithore = smithore;
     }
 
+    public int smithore() {
+        return smithore;
+    }
 
+    public int food() {
+        return food;
+    }
+
+    public int energy() {
+        return energy;
+    }
 }
