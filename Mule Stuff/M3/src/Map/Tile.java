@@ -30,6 +30,16 @@ public class Tile {
         return hasMule;
     }
 
+    public void setMule(Mule m) {
+        mule = m;
+        hasMule = true;
+    }
+
+    public void removeMule() {
+        mule = null;
+        hasMule = false;
+    }
+
     public void setOwner(Player p) {
         owner = p;
     }
