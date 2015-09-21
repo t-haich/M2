@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'application'
+apply from: 'javafx.plugin'
 
 sourceCompatibility = 1.8
 version = '1.0'
@@ -8,6 +9,9 @@ defaultTasks 'jar'
 
 mainClassName = 'app'
 
+dependencies {
+    testCompile group: 'junit', name: '4.+'
+}
 
 jar {
     manifest {
@@ -15,4 +19,8 @@ jar {
                    'Implementation-Version': version,
                    'Main-Class': 'app'
     }
+}
+
+repositories {
+    mavenCentral()
 }
