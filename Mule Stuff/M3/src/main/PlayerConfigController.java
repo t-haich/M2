@@ -1,27 +1,15 @@
 package main;
 
-<<<<<<< HEAD
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-
-import java.io.InputStream;
-=======
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.io.IOException;
->>>>>>> origin/master
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.stage.Stage;
 
-public class MainController implements Initializable {
+public class PlayerConfigController implements Initializable {
 
     Stage prevStage;
 
@@ -33,10 +21,19 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
+    public void toMapScreen() throws IOException {
+        Pane myPane;
+        myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
+        Scene scene = new Scene(myPane);
+        app.primaryStage.setScene(scene);
+    }
+
     public void toConfigScreen() throws IOException {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/GameConfigDisplay.fxml"));
         Scene scene = new Scene(myPane);
-        prevStage.setScene(scene);
+        app.primaryStage.setScene(scene);
     }
+
+
 }

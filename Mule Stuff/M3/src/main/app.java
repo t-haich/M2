@@ -2,29 +2,42 @@ package main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+<<<<<<< HEAD
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+=======
+>>>>>>> origin/master
 import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 
 public class app extends Application {
+    static Stage primaryStage;
+
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = new FXMLLoader().load(getClass().getResource("/fxml/Main.fxml"));
-        Scene scene = new Scene(root, 600, 400);
+        this.primaryStage = primaryStage;
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
 
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("M.U.L.E");
+        Pane myPane = myLoader.load();
+
+        MainController controller = myLoader.getController();
+
+<<<<<<< HEAD
+=======
+        controller.setPrevStage(primaryStage);
+
+        Scene myScene = new Scene(myPane);
+        primaryStage.setScene(myScene);
         primaryStage.show();
 
-
+>>>>>>> origin/master
     }
+
 }
