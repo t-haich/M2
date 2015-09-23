@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.TownDisplayController">
    <children>
-      <Button mnemonicParsing="false" onAction="#toPrint" prefHeight="80.0" prefWidth="85.71" text="00">
+      <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="00">
          <effect>
             <ImageInput>
                <source>
@@ -33,7 +33,7 @@
                </source>
             </ImageInput>
          </effect></Button>
-      <Button layoutY="240.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="86.0" text="03">
+      <Button layoutY="240.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="03">
          <effect>
             <ImageInput>
                <source>
@@ -41,7 +41,7 @@
                </source>
             </ImageInput>
          </effect></Button>
-      <Button layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="04">
+      <Button layoutY="320.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="86.0" text="04">
          <effect>
             <ImageInput>
                <source>
@@ -81,7 +81,7 @@
                </source>
             </ImageInput>
          </effect></Button>
-      <Button layoutX="514.0" layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="64">
+      <Button layoutX="514.0" layoutY="320.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="64">
          <effect>
             <ImageInput>
                <source>
@@ -121,7 +121,7 @@
                </source>
             </ImageInput>
          </effect></Button>
-      <Button layoutX="85.0" layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="14">
+      <Button layoutX="85.0" layoutY="320.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="14">
          <effect>
             <ImageInput>
                <source>
@@ -161,7 +161,7 @@
                </source>
             </ImageInput>
          </effect></Button>
-      <Button layoutX="171.0" layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="24">
+      <Button layoutX="171.0" layoutY="320.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="24">
          <effect>
             <ImageInput>
                <source>
@@ -194,7 +194,7 @@
                </source>
             </ImageInput>
          </effect></Button>
-      <Button layoutX="257.0" layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="34">
+      <Button layoutX="257.0" layoutY="320.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="34">
          <effect>
             <ImageInput>
                <source>
@@ -234,7 +234,7 @@
                </source>
             </ImageInput>
          </effect></Button>
-      <Button layoutX="342.0" layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="44">
+      <Button layoutX="342.0" layoutY="320.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="44">
          <effect>
             <ImageInput>
                <source>
@@ -274,7 +274,7 @@
                </source>
             </ImageInput>
          </effect></Button>
-      <Button layoutX="428.0" layoutY="321.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="54">
+      <Button layoutX="428.0" layoutY="320.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="54">
          <effect>
             <ImageInput>
                <source>
