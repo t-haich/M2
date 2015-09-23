@@ -28,6 +28,20 @@ public class TownDisplayController implements Initializable {
         app.primaryStage.setScene(scene);
     }
 
+    public void toMapScreen() throws IOException {
+        Pane myPane;
+        myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
+        Scene scene = new Scene(myPane);
+        app.primaryStage.setScene(scene);
+    }
+
+    public void toShopScreen() throws IOException {
+        Pane myPane;
+        myPane = FXMLLoader.load(getClass().getResource("/fxml/Shop.fxml"));
+        Scene scene = new Scene(myPane);
+        app.primaryStage.setScene(scene);
+    }
+
 
 }
 
