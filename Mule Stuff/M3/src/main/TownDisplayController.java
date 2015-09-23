@@ -21,6 +21,7 @@ public class TownDisplayController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
+
     public void toTownScreen() throws IOException {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
