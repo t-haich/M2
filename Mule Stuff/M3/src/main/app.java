@@ -2,11 +2,10 @@ package main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-<<<<<<< HEAD
+
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-=======
->>>>>>> origin/master
+
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -29,15 +28,13 @@ public class app extends Application {
 
         MainController controller = myLoader.getController();
 
-<<<<<<< HEAD
-=======
+
         controller.setPrevStage(primaryStage);
 
         Scene myScene = new Scene(myPane);
         primaryStage.setScene(myScene);
         primaryStage.show();
 
->>>>>>> origin/master
     }
 
 }

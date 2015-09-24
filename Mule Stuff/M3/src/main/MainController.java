@@ -1,6 +1,6 @@
 package main;
 
-<<<<<<< HEAD
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,14 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.InputStream;
-=======
+
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.io.IOException;
->>>>>>> origin/master
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.stage.Stage;
