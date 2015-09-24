@@ -5,12 +5,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.TownDisplayController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0">
          <image>
-            <Image url="map.jpg" />
+            <Image url="@map.jpg" />
          </image>
       </ImageView>
       <Button layoutX="6.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="00" />
