@@ -1,4 +1,4 @@
-public class Map {
+/*public class Map {
 
     Tile[][] map;
 
@@ -32,4 +32,4 @@ public class Map {
             }
         }
     }
-}
+}*/

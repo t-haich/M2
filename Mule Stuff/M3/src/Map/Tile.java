@@ -1,11 +1,11 @@
 package Map;
-import Characters.Mule;
+import Characters.*;
 
 public class Tile {
 
    Terrain type;
    Mule mule;
-   boolean owned;
+   boolean isOwned;
    boolean hasMule;
    double x;
    double y;
@@ -29,7 +29,7 @@ public class Tile {
    }
 
    public boolean isOwned() {
-       return owned;
+       return isOwned;
    }
 
    public boolean hasMule() {
