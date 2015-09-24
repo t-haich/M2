@@ -16,9 +16,9 @@ public class Player {
         this.name = name;
         this.color = color;
         this.race = race;
-        this.food = race.food();
-        this.smithore = race.smithore();
-        this.energy = race.energy();
+        this.food = 8;
+        this.smithore = 0;
+        this.energy = 4;
         this.money = race.money();
         turn = false;
         hasMule = false;

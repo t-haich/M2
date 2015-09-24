@@ -47,3 +47,4 @@ build/
 .gradle/
 *.iml
 .idea/
+Mule Stuff/M3/out/production/cave2/fxml/Map.fxml
