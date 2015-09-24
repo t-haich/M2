@@ -18,13 +18,15 @@
       <ComboBox layoutX="225.0" layoutY="97.0" prefWidth="150.0" visibleRowCount="5">
         <items>
             <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Mechtron" />
+                <String fx:value="Bonzoid" />
+                <String fx:value="Ugaite" />
+                <String fx:value="Buzzite" />
                 <String fx:value="Humanoid" />
-                <String fx:value="Flubber" />
+                <String fx:value="Flapper" />
             </FXCollections>
         </items>
         <value>
-          <String fx:value="Mechtron" />
+          <String fx:value="Bonzoid" />
         </value>
       </ComboBox>
       <Label layoutX="46.0" layoutY="69.0" text="Player Name:" />
