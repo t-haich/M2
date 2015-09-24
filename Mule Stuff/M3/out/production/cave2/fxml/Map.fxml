@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.TownDisplayController">
    <children>
-      <Button mnemonicParsing="false" onAction="#toPrint" prefHeight="80.0" prefWidth="85.71" text="00">
+      <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="85.71" text="00">
          <effect>
             <ImageInput>
                <source>
