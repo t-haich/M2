@@ -3,12 +3,12 @@ import Characters.*;
 
 public class Tile {
 
-   Terrain type;
-   Mule mule;
-   boolean hasMule;
-   double x;
-   double y;
-   Player owner;
+   private Terrain type;
+   private Mule mule;
+   private boolean hasMule;
+   private double x;
+   private double y;
+   private Player owner;
 
    public Tile(Terrain type, double x, double y) {
        this.type = type;

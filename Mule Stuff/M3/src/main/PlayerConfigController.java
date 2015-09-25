@@ -24,6 +24,7 @@ public class PlayerConfigController implements Initializable {
     private ComboBox<String> color;
     @FXML
     private ComboBox<String> race;
+
     public static Player player1;
 
     public void setPrevStage(Stage stage){
@@ -54,16 +55,14 @@ public class PlayerConfigController implements Initializable {
     }
 
     private Color getColor(String col) {
-        Color pColor;
         if (col.equals("Blue"))
-            pColor = Color.BLUE;
+            return Color.BLUE;
         else if (col.equals("Red"))
-            pColor = Color.RED;
+            return Color.RED;
         else if (col.equals("Green"))
-            pColor = Color.GREEN;
+            return Color.GREEN;
         else
-            pColor = Color.PURPLE;
-        return pColor;
+            return Color.PURPLE;
     }
     private Race getRace(String rac) {
         Race raceE;
