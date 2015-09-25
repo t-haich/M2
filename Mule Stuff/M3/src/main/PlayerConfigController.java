@@ -1,6 +1,8 @@
 package main;
 
 import Characters.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,6 +24,7 @@ public class PlayerConfigController implements Initializable {
     Stage prevStage;
     @FXML
     private ComboBox<String> color;
+    private Color currCol;
     @FXML
     private ComboBox<String> race;
 
@@ -33,7 +36,7 @@ public class PlayerConfigController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String col = color.getValue();
+        String col = color.getValue();//color.getSelectionModel().getSelectedItem();
         String rac = race.getValue();
         player1 = new Player(name.getText(), getColor(col), getRace(rac));
     }

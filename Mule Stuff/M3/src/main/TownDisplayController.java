@@ -60,7 +60,7 @@ public class TownDisplayController implements Initializable {
         double xloc = e.getX();
         double yloc = e.getY();
         Tile tile = map.getTile(xloc, yloc);
-        if (!tile.isOwned()) {
+        if (tile != null && !tile.isOwned()) {
             // tile.setOwner(Player p);
             GraphicsContext g2d = canvas.getGraphicsContext2D();
             g2d.setFill(PlayerConfigController.player1.getColor());

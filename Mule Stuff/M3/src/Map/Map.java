@@ -28,7 +28,7 @@ public class Map {
     public Tile getTile(double x, double y) {
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 9; col++) {
-                if (!(row == 2 && col == 4)) {
+                if (map[row][col] != null) {
                     double xloc = map[row][col].getX();
                     double yloc = map[row][col].getY();
                     boolean yCheck = (y >= yloc) && (y < yloc + TALL);
