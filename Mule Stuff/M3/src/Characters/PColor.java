@@ -17,7 +17,7 @@ public enum PColor {
         this.paint = paint;
     }
 
-    public String color() {
-        return color;
+    public Color color() {
+        return paint;
     }
 }

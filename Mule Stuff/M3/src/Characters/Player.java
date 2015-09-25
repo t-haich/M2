@@ -1,10 +1,11 @@
 package Characters;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.paint.Color;
 
 public class Player {
     private String name;
-    private PColor pColor;
+    private Color pColor;
     private Race race;
     private int smithore = 0;
     private int food = 8;
@@ -14,7 +15,7 @@ public class Player {
     private boolean hasMule;
     private Mule mule;
 
-    public Player (String name, PColor col, Race race) {
+    public Player (String name, Color col, Race race) {
         this.name = name;
         pColor = col;
 
@@ -43,6 +44,7 @@ public class Player {
         turn = set;
     }
 
+    public Color getColor() { return pColor; }
 
     public void addMoney(int add) {
         money += add;

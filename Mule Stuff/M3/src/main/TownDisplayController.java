@@ -63,7 +63,7 @@ public class TownDisplayController implements Initializable {
         if (!tile.isOwned()) {
             // tile.setOwner(Player p);
             GraphicsContext g2d = canvas.getGraphicsContext2D();
-            g2d.setFill(Color.BLUE);
+            g2d.setFill(PlayerConfigController.player1.getColor());
             g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
         }
     }

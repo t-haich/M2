@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 
 import java.awt.*;
 import java.awt.TextField;
@@ -23,7 +24,7 @@ public class PlayerConfigController implements Initializable {
     private ComboBox<String> color;
     @FXML
     private ComboBox<String> race;
-    private Player player1;
+    public static Player player1;
 
     public void setPrevStage(Stage stage){
         this.prevStage = stage;
@@ -52,16 +53,16 @@ public class PlayerConfigController implements Initializable {
         app.primaryStage.setScene(scene);
     }
 
-    private PColor getColor(String col) {
-        PColor pColor;
+    private Color getColor(String col) {
+        Color pColor;
         if (col.equals("Blue"))
-            pColor = PColor.BLUE;
-        if (col.equals("Red"))
-            pColor = PColor.RED;
-        if (col.equals("Green"))
-            pColor = PColor.GREEN;
+            pColor = Color.BLUE;
+        else if (col.equals("Red"))
+            pColor = Color.RED;
+        else if (col.equals("Green"))
+            pColor = Color.GREEN;
         else
-            pColor = PColor.PURPLE;
+            pColor = Color.PURPLE;
         return pColor;
     }
     private Race getRace(String rac) {

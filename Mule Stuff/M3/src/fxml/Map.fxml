@@ -13,7 +13,7 @@
             <Image url="@map.jpg" />
          </image>
       </ImageView>
-      <Canvas fx:id="canvas" layoutX="0.0" layoutY="0.0" height="600.0" onMouseClicked="#handleMouseClick" width="400.0" BorderPane.alignment="CENTER" />
+      <Canvas fx:id="canvas" layoutX="0.0" layoutY="0.0" height="400.0" onMouseClicked="#handleMouseClick" width="600.0" BorderPane.alignment="CENTER" />
       <Button layoutX="273.0" layoutY="160.0" mnemonicParsing="false" onAction="#toTownScreen" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="Town" />
 
    </children>
