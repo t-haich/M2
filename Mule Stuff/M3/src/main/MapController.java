@@ -26,7 +26,7 @@ public class MapController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         errorMessage.setText("");
     }
-
+/*
     public void handleTileClick(ActionEvent e) {
         Button button = (Button) e.getSource()
         double xloc = button.getX();
@@ -37,5 +37,5 @@ public class MapController implements Initializable {
         }
         //Error message to player saying tile is owned by x player
 
-
+*/
     }

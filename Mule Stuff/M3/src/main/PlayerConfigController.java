@@ -23,9 +23,7 @@ public class PlayerConfigController implements Initializable {
     private ComboBox<String> color;
     @FXML
     private ComboBox<String> race;
-    private PColor pColor;
-    private Race raceE;
-    private Player play;
+    private Player player1;
 
     public void setPrevStage(Stage stage){
         this.prevStage = stage;
@@ -34,26 +32,8 @@ public class PlayerConfigController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String col = color.getValue();
-        if (col.equals("Blue"))
-            pColor = PColor.BLUE;
-        if (col.equals("Red"))
-            pColor = PColor.RED;
-        if (col.equals("Green"))
-            pColor = PColor.GREEN;
-        else
-            pColor = PColor.PURPLE;
         String rac = race.getValue();
-        if (rac.equals("Bonzoid"))
-            raceE = Race.BONZOID;
-        if (rac.equals("Buzzite"))
-            raceE = Race.BUZZITE;
-        if (rac.equals("Ugaite"))
-            raceE = Race.UGAITE;
-        if (rac.equals("Humanoid"))
-            raceE = Race.HUMANOID;
-        else
-            raceE = Race.FLAPPER;
-        play = new Player(name.getText(), pColor, raceE);
+        player1 = new Player(name.getText(), getColor(col), getRace(rac));
     }
 
     public void toMapScreen() throws IOException {
@@ -72,5 +52,30 @@ public class PlayerConfigController implements Initializable {
         app.primaryStage.setScene(scene);
     }
 
-
+    private PColor getColor(String col) {
+        PColor pColor;
+        if (col.equals("Blue"))
+            pColor = PColor.BLUE;
+        if (col.equals("Red"))
+            pColor = PColor.RED;
+        if (col.equals("Green"))
+            pColor = PColor.GREEN;
+        else
+            pColor = PColor.PURPLE;
+        return pColor;
+    }
+    private Race getRace(String rac) {
+        Race raceE;
+        if (rac.equals("Bonzoid"))
+            raceE = Race.BONZOID;
+        if (rac.equals("Buzzite"))
+            raceE = Race.BUZZITE;
+        if (rac.equals("Ugaite"))
+            raceE = Race.UGAITE;
+        if (rac.equals("Humanoid"))
+            raceE = Race.HUMANOID;
+        else
+            raceE = Race.FLAPPER;
+        return raceE;
+    }
 }
