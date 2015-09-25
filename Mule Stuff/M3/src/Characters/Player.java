@@ -46,6 +46,8 @@ public class Player {
 
     public Color getColor() { return pColor; }
 
+    public void setColor(Color col) { pColor = col; }
+
     public void addMoney(int add) {
         money += add;
     }

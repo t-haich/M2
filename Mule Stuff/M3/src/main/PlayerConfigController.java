@@ -38,6 +38,14 @@ public class PlayerConfigController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         String col = color.getValue();//color.getSelectionModel().getSelectedItem();
         String rac = race.getValue();
+        color.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()
+        {
+            public void changed(ObservableValue<? extends String> observable,String
+                    oldValue,String newValue)
+            {
+                player1.setColor(getColor(newValue));
+            }
+        });
         player1 = new Player(name.getText(), getColor(col), getRace(rac));
     }
 
