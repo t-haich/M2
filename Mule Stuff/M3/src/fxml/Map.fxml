@@ -5,6 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.canvas.Canvas?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.TownDisplayController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0">
@@ -12,7 +13,8 @@
             <Image url="@map.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="273.0" layoutY="160.0" mnemonicParsing="false" onAction="#toTownScreen" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="Town" />
       <Canvas fx:id="canvas" layoutX="0.0" layoutY="0.0" height="600.0" onMouseClicked="#handleMouseClick" width="400.0" BorderPane.alignment="CENTER" />
+      <Button layoutX="273.0" layoutY="160.0" mnemonicParsing="false" onAction="#toTownScreen" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="Town" />
+
    </children>
 </AnchorPane>

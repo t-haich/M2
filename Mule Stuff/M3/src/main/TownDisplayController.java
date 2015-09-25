@@ -1,17 +1,25 @@
 package main;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import Map.Map;
+import Map.Tile;
+import javafx.scene.canvas.GraphicsContext;
 
 public class TownDisplayController implements Initializable {
 
     Stage prevStage;
+    @FXML
     private Canvas canvas;
     private Map map;
     // private Player player;
@@ -55,7 +63,7 @@ public class TownDisplayController implements Initializable {
         if (!tile.isOwned()) {
             // tile.setOwner(Player p);
             GraphicsContext g2d = canvas.getGraphicsContext2D();
-            g2d.setFill(p.getColor());
+            g2d.setFill(Color.BLUE);
             g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
         }
     }
