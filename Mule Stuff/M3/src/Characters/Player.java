@@ -1,25 +1,24 @@
 package Characters;
 
+import javafx.scene.control.ComboBox;
+
 public class Player {
     private String name;
-    private PColor color;
+    private PColor pColor;
     private Race race;
-    private int smithore;
-    private int food;
-    private int energy;
-    private int money;
+    private int smithore = 0;
+    private int food = 8;
+    private int energy = 4;
+    private int money = 0;//race.money();
     private boolean turn;
     private boolean hasMule;
     private Mule mule;
 
-    public Player (String name, PColor color, Race race) {
+    public Player (String name, PColor col, Race race) {
         this.name = name;
-        this.color = color;
+        pColor = col;
+
         this.race = race;
-        this.food = 8;
-        this.smithore = 0;
-        this.energy = 4;
-        this.money = race.money();
         turn = false;
         hasMule = false;
         mule = null;

@@ -6,7 +6,7 @@ public enum PColor {
     BLUE("Blue", Color.BLUE),
     RED("Red", Color.RED),
     GREEN("Green", Color.GREEN),
-    PINK("Pink", Color.PINK);
+    PURPLE("Purple", Color.PURPLE);
 
     private String color;
     private Color paint;

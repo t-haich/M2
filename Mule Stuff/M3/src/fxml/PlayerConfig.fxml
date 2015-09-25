@@ -14,8 +14,8 @@
             <Image url="@space.jpg" />
          </image>
       </ImageView>
-      <TextField layoutX="46.0" layoutY="97.0" />
-      <ComboBox layoutX="225.0" layoutY="97.0" prefWidth="150.0" visibleRowCount="5">
+      <TextField fx:id="name" layoutX="46.0" layoutY="97.0" />
+      <ComboBox fx:id="race" layoutX="225.0" layoutY="97.0" prefWidth="150.0" visibleRowCount="5">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="Bonzoid" />
@@ -30,12 +30,13 @@
         </value>
       </ComboBox>
       <Label layoutX="46.0" layoutY="69.0" text="Player Name:" />
-      <ComboBox layoutX="407.0" layoutY="97.0" prefWidth="150.0" visibleRowCount="5">
+      <ComboBox fx:id="color" layoutX="407.0" layoutY="97.0" prefWidth="150.0" visibleRowCount="5">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="Blue" />
                 <String fx:value="Red" />
                 <String fx:value="Green" />
+                <String fx:value="Purple" />
             </FXCollections>
         </items>
         <value>
