@@ -27,7 +27,7 @@ public class Tile {
    }
 
    public boolean isOwned() {
-       return owner != null
+       return owner != null;
    }
 
    public boolean hasMule() {
