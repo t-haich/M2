@@ -12,50 +12,7 @@
             <Image url="@map.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="6.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="00" />
-      <Button layoutX="73.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="01" />
-      <Button layoutX="140.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="02" />
-      <Button layoutX="207.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="03" />
-      <Button layoutX="273.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="04" />
-      <Button layoutX="340.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="05" />
-      <Button layoutX="407.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="06" />
-      <Button layoutX="474.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="07" />
-      <Button layoutX="541.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="08" />
-      <Button layoutX="6.0" layoutY="80.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="10" />
-      <Button layoutX="73.0" layoutY="80.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="11" />
-      <Button layoutX="140.0" layoutY="80.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="12" />
-      <Button layoutX="207.0" layoutY="80.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="13" />
-      <Button layoutX="273.0" layoutY="80.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="14" />
-      <Button layoutX="340.0" layoutY="80.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="15" />
-      <Button layoutX="407.0" layoutY="80.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="16" />
-      <Button layoutX="474.0" layoutY="80.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="17" />
-      <Button layoutX="541.0" layoutY="80.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="18" />
-      <Button layoutX="6.0" layoutY="160.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="20" />
-      <Button layoutX="73.0" layoutY="160.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="21" />
-      <Button layoutX="140.0" layoutY="160.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="22" />
-      <Button layoutX="207.0" layoutY="160.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="23" />
       <Button layoutX="273.0" layoutY="160.0" mnemonicParsing="false" onAction="#toTownScreen" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="Town" />
-      <Button layoutX="340.0" layoutY="160.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="25" />
-      <Button layoutX="407.0" layoutY="160.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="26" />
-      <Button layoutX="474.0" layoutY="160.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="27" />
-      <Button layoutX="541.0" layoutY="160.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="28" />
-      <Button layoutX="6.0" layoutY="240.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="30" />
-      <Button layoutX="73.0" layoutY="240.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="31" />
-      <Button layoutX="140.0" layoutY="240.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="32" />
-      <Button layoutX="207.0" layoutY="240.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="33" />
-      <Button layoutX="273.0" layoutY="240.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="34" />
-      <Button layoutX="340.0" layoutY="240.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="35" />
-      <Button layoutX="407.0" layoutY="240.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="36" />
-      <Button layoutX="474.0" layoutY="240.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="37" />
-      <Button layoutX="541.0" layoutY="240.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="38" />
-      <Button layoutX="6.0" layoutY="320.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="40" />
-      <Button layoutX="73.0" layoutY="320.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="41" />
-      <Button layoutX="140.0" layoutY="320.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="42" />
-      <Button layoutX="207.0" layoutY="320.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="43" />
-      <Button layoutX="273.0" layoutY="320.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="44" />
-      <Button layoutX="340.0" layoutY="320.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="45" />
-      <Button layoutX="407.0" layoutY="320.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="46" />
-      <Button layoutX="474.0" layoutY="320.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="47" />
-      <Button layoutX="541.0" layoutY="320.0" mnemonicParsing="false" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="48" />
+      <Canvas fx:id="canvas" layoutX="0.0" layoutY="0.0" height="600.0" onMouseClicked="#handleMouseClick" width="400.0" BorderPane.alignment="CENTER" />
    </children>
 </AnchorPane>
