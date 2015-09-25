@@ -1,8 +1,8 @@
 package Map;
 
 public enum Terrain {
-    PLAIN(2, 4, 0),
-    RIVER(3, 2, 1),
+    PLAIN(2, 3, 1),
+    RIVER(4, 2, 0),
     MOUNTAIN1(1, 1, 2),
     MOUNTAIN2(1, 1, 3),
     MOUNTAIN3(1, 1, 4);
