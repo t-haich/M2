@@ -5,7 +5,6 @@ public class Tile {
 
    Terrain type;
    Mule mule;
-   boolean isOwned;
    boolean hasMule;
    double x;
    double y;
@@ -13,7 +12,6 @@ public class Tile {
 
    public Tile(Terrain type, double x, double y) {
        this.type = type;
-       this.isOwned = false;
        this.hasMule = false;
        this.x = x;
        this.y = y;
@@ -29,7 +27,7 @@ public class Tile {
    }
 
    public boolean isOwned() {
-       return isOwned;
+       return owner != null
    }
 
    public boolean hasMule() {
