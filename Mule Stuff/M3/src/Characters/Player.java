@@ -79,4 +79,12 @@ public class Player {
     public int getSmithore() {
         return smithore;
     }
+
+    public int getScore() {
+        return (money + (smithore * 50) + (food * 20) + (energy * 25));
+    }
+
+    public int getTurnTime() {
+        return (food * 15);
+    }
 }
