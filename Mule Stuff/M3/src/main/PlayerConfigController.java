@@ -21,14 +21,19 @@ import java.util.ResourceBundle;
 public class PlayerConfigController implements Initializable {
 
     public javafx.scene.control.TextField name;
+    public javafx.scene.control.TextField name2;
     Stage prevStage;
     @FXML
     private ComboBox<String> color;
     private Color currCol;
     @FXML
     private ComboBox<String> race;
-
+    @FXML
+    private ComboBox<String> color2;
+    @FXML
+    private ComboBox<String> race2;
     public static Player player1;
+    public static Player player2;
 
     public void setPrevStage(Stage stage){
         this.prevStage = stage;
@@ -36,7 +41,7 @@ public class PlayerConfigController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String col = color.getValue();//color.getSelectionModel().getSelectedItem();
+        String col = color.getValue();
         String rac = race.getValue();
         color.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()
         {
@@ -46,7 +51,19 @@ public class PlayerConfigController implements Initializable {
                 player1.setColor(getColor(newValue));
             }
         });
+        String col2 = color2.getValue();
+        String rac2 = race2.getValue();
+        color2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()
+        {
+            public void changed(ObservableValue<? extends String> observable,String
+                    oldValue,String newValue)
+            {
+                player2.setColor(getColor(newValue));
+            }
+        });
         player1 = new Player(name.getText(), getColor(col), getRace(rac));
+        player2 = new Player(name2.getText(), getColor(col2), getRace(rac2));
+
     }
 
     public void toMapScreen() throws IOException {

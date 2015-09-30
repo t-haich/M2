@@ -1,5 +1,7 @@
 package main;
 
+import Characters.Player;
+import Map.Map;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 
@@ -14,7 +16,7 @@ import java.io.IOException;
 
 public class app extends Application {
     static Stage primaryStage;
-
+    public static Map map = new Map();
 
     public static void main(String[] args) {
         launch(args);
@@ -36,4 +38,5 @@ public class app extends Application {
         primaryStage.setScene(myScene);
         primaryStage.show();
     }
+
 }
