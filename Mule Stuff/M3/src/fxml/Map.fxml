@@ -16,7 +16,7 @@
       </ImageView>
       <Canvas fx:id="canvas" height="400.0" layoutX="0.0" layoutY="0.0" onMouseClicked="#handleMouseClick" width="600.0" />
       <Button layoutX="273.0" layoutY="160.0" mnemonicParsing="false" onAction="#toTownScreen" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="Town" />
-      <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" text="Pass" onAction="#EndTurn"/>
+      <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" text="Pass" onAction="#endTurn"/>
 
    </children>
 </AnchorPane>

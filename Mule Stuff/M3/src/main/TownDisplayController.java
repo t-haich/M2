@@ -23,16 +23,17 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class TownDisplayController implements Initializable {
 
-    Stage prevStage;
+    public Stage shopStage;
 
-    public void setPrevStage(Stage stage){
-        this.prevStage = stage;
-    }
+    //public void setPrevStage(Stage stage){
+    //    this.prevStage = stage;
+    //}
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //this.map = new Map();
         MapController.townStage = new Stage();
+        shopStage = new Stage();
 
     }
 
@@ -46,11 +47,12 @@ public class TownDisplayController implements Initializable {
     }
 
     public void toTownScreen() throws IOException {
-        Pane myPane;
+        /*Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
         Scene scene = new Scene(myPane);
         //stage = new Stage();
-        MapController.townStage.setScene(scene);
+        MapController.townStage.setScene(scene);*/
+        shopStage.close();
     }
 
 
@@ -58,7 +60,10 @@ public class TownDisplayController implements Initializable {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Shop.fxml"));
         Scene scene = new Scene(myPane);
-        MapController.townStage.setScene(scene);
+        //MapController.townStage.setScene(scene);
+        //prevStage = new Stage();
+        shopStage.setScene(scene);
+        shopStage.show();
     }
 
     public void toPub() {       //The formula is: Money Bonus = Round Bonus + random between 0 and Time Bonus
@@ -84,7 +89,7 @@ public class TownDisplayController implements Initializable {
             timeBonus = 50;
         }
         Random rand = new Random();
-        moneyBonus = roundBonus + rand.nextInt() * timeBonus;
+        moneyBonus = roundBonus + (int) (rand.nextFloat() * timeBonus);
         if (moneyBonus > 250) {
             MapController.currPlayer.addMoney(250);
         } else {
