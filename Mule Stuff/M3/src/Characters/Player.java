@@ -3,7 +3,7 @@ package Characters;
 import javafx.scene.control.ComboBox;
 import javafx.scene.paint.Color;
 
-public class Player {
+public class Player implements Comparable{
     private String name;
     private Color pColor;
     private Race race;
@@ -94,11 +94,11 @@ public class Player {
         tiles++;
     }
 
-    public int compareTo(Player p) {
-        if (this.getScore() < p.getScore()) {
+    public int compareTo(Object t) {
+        if (this.getScore() < ((Player) t).getScore()) {
             return -1;
         }
-        if (this.getScore() > p.getScore()) {
+        if (this.getScore() > ((Player) t).getScore()) {
             return 1;
         }
         return 0;

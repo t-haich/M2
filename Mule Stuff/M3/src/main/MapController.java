@@ -33,11 +33,14 @@ public class MapController implements Initializable {
     public static int phase = 1;
     public static int pass = 0;
     public static int round = 0;
-    public static Player[] arr = PlayerConfigController.player.toArray(Player[] a);
+    public static Player[] arr;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        while (phase1()) {
+        arr = PlayerConfigController.players;
+        currPlayer = arr[0];
+        /*while (phase == 1) {//phase1()) {
+
         }
         timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -65,7 +68,7 @@ public class MapController implements Initializable {
                 turn(PlayerConfigController.player2);
                 System.out.println(currPlayer.getMoney());
             }
-        }, 5000, 10000);
+        }, 5000, 10000);*/
     }
 
 
@@ -79,7 +82,6 @@ public class MapController implements Initializable {
 
     public void handleMouseClick(MouseEvent e) {
         if (phase == 1) {
-            if (!tileClicked) {
                 double xloc = e.getX();
                 double yloc = e.getY();
                 Tile tile = app.map.getTile(xloc, yloc);
@@ -91,8 +93,6 @@ public class MapController implements Initializable {
                     tileClicked = true;
                     pass = 0;
                     currPlayer = nextPlayer();
-
-                }
                 if (round > 2) {
                     currPlayer.addMoney(-300);
                 }
@@ -106,16 +106,17 @@ public class MapController implements Initializable {
             pass++;
             if (pass == 4) {
                 endPhase();
+                turns();
             }
             currPlayer = nextPlayer();
         }
     }
 
     public Player nextPlayer() {
-        Player next = new Player();
+        Player next = null;
         for (int i = 0; i < arr.length; i++) {
             if (currPlayer.equals(arr[i])) {
-                next = arr[(i+1)%arr.length];
+                return arr[(i+1)%arr.length];
             }
         }
         return next;
@@ -140,4 +141,34 @@ public class MapController implements Initializable {
         currPlayer = player;
     }
 
+    private void turns() {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                turnTime = System.currentTimeMillis();
+                turns++;
+                if (turns >= 3) {
+                    phase = 1;
+                    timer.cancel();
+                    timer.purge();
+                } else {
+                    tileClicked = false;
+                    System.out.println("1");
+                    turn(PlayerConfigController.player1);
+                    System.out.println(currPlayer.getMoney());
+                }
+            }
+        }, 0, 10000);
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                turnTime = System.currentTimeMillis();
+                tileClicked = false;
+                System.out.println("2");
+                turn(PlayerConfigController.player2);
+                System.out.println(currPlayer.getMoney());
+            }
+        }, 5000, 10000);
+    }
 }
