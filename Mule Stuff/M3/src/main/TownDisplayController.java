@@ -12,6 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,21 +32,25 @@ public class TownDisplayController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //this.map = new Map();
+        MapController.townStage = new Stage();
 
     }
 
     public void toMapScreen() throws IOException {
-        Pane myPane;
+        /*Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
         Scene scene = new Scene(myPane);
         app.primaryStage.setScene(scene);
+        */
+        MapController.townStage.close();
     }
 
     public void toTownScreen() throws IOException {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
         Scene scene = new Scene(myPane);
-        app.primaryStage.setScene(scene);
+        //stage = new Stage();
+        MapController.townStage.setScene(scene);
     }
 
 
@@ -53,9 +58,38 @@ public class TownDisplayController implements Initializable {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Shop.fxml"));
         Scene scene = new Scene(myPane);
-        app.primaryStage.setScene(scene);
+        MapController.townStage.setScene(scene);
     }
 
-
+    public void toPub() {       //The formula is: Money Bonus = Round Bonus + random between 0 and Time Bonus
+        long currTime = System.currentTimeMillis();
+        long remaining = currTime - MapController.turnTime; //add to MapController
+        int moneyBonus, timeBonus, roundBonus;
+        if (MapController.turns < 4) {
+            roundBonus = 50;
+        } else if (MapController.turns < 8) {
+            roundBonus = 100;
+        } else if (MapController.turns < 11) {
+            roundBonus = 150;
+        } else {
+            roundBonus = 200;
+        }
+        if (remaining > 37000) {
+            timeBonus = 200;
+        } else if (remaining > 25000) {
+            timeBonus = 150;
+        } else if (remaining > 12000) {
+            timeBonus = 100;
+        } else {
+            timeBonus = 50;
+        }
+        Random rand = new Random();
+        moneyBonus = roundBonus + rand.nextInt() * timeBonus;
+        if (moneyBonus > 250) {
+            MapController.currPlayer.addMoney(250);
+        } else {
+            MapController.currPlayer.addMoney(moneyBonus);
+        }
+    }
 }
 

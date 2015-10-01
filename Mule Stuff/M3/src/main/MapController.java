@@ -24,10 +24,12 @@ public class MapController implements Initializable {
     @FXML
     private Canvas canvas;
     //public static Map map = new Map();
-    public Player currPlayer;
+    public static Player currPlayer;
     private Timer timer;
     private boolean tileClicked;
-    private int turns;
+    public static int turns;
+    public static long turnTime;
+    public static Stage townStage = new Stage();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -35,6 +37,7 @@ public class MapController implements Initializable {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
+                turnTime = System.currentTimeMillis();
                 turns++;
                 if (turns >= 7) {
                     timer.cancel();
@@ -50,6 +53,7 @@ public class MapController implements Initializable {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
+                turnTime = System.currentTimeMillis();
                 tileClicked = false;
                 System.out.println("2");
                 turn(PlayerConfigController.player2);
@@ -63,7 +67,8 @@ public class MapController implements Initializable {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
         Scene scene = new Scene(myPane);
-        app.primaryStage.setScene(scene);
+        townStage.setScene(scene);
+        townStage.show();
     }
 
     public void handleMouseClick(MouseEvent e) {
