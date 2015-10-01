@@ -24,10 +24,12 @@ public class MapController implements Initializable {
     @FXML
     private Canvas canvas;
     //public static Map map = new Map();
-    public Player currPlayer;
+    public static Player currPlayer;
     private Timer timer;
     private boolean tileClicked;
-    private int turns;
+    public static int turns;
+    public static int phase = 1;
+    public static int pass = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -63,20 +65,48 @@ public class MapController implements Initializable {
     }
 
     public void handleMouseClick(MouseEvent e) {
-        if (!tileClicked) {
-            double xloc = e.getX();
-            double yloc = e.getY();
-            Tile tile = app.map.getTile(xloc, yloc);
-            if (tile != null && !tile.isOwned()) {
-                tile.setOwner(currPlayer);
-                GraphicsContext g2d = canvas.getGraphicsContext2D();
-                g2d.setFill(currPlayer.getColor());
-                g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
+        if (phase == 1) {
+            if (!tileClicked) {
+                double xloc = e.getX();
+                double yloc = e.getY();
+                Tile tile = app.map.getTile(xloc, yloc);
+                if (tile != null && !tile.isOwned()) {
+                    tile.setOwner(currPlayer);
+                    GraphicsContext g2d = canvas.getGraphicsContext2D();
+                    g2d.setFill(currPlayer.getColor());
+                    g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
+                }
+                tileClicked = true;
+                pass = 0;
             }
-            tileClicked = true;
         }
     }
 
+    public void endTurn() {
+        if (phase1()) {
+            tileClicked = true;
+            pass++;
+            if (pass == 4) {
+                endPhase();
+            }
+        }
+    }
+
+    public boolean phase1() {
+        return phase == 1;
+    }
+
+    public boolean phase2() {
+        return phase == 2;
+    }
+
+    public void endPhase() {
+        if (phase == 1) {
+            phase++;
+        } else if (phase == 2) {
+            phase = 1;
+        }
+    }
 
     public void turn(Player player) {
         currPlayer = player;

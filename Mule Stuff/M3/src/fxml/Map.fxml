@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.canvas.Canvas?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MapController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0">
@@ -13,8 +14,9 @@
             <Image url="@map.jpg" />
          </image>
       </ImageView>
-      <Canvas fx:id="canvas" layoutX="0.0" layoutY="0.0" height="400.0" onMouseClicked="#handleMouseClick" width="600.0" />
+      <Canvas fx:id="canvas" height="400.0" layoutX="0.0" layoutY="0.0" onMouseClicked="#handleMouseClick" width="600.0" />
       <Button layoutX="273.0" layoutY="160.0" mnemonicParsing="false" onAction="#toTownScreen" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="Town" />
+      <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" text="Pass" onAction="#EndTurn"/>
 
    </children>
 </AnchorPane>
