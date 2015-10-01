@@ -32,9 +32,13 @@ public class MapController implements Initializable {
     public static Stage townStage = new Stage();
     public static int phase = 1;
     public static int pass = 0;
+    public static int round = 0;
+    public static Player[] arr = PlayerConfigController.player.toArray(Player[] a);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        while (phase1()) {
+        }
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -86,8 +90,10 @@ public class MapController implements Initializable {
                     g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
                     tileClicked = true;
                     pass = 0;
+                    currPlayer = nextPlayer();
+
                 }
-                if (turns > 2) {
+                if (round > 2) {
                     currPlayer.addMoney(-300);
                 }
             }
@@ -101,9 +107,19 @@ public class MapController implements Initializable {
             if (pass == 4) {
                 endPhase();
             }
+            currPlayer = nextPlayer();
         }
     }
 
+    public Player nextPlayer() {
+        Player next = new Player();
+        for (int i = 0; i < arr.length; i++) {
+            if (currPlayer.equals(arr[i])) {
+                next = arr[(i+1)%arr.length];
+            }
+        }
+        return next;
+    }
     public boolean phase1() {
         return phase == 1;
     }

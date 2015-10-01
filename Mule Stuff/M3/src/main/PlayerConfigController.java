@@ -11,7 +11,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
-
+import java.util.Comparator;
+import java.util.PriorityQueue;
 import java.awt.*;
 import java.awt.TextField;
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class PlayerConfigController implements Initializable {
     private ComboBox<String> race2;
     public static Player player1;
     public static Player player2;
+    public PriorityQueue players;
 
     public void setPrevStage(Stage stage){
         this.prevStage = stage;
@@ -63,7 +65,8 @@ public class PlayerConfigController implements Initializable {
         });
         player1 = new Player(name.getText(), getColor(col), getRace(rac));
         player2 = new Player(name2.getText(), getColor(col2), getRace(rac2));
-
+        players.add(player1);
+        players.add(player2);
     }
 
     public void toMapScreen() throws IOException {
