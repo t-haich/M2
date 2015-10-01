@@ -31,27 +31,31 @@ public class MapController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //while (turns < 6) {
-            timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                turns++;
+                if (turns >= 7) {
+                    timer.cancel();
+                    timer.purge();
+                } else {
                     tileClicked = false;
                     System.out.println("1");
                     turn(PlayerConfigController.player1);
+                    System.out.println(currPlayer.getMoney());
                 }
-            }, 0, 10000);
-            timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    tileClicked = false;
-                    System.out.println("2");
-                    turn(PlayerConfigController.player2);
-                }
-            }, 5000, 10000);
-            //turns++;
-        //}
+            }
+        }, 0, 10000);
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                tileClicked = false;
+                System.out.println("2");
+                turn(PlayerConfigController.player2);
+                System.out.println(currPlayer.getMoney());
+            }
+        }, 5000, 10000);
     }
 
 
@@ -72,8 +76,11 @@ public class MapController implements Initializable {
                 GraphicsContext g2d = canvas.getGraphicsContext2D();
                 g2d.setFill(currPlayer.getColor());
                 g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
+                tileClicked = true;
             }
-            tileClicked = true;
+            if (turns > 2) {
+                currPlayer.addMoney(-300);
+            }
         }
     }
 

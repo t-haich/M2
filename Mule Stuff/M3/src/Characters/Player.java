@@ -10,7 +10,7 @@ public class Player {
     private int smithore = 0;
     private int food = 8;
     private int energy = 4;
-    private int money = 0;//race.money();
+    private int money;
     private boolean turn;
     private boolean hasMule;
     private Mule mule;
@@ -18,7 +18,7 @@ public class Player {
     public Player (String name, Color col, Race race) {
         this.name = name;
         pColor = col;
-
+        money = race.money();
         this.race = race;
         turn = false;
         hasMule = false;
