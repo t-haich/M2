@@ -14,6 +14,7 @@ public class Player {
     private boolean turn;
     private boolean hasMule;
     private Mule mule;
+    private int tiles;
 
     public Player (String name, Color col, Race race) {
         this.name = name;
@@ -23,6 +24,7 @@ public class Player {
         turn = false;
         hasMule = false;
         mule = null;
+        tiles = 0;
     }
 
     public boolean hasMule() {
@@ -81,10 +83,24 @@ public class Player {
     }
 
     public int getScore() {
-        return (money + (smithore * 50) + (food * 20) + (energy * 25));
+        return (money + (smithore * 50) + (food * 30) + (energy * 25) + (500 * tiles));
     }
 
     public int getTurnTime() {
         return (food * 15);
+    }
+
+    public void addTile() {
+        tiles++;
+    }
+
+    public int compareTo(Player p) {
+        if (this.getScore() < p.getScore()) {
+            return -1;
+        }
+        if (this.getScore() > p.getScore()) {
+            return 1;
+        }
+        return 0;
     }
 }
