@@ -95,6 +95,7 @@ public class TownDisplayController implements Initializable {
         } else {
             MapController.currPlayer.addMoney(moneyBonus);
         }
+
     }
 }
 

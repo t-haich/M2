@@ -25,7 +25,7 @@ public class MapController implements Initializable {
     private Canvas canvas;
     //public static Map map = new Map();
     public static Player currPlayer;
-    private Timer timer;
+    public static Timer timer;
     private boolean tileClicked;
     public static int turns;
     public static long turnTime;
@@ -59,6 +59,7 @@ public class MapController implements Initializable {
                 }
             }
         }, 0, 10000);
+        //timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -88,6 +89,9 @@ public class MapController implements Initializable {
                 double yloc = e.getY();
                 Tile tile = app.map.getTile(xloc, yloc);
                 if (tile != null && !tile.isOwned()) {
+                    if (round >= 4) {
+                        currPlayer.addMoney(-300);
+                    }
                     tile.setOwner(currPlayer);
                     GraphicsContext g2d = canvas.getGraphicsContext2D();
                     g2d.setFill(currPlayer.getColor());
@@ -95,9 +99,6 @@ public class MapController implements Initializable {
                     tileClicked = true;
                     pass = 0;
                     currPlayer = nextPlayer();
-                if (round > 2) {
-                    currPlayer.addMoney(-300);
-                }
             }
         }
     }
@@ -106,6 +107,7 @@ public class MapController implements Initializable {
         if (phase1()) {
             tileClicked = true;
             pass++;
+            //round++;
             if (pass == 4) {
                 endPhase();
                 turns();
@@ -115,13 +117,13 @@ public class MapController implements Initializable {
     }
 
     public Player nextPlayer() {
-        Player next = null;
+        round++;
         for (int i = 0; i < arr.length; i++) {
             if (currPlayer.equals(arr[i])) {
                 return arr[(i+1)%arr.length];
             }
         }
-        return next;
+        return null;
     }
     public boolean phase1() {
         return phase == 1;
@@ -152,7 +154,7 @@ public class MapController implements Initializable {
             public void run() {
                 turnTime = System.currentTimeMillis();
                 turns++;
-                if (turns >= 3) {
+                if (turns >= 5) {
                     phase = 1;
                     timer.cancel();
                     timer.purge();
