@@ -110,4 +110,46 @@ public class PlayerConfigController implements Initializable {
             raceE = Race.FLAPPER;
         return raceE;
     }
+
+    public Player getOrder(int i) {
+        Player[] arr = players;
+        Arrays.sort(arr);
+        return arr[i - 1];
+    }
+
+    private int shortage(int round, Player p) {
+        int need = 3;
+        if (round == 12) {
+            return 0;
+        }
+        if (round > 4) {
+            need++;
+            if (round > 8) {
+                need++;
+            }
+        }
+        if (p.getFood() == 0) {
+            return 45;
+        }
+        if (p.getFood() < need) {
+            return 20;
+        }
+        return 0;
+    }
+
+    public int getTurnTime(Player p, int round) {
+        int timeLost = shortage(round, p);
+        int miliScale = 10000;
+        int base = 50;
+        base = base - timeLost;
+        return base * miliScale;
+    }
+
+    public int getAllTurnTime(int round) {
+        int sum = 0;
+        for (int i = 0; i < players.length; i++) {
+            sum += getTurnTime(players[i], round);
+        }
+        return sum;
+    }
 }

@@ -142,6 +142,8 @@ public class MapController implements Initializable {
     }
 
     private void turns() {
+        int totalTime = PlayerConfigController.getAllTime(round);
+        int timeOne = PlayerConfigController.getTurnTime(PlayerConfigController.getOrder(1), round);
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -154,21 +156,21 @@ public class MapController implements Initializable {
                     timer.purge();
                 } else {
                     tileClicked = false;
-                    System.out.println("1");
-                    turn(PlayerConfigController.player1);
-                    System.out.println(currPlayer.getMoney());
+                    System.out.println("Timer: 1");
+                    turn(PlayerConfigController.getOrder(1));
+                    System.out.println("CurrPlayer: " + currPlayer.getMoney());
                 }
             }
-        }, 0, 10000);
+        }, 0, totalTime);
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 turnTime = System.currentTimeMillis();
                 tileClicked = false;
-                System.out.println("2");
-                turn(PlayerConfigController.player2);
-                System.out.println(currPlayer.getMoney());
+                System.out.println("Timer: 2");
+                turn(PlayerConfigController.getOrder(2));
+                System.out.println("CurrPlayer: " + currPlayer.getMoney());
             }
-        }, 5000, 10000);
+        }, timeOne, totalTime);
     }
 }
