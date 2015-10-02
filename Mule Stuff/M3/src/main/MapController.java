@@ -73,11 +73,13 @@ public class MapController implements Initializable {
 
 
     public void toTownScreen() throws IOException {
-        Pane myPane;
-        myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
-        Scene scene = new Scene(myPane);
-        townStage.setScene(scene);
-        townStage.show();
+        if (phase != 1) {
+            Pane myPane;
+            myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
+            Scene scene = new Scene(myPane);
+            townStage.setScene(scene);
+            townStage.show();
+        }
     }
 
     public void handleMouseClick(MouseEvent e) {
