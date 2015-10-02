@@ -67,6 +67,8 @@ public class TownDisplayController implements Initializable {
     }
 
     public void toPub() {       //The formula is: Money Bonus = Round Bonus + random between 0 and Time Bonus
+        MapController.timer.cancel();
+        MapController.timer.purge();
         long currTime = System.currentTimeMillis();
         long remaining = currTime - MapController.turnTime; //add to MapController
         int moneyBonus, timeBonus, roundBonus;
@@ -95,7 +97,7 @@ public class TownDisplayController implements Initializable {
         } else {
             MapController.currPlayer.addMoney(moneyBonus);
         }
-
+        MapController.turns(MapController.nextPlayer());
     }
 }
 

@@ -11,6 +11,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
+
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.awt.*;
@@ -23,6 +25,7 @@ public class PlayerConfigController implements Initializable {
 
     public javafx.scene.control.TextField name;
     public javafx.scene.control.TextField name2;
+    private String nam1, nam2;
     Stage prevStage;
     @FXML
     private ComboBox<String> color;
@@ -64,8 +67,21 @@ public class PlayerConfigController implements Initializable {
                 player2.setColor(getColor(newValue));
             }
         });
-        player1 = new Player(name.getText(), getColor(col), getRace(rac));
-        player2 = new Player(name2.getText(), getColor(col2), getRace(rac2));
+        name.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                player1.setName(newValue);
+            }
+        });
+        name2.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                player2.setName(newValue);
+            }
+        });
+        System.out.println(nam1);
+        player1 = new Player(nam1, getColor(col), getRace(rac));
+        player2 = new Player(nam2, getColor(col2), getRace(rac2));
         players[0] = (player1);
         players[1] = (player2);
     }
@@ -111,13 +127,13 @@ public class PlayerConfigController implements Initializable {
         return raceE;
     }
 
-    public Player getOrder(int i) {
+    public static Player getOrder(int i) {
         Player[] arr = players;
         Arrays.sort(arr);
         return arr[i - 1];
     }
 
-    private int shortage(int round, Player p) {
+    private static int shortage(int round, Player p) {
         int need = 3;
         if (round == 12) {
             return 0;
@@ -137,15 +153,15 @@ public class PlayerConfigController implements Initializable {
         return 0;
     }
 
-    public int getTurnTime(Player p, int round) {
+    public static int getTurnTime(Player p, int round) {
         int timeLost = shortage(round, p);
-        int miliScale = 10000;
-        int base = 50;
+        int miliScale = 1000;
+        int base = 5;
         base = base - timeLost;
         return base * miliScale;
     }
 
-    public int getAllTurnTime(int round) {
+    public static int getAllTime(int round) {
         int sum = 0;
         for (int i = 0; i < players.length; i++) {
             sum += getTurnTime(players[i], round);

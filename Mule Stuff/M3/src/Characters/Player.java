@@ -103,4 +103,11 @@ public class Player implements Comparable{
         }
         return 0;
     }
+
+    public String toString() {
+        return name;
+    }
+    public void setName(String n) {
+        name = n;
+    }
 }

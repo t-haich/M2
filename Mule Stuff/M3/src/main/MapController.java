@@ -26,7 +26,7 @@ public class MapController implements Initializable {
     //public static Map map = new Map();
     public static Player currPlayer;
     public static Timer timer;
-    private boolean tileClicked;
+    private static boolean tileClicked;
     public static int turns;
     public static long turnTime;
     public static Stage townStage = new Stage();
@@ -98,6 +98,7 @@ public class MapController implements Initializable {
                     g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
                     tileClicked = true;
                     pass = 0;
+                    currPlayer.addTile();
                     currPlayer = nextPlayer();
             }
         }
@@ -110,13 +111,13 @@ public class MapController implements Initializable {
             //round++;
             if (pass == 4) {
                 endPhase();
-                turns();
+                turns(currPlayer);
             }
             currPlayer = nextPlayer();
         }
     }
 
-    public Player nextPlayer() {
+    public static Player nextPlayer() {
         round++;
         for (int i = 0; i < arr.length; i++) {
             if (currPlayer.equals(arr[i])) {
@@ -145,36 +146,28 @@ public class MapController implements Initializable {
         currPlayer = player;
     }
 
-    private void turns() {
+    public static void turns(Player p) {
         int totalTime = PlayerConfigController.getAllTime(round);
         int timeOne = PlayerConfigController.getTurnTime(PlayerConfigController.getOrder(1), round);
+        //currPlayer = p;
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 turnTime = System.currentTimeMillis();
                 turns++;
-                if (turns >= 5) {
+                if (turns >= 10) {
                     phase = 1;
                     timer.cancel();
                     timer.purge();
                 } else {
                     tileClicked = false;
-                    System.out.println("Timer: 1");
-                    turn(PlayerConfigController.getOrder(1));
+                    currPlayer = nextPlayer();
+                    System.out.println(currPlayer.toString());
                     System.out.println("CurrPlayer: " + currPlayer.getMoney());
                 }
             }
         }, 0, totalTime);
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                turnTime = System.currentTimeMillis();
-                tileClicked = false;
-                System.out.println("Timer: 2");
-                turn(PlayerConfigController.getOrder(2));
-                System.out.println("CurrPlayer: " + currPlayer.getMoney());
-            }
-        }, timeOne, totalTime);
+
     }
 }
