@@ -56,7 +56,18 @@ public class Player implements Comparable{
 
     public Color getColor() { return pColor; }
 
-    public void setColor(Color col) { pColor = col; }
+    public void setColor(Color col) {
+        Color opColor = null;
+        if (col.equals(Color.BLUE)) {
+            pColor = new Color(0x800000FF);
+        } else if (col.equals(Color.RED) {
+            pColor = new Color(0x80FF0000);
+        } else if (col == Color.GREEN) {
+            pColor = new Color(0x80008000;
+        } else if (col == COlor.PURPLE) {
+            pColor = new Color(0x80800080);
+        }
+    }
 
     public void addMoney(int add) {
         money += add;
