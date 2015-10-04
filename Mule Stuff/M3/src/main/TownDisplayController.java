@@ -104,48 +104,48 @@ public class TownDisplayController implements Initializable {
     }
 
     public void buyMule() {
-        if (!(currPlayer.hasMule()) && currPlayer.getMoney() >= 100) {
-            currPlayer.giveMule(Mule.EMPTY);
-            currPlayer.addMoney(-100);
+        if (!(MapController.currPlayer.hasMule()) && MapController.currPlayer.getMoney() >= 100) {
+            MapController.currPlayer.giveMule(Mule.EMPTY);
+            MapController.currPlayer.addMoney(-100);
         }
     }
 
     public void outfitMuleMining() {
-        if (currPlayer.hasMule() && currPlayer.getMoney() >= 75
-                && !(currPlayer.getMule().outfit().equals("Mining"))) {
-            currPlayer.setMule(Mule.MINING);
-            currPlayer.addMoney(-75);
+        if (MapController.currPlayer.hasMule() && MapController.currPlayer.getMoney() >= 75
+                && !(MapController.currPlayer.getMule().outfit().equals("Mining"))) {
+            MapController.currPlayer.setMule(Mule.MINING);
+            MapController.currPlayer.addMoney(-75);
         }
     }
 
     public void outfitMuleEnergy() {
-        if (currPlayer.hasMule() && currPlayer.getMoney() >= 50
-                && !(currPlayer.getMule().outfit().equals("Energy"))) {
-            currPlayer.setMule(Mule.ENERGY);
-            currPlayer.addMoney(-50);
+        if (MapController.currPlayer.hasMule() && MapController.currPlayer.getMoney() >= 50
+                && !(MapController.currPlayer.getMule().outfit().equals("Energy"))) {
+            MapController.currPlayer.setMule(Mule.ENERGY);
+            MapController.currPlayer.addMoney(-50);
         }
     }
 
     public void outfitMuleFood() {
-        if (currPlayer.hasMule() && currPlayer.getMoney() >= 25
-                && !(currPlayer.getMule().outfit().equals("Farmer"))) {
-            currPlayer.setMule(Mule.FARMER);
-            currPlayer.addMoney(-25);
+        if (MapController.currPlayer.hasMule() && MapController.currPlayer.getMoney() >= 25
+                && !(MapController.currPlayer.getMule().outfit().equals("Farmer"))) {
+            MapController.currPlayer.setMule(Mule.FARMER);
+            MapController.currPlayer.addMoney(-25);
         }
     }
 
     public void buyFood() {
-        if (currPlayer.getMoney() >= 30 && storeFood > 0) {
-            currPlayer.addMoney(-30);
-            currPlayer.addFood(1);
+        if (MapController.currPlayer.getMoney() >= 30 && storeFood > 0) {
+            MapController.currPlayer.addMoney(-30);
+            MapController.currPlayer.addFood(1);
             storeFood--;
         }
     }
 
     public void buySmithore() {
-        if (currPlayer.getMoney() >= 50 && storeSmithore > 0) {
-            currPlayer.addMoney(-50);
-            currPlayer.addSmithore(1);
+        if (MapController.currPlayer.getMoney() >= 50 && storeSmithore > 0) {
+            MapController.currPlayer.addMoney(-50);
+            MapController.currPlayer.addSmithore(1);
             storeSmithore--;
         }
     }
