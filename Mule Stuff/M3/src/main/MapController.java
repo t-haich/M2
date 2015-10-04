@@ -16,6 +16,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.Deque;
+import java.util.ArrayDeque;
 import Map.Map;
 import Map.Tile;
 import javafx.scene.canvas.GraphicsContext;
@@ -23,6 +25,7 @@ import javafx.scene.canvas.GraphicsContext;
 public class MapController implements Initializable {
     @FXML
     private Canvas canvas;
+    public static Deque<Tile> tiles = new ArrayDeque<Tile>();
     //public static Map map = new Map();
     public static Player currPlayer;
     public static Timer timer;
@@ -34,6 +37,7 @@ public class MapController implements Initializable {
     public static int pass = 0;
     public static int round = 0;
     public static Player[] arr;
+    public GraphicsContext g2d;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -89,19 +93,21 @@ public class MapController implements Initializable {
                 double yloc = e.getY();
                 Tile tile = app.map.getTile(xloc, yloc);
                 if (tile != null && !tile.isOwned()) {
-                    if (round >= 4) {
+                    if (round >= 4 && currPlayer.getMoney() >= 300) {
                         currPlayer.addMoney(-300);
                     }
                     tile.setOwner(currPlayer);
-                    GraphicsContext g2d = canvas.getGraphicsContext2D();
+                    g2d = canvas.getGraphicsContext2D();
                     g2d.setFill(currPlayer.getColor());
                     g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
                     tileClicked = true;
                     pass = 0;
                     currPlayer.addTile();
+                    tiles.addFirst(tile);
                     currPlayer = nextPlayer();
             }
         }
+
     }
 
     public void endTurn() {
@@ -169,5 +175,9 @@ public class MapController implements Initializable {
             }
         }, 0, totalTime);
 
+    }
+
+    public Canvas getCanvas() {
+        return this.canvas;
     }
 }
