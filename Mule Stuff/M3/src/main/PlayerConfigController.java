@@ -103,8 +103,10 @@ public class PlayerConfigController implements Initializable {
     }
 
     private Color getColor(String col) {
+        float alpha = (float) 30 / 100;
+        float base = 255;
         if (col.equals("Blue"))
-            return Color.BLUE;
+            return new Color(0/base, 11/base, 229/base, alpha);
         else if (col.equals("Red"))
             return Color.RED;
         else if (col.equals("Green"))
