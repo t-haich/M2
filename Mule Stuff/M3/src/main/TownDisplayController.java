@@ -1,6 +1,6 @@
 package main;
 
-import Characters.Player;
+import Characters.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -113,7 +113,7 @@ public class TownDisplayController implements Initializable {
     public void outfitMuleMining() {
         if (MapController.currPlayer.hasMule() && MapController.currPlayer.getMoney() >= 75
                 && !(MapController.currPlayer.getMule().outfit().equals("Mining"))) {
-            MapController.currPlayer.setMule(Mule.MINING);
+            MapController.currPlayer.setMule(Mule.MINER);
             MapController.currPlayer.addMoney(-75);
         }
     }
@@ -151,33 +151,33 @@ public class TownDisplayController implements Initializable {
     }
 
     public void buyEnergy() {
-        if (currPlayer.getMoney() >= 25 && storeEnergy > 0) {
-            currPlayer.addMoney(-25);
-            currPlayer.addEnergy(1);
+        if (MapController.currPlayer.getMoney() >= 25 && storeEnergy > 0) {
+            MapController.currPlayer.addMoney(-25);
+            MapController.currPlayer.addEnergy(1);
             storeEnergy--;
         }
     }
 
     public void sellFood() {
-        if (currPlayer.getFood() > 0) {
-            currPlayer.addFood(-1);
-            currPlayer.addMoney(30);
+        if (MapController.currPlayer.getFood() > 0) {
+            MapController.currPlayer.addFood(-1);
+            MapController.currPlayer.addMoney(30);
             storeFood++;
         }
     }
 
     public void sellSmithore() {
-        if (currPlayer.getSmithore() > 0) {
-            currPlayer.addSmithore(-1);
-            currPlayer.addMoney(50);
+        if (MapController.currPlayer.getSmithore() > 0) {
+            MapController.currPlayer.addSmithore(-1);
+            MapController.currPlayer.addMoney(50);
             storeSmithore++;
         }
     }
 
     public void sellEnergy() {
-        if (currPlayer.getEnergy() > 0) {
-            currPlayer.addEnergy(-1);
-            currPlayer.addMoney(25);
+        if (MapController.currPlayer.getEnergy() > 0) {
+            MapController.currPlayer.addEnergy(-1);
+            MapController.currPlayer.addMoney(25);
             storeEnergy++;
         }
     }
