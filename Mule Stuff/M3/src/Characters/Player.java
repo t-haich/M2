@@ -38,6 +38,14 @@ public class Player implements Comparable{
         }
     }
 
+    public Mule getMule() {
+        return mule;
+    }
+
+    public void setMule(Mule mule) {
+        this.mule = mule;
+    }
+
     public boolean getTurn() {
         return turn;
     }

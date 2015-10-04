@@ -99,5 +99,35 @@ public class TownDisplayController implements Initializable {
         }
         MapController.turns(MapController.nextPlayer());
     }
-}
 
+    public void buyMule() {
+        if (!(currPlayer.hasMule()) && currPlayer.getMoney() >= 100) {
+            currPlayer.giveMule(Mule.EMPTY);
+            currPlayer.addMoney(-100);
+        }
+    }
+
+    public void outfitMuleMining() {
+        if (currPlayer.hasMule() && currPlayer.getMoney() >= 75
+                && !(currPlayer.getMule().outfit().equals("Mining"))) {
+            currPlayer.setMule(Mule.MINING);
+            currPlayer.addMoney(-75);
+        }
+    }
+
+    public void outfitMuleEnergy() {
+        if (currPlayer.hasMule() && currPlayer.getMoney() >= 50
+                && !(currPlayer.getMule().outfit().equals("Energy"))) {
+            currPlayer.setMule(Mule.ENERGY);
+            currPlayer.addMoney(-50);
+        }
+    }
+
+    public void outfitMuleFood() {
+        if (currPlayer.hasMule() && currPlayer.getMoney() >= 25
+                && !(currPlayer.getMule().outfit().equals("Farmer"))) {
+            currPlayer.setMule(Mule.FARMER);
+            currPlayer.addMoney(-25);
+        }
+    }
+}

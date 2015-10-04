@@ -14,4 +14,8 @@ public enum Mule {
     public String outfit() {
         return outfit;
     }
+
+    public void setOutfit(String outfit) {
+        this.outfit = outfit;
+    }
 }

@@ -5,7 +5,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.TownDisplayController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="1.0" layoutY="-1.0" pickOnBounds="true">
@@ -13,10 +12,10 @@
             <Image url="@inshop.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="206.0" layoutY="92.0" mnemonicParsing="false" text="Buy Mule" />
-      <Button layoutX="286.0" layoutY="297.0" mnemonicParsing="false" text="Outfit for Mining" />
-      <Button layoutX="371.0" layoutY="235.0" mnemonicParsing="false" text="Outfit for Energy" />
-      <Button layoutX="461.0" layoutY="174.0" mnemonicParsing="false" text="Outfit for Farming" />
+      <Button layoutX="206.0" layoutY="92.0" mnemonicParsing="false" onAction="#buyMule" text="Buy Mule" />
+      <Button layoutX="286.0" layoutY="297.0" mnemonicParsing="false" onAction="#outfitMuleMining" text="Outfit for Mining" />
+      <Button layoutX="371.0" layoutY="235.0" mnemonicParsing="false" onAction="#outfitMuleEnergy" text="Outfit for Energy" />
+      <Button layoutX="461.0" layoutY="174.0" mnemonicParsing="false" onAction="#outfitMuleFood" text="Outfit for Farming" />
       <Button layoutY="322.0" mnemonicParsing="false" onAction="#toTownScreen" text="Back to Town" />
    </children>
 </AnchorPane>
