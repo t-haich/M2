@@ -58,14 +58,16 @@ public class Player implements Comparable{
 
     public void setColor(Color col) {
         Color opColor = null;
+        float alpha = (float) 30 / 100;
+        float base = 255;
         if (col.equals(Color.BLUE)) {
-            pColor = new Color(0x800000FF);
-        } else if (col.equals(Color.RED) {
-            pColor = new Color(0x80FF0000);
-        } else if (col == Color.GREEN) {
-            pColor = new Color(0x80008000;
-        } else if (col == COlor.PURPLE) {
-            pColor = new Color(0x80800080);
+            pColor = new Color(0/base, 11/base, 229/base, alpha);
+        } else if (col.equals(Color.RED)) {
+            pColor = new Color(229/base, 0, 3/base, alpha);
+        } else if (col.equals(Color.GREEN)) {
+            pColor = new Color( 0, 229/base, 57/base, alpha);
+        } else if (col.equals(Color.PURPLE)) {
+            pColor = new Color(195/base, 0, 229/base, alpha);
         }
     }
 
