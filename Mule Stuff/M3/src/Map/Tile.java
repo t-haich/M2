@@ -51,4 +51,10 @@ public class Tile {
    public Player getOwner() {
        return owner;
    }
+
+   public String toString() {
+      String out = "";
+      out += "( ", x, ", " + y + ", " + type.label() + ")";
+      return out;
+   }
 }
