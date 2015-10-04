@@ -54,7 +54,7 @@ public class Tile {
 
    public String toString() {
       String out = "";
-      out += "( ", x, ", " + y + ", " + type.label() + ")";
+      out += "( " + x + ", " + y + ", " + type.label() + ")";
       return out;
    }
 }

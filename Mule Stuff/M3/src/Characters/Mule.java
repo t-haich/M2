@@ -5,7 +5,7 @@ public enum Mule {
     ENERGY("Energy"),
     EMPTY("Empty");
 
-    private final String outfit;
+    private String outfit;
 
     Mule(String outfit) {
         this.outfit = outfit;
