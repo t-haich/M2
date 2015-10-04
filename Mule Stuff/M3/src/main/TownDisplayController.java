@@ -24,6 +24,9 @@ import javafx.scene.canvas.GraphicsContext;
 public class TownDisplayController implements Initializable {
 
     public Stage shopStage;
+    public int storeSmithore = 10;
+    public int storeEnergy = 0;
+    public int storeFood = 0;
 
     //public void setPrevStage(Stage stage){
     //    this.prevStage = stage;
@@ -128,6 +131,54 @@ public class TownDisplayController implements Initializable {
                 && !(currPlayer.getMule().outfit().equals("Farmer"))) {
             currPlayer.setMule(Mule.FARMER);
             currPlayer.addMoney(-25);
+        }
+    }
+
+    public void buyFood() {
+        if (currPlayer.getMoney() >= 30 && storeFood > 0) {
+            currPlayer.addMoney(-30);
+            currPlayer.addFood(1);
+            storeFood--;
+        }
+    }
+
+    public void buySmithore() {
+        if (currPlayer.getMoney() >= 50 && storeSmithore > 0) {
+            currPlayer.addMoney(-50);
+            currPlayer.addSmithore(1);
+            storeSmithore--;
+        }
+    }
+
+    public void buyEnergy() {
+        if (currPlayer.getMoney() >= 25 && storeEnergy > 0) {
+            currPlayer.addMoney(-25);
+            currPlayer.addEnergy(1);
+            storeEnergy--;
+        }
+    }
+
+    public void sellFood() {
+        if (currPlayer.getFood() > 0) {
+            currPlayer.addFood(-1);
+            currPlayer.addMoney(30);
+            storeFood++;
+        }
+    }
+
+    public void sellSmithore() {
+        if (currPlayer.getSmithore() > 0) {
+            currPlayer.addSmithore(-1);
+            currPlayer.addMoney(50);
+            storeSmithore++;
+        }
+    }
+
+    public void sellEnergy() {
+        if (currPlayer.getEnergy() > 0) {
+            currPlayer.addEnergy(-1);
+            currPlayer.addMoney(25);
+            storeEnergy++;
         }
     }
 }
