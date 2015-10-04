@@ -41,21 +41,21 @@ public class TownDisplayController implements Initializable {
     }
 
     public void toMapScreen() throws IOException {
-        /*Pane myPane;
+        Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
         Scene scene = new Scene(myPane);
         app.primaryStage.setScene(scene);
-        */
-        MapController.townStage.close();
+
+        //MapController.townStage.close();
     }
 
     public void toTownScreen() throws IOException {
-        /*Pane myPane;
+        Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
         Scene scene = new Scene(myPane);
         //stage = new Stage();
-        MapController.townStage.setScene(scene);*/
-        shopStage.close();
+        app.primaryStage.setScene(scene);
+        //shopStage.close();
     }
 
 
@@ -63,10 +63,10 @@ public class TownDisplayController implements Initializable {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Shop.fxml"));
         Scene scene = new Scene(myPane);
-        //MapController.townStage.setScene(scene);
+        app.primaryStage.setScene(scene);
         //prevStage = new Stage();
-        shopStage.setScene(scene);
-        shopStage.show();
+        //shopStage.setScene(scene);
+        //shopStage.show();
     }
 
     public void toPub() {       //The formula is: Money Bonus = Round Bonus + random between 0 and Time Bonus

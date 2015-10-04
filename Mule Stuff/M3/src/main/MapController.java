@@ -78,8 +78,8 @@ public class MapController implements Initializable {
             Pane myPane;
             myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
             Scene scene = new Scene(myPane);
-            townStage.setScene(scene);
-            townStage.show();
+            app.primaryStage.setScene(scene);
+            //townStage.show();
         }
     }
 
