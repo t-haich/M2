@@ -16,8 +16,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.Deque;
-import java.util.ArrayDeque;
+import java.util.List;
+import java.util.ArrayList;
 import Map.Map;
 import Map.Tile;
 import javafx.scene.canvas.GraphicsContext;
@@ -25,7 +25,7 @@ import javafx.scene.canvas.GraphicsContext;
 public class MapController implements Initializable {
     @FXML
     private Canvas canvas;
-    public static Deque<Tile> tiles = new ArrayDeque<Tile>();
+    public static List<Tile> tiles = new ArrayList<Tile>();
     //public static Map map = new Map();
     public static Player currPlayer;
     public static Timer timer;
@@ -103,12 +103,18 @@ public class MapController implements Initializable {
                     tileClicked = true;
                     pass = 0;
                     currPlayer.addTile();
-                    tiles.addFirst(tile);
+                    tiles.add(tile);
                     currPlayer = nextPlayer();
             }
         }
 
     }
+
+    /*public void repaint(Tile t) {
+        g2d = canvas.getGraphicsContext2D();
+        g2d.setFill(t.getOwner().getColor());
+        g2d.fillRect(t.getX(), t.getY(), 67, 80);
+    }*/
 
     public void endTurn() {
         if (phase1()) {

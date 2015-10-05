@@ -22,13 +22,13 @@ import Map.Tile;
 import javafx.scene.canvas.GraphicsContext;
 
 public class TownDisplayController implements Initializable {
-
-    private Canvas canvas;
+    @FXML
+    //private Canvas canvas = MapController.getCanvas();
     public GraphicsContext g2d;
-    public Stage shopStage;
     public int storeSmithore = 10;
     public int storeEnergy = 0;
     public int storeFood = 0;
+
 
     //public void setPrevStage(Stage stage){
     //    this.prevStage = stage;
@@ -37,8 +37,8 @@ public class TownDisplayController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //this.map = new Map();
-        MapController.townStage = new Stage();
-        shopStage = new Stage();
+        //MapController.townStage = new Stage();
+        //shopStage = new Stage();
 
     }
 
@@ -47,11 +47,12 @@ public class TownDisplayController implements Initializable {
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
         Scene scene = new Scene(myPane);
         app.primaryStage.setScene(scene);
-        g2d = canvas.getGraphicsContext2D();
-        while (MapController.tiles.peekFirst() != null) {
-            Tile tile = MapController.tiles.removeFirst();
-            g2d.setFill(tile.getOwner().getColor());
-            g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
+        //g2d = canvas.getGraphicsContext2D();
+        for (int i = 0; i < MapController.tiles.size(); i++) {
+            Tile tile = MapController.tiles.get(i);
+            System.out.println(tile.getX());
+            //MapController.repaint(tile);
+            //g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
         }
         //MapController.townStage.close();
     }
