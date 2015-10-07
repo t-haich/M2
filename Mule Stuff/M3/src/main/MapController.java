@@ -1,6 +1,6 @@
 package main;
 
-import Characters.Player;
+import Characters.*;
 import com.sun.org.apache.xml.internal.security.Init;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -88,26 +88,51 @@ public class MapController implements Initializable {
     }
 
     public void handleMouseClick(MouseEvent e) {
+        double xloc = e.getX();
+        double yloc = e.getY();
+        Tile tile = app.map.getTile(xloc, yloc);
         if (phase == 1) {
-                double xloc = e.getX();
-                double yloc = e.getY();
-                Tile tile = app.map.getTile(xloc, yloc);
-                if (tile != null && !tile.isOwned()) {
-                    if (round >= 4 && currPlayer.getMoney() >= 300) {
+            if (tile != null && !tile.isOwned()) {
+                if (round >= 4 && currPlayer.getMoney() >= 300) {
                         currPlayer.addMoney(-300);
+                }
+                tile.setOwner(currPlayer);
+                g2d = canvas.getGraphicsContext2D();
+                g2d.setFill(currPlayer.getColor());
+                g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
+                tileClicked = true;
+                pass = 0;
+                currPlayer.addTile();
+                tiles.add(tile);
+                currPlayer = nextPlayer();
+            }
+        } else {
+            if (currPlayer.equals(tile.getOwner())) {
+                if (currPlayer.hasMule()) {
+                    if (tile.hasMule()) {
+                        Mule temp = tile.getMule();
+                        tile.setMule(currPlayer.getMule());
+                        currPlayer.setMule(temp);
+                        System.out.println("Swapped mules");
+                    } else {
+                        tile.setMule(currPlayer.getMule());
+                        currPlayer.removeMule();
+                        System.out.println(tile.getMule().outfit());
                     }
-                    tile.setOwner(currPlayer);
-                    g2d = canvas.getGraphicsContext2D();
-                    g2d.setFill(currPlayer.getColor());
-                    g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
-                    tileClicked = true;
-                    pass = 0;
-                    currPlayer.addTile();
-                    tiles.add(tile);
-                    currPlayer = nextPlayer();
+                } else {
+                    if (tile.hasMule()) {
+                        currPlayer.setMule(tile.getMule());
+                        tile.removeMule();
+                        System.out.println(currPlayer.getMule().outfit());
+                    } else {
+                        System.out.println("No mules!");
+                    }
+                }
+            } else {
+                currPlayer.removeMule();
+                System.out.println("Your mule ran away!");
             }
         }
-
     }
 
     /*public void repaint(Tile t) {
@@ -115,6 +140,16 @@ public class MapController implements Initializable {
         g2d.setFill(t.getOwner().getColor());
         g2d.fillRect(t.getX(), t.getY(), 67, 80);
     }*/
+
+    public void repaint() {
+        g2d = canvas.getGraphicsContext2D();
+        for (int i = 0; i < tiles.size(); i++) {
+            Tile tile = tiles.get(i);
+            System.out.println(tile.getX());
+            //MapController.repaint(tile);
+            g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
+        }
+    }
 
     public void endTurn() {
         if (phase1()) {

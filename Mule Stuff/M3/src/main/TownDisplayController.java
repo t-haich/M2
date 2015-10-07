@@ -23,7 +23,7 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class TownDisplayController implements Initializable {
     @FXML
-    //private Canvas canvas = MapController.getCanvas();
+    private Canvas canvas = new Canvas();
     public GraphicsContext g2d;
     public int storeSmithore = 10;
     public int storeEnergy = 0;
@@ -47,12 +47,12 @@ public class TownDisplayController implements Initializable {
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
         Scene scene = new Scene(myPane);
         app.primaryStage.setScene(scene);
-        //g2d = canvas.getGraphicsContext2D();
+        g2d = canvas.getGraphicsContext2D();
         for (int i = 0; i < MapController.tiles.size(); i++) {
             Tile tile = MapController.tiles.get(i);
             System.out.println(tile.getX());
             //MapController.repaint(tile);
-            //g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
+            g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
         }
         //MapController.townStage.close();
     }

@@ -115,6 +115,11 @@ public class Player implements Comparable{
         tiles++;
     }
 
+    public void removeMule() {
+        hasMule = false;
+        mule = null;
+    }
+
     public int compareTo(Object t) {
         if (this.getScore() < ((Player) t).getScore()) {
             return -1;
