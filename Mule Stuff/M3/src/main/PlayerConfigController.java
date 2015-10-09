@@ -39,6 +39,7 @@ public class PlayerConfigController implements Initializable {
     public static Player player1;
     public static Player player2;
     public static Player[] players;
+    public static Scene mapScene;
 
     public void setPrevStage(Stage stage){
         this.prevStage = stage;
@@ -91,6 +92,7 @@ public class PlayerConfigController implements Initializable {
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
         Scene scene = new Scene(myPane);
         app.primaryStage.setScene(scene);
+        mapScene = scene;
         System.out.println(color.getValue());
         System.out.println(name.getText() + race.getValue());
     }

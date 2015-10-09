@@ -46,7 +46,7 @@ public class TownDisplayController implements Initializable {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
         Scene scene = new Scene(myPane);
-        app.primaryStage.setScene(scene);
+        app.primaryStage.setScene(PlayerConfigController.mapScene);
         g2d = canvas.getGraphicsContext2D();
         for (int i = 0; i < MapController.tiles.size(); i++) {
             Tile tile = MapController.tiles.get(i);
