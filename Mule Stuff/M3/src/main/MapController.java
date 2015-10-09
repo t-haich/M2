@@ -113,24 +113,29 @@ public class MapController implements Initializable {
                         Mule temp = tile.getMule();
                         tile.setMule(currPlayer.getMule());
                         currPlayer.setMule(temp);
-                        System.out.println("Swapped mules");
+                        System.out.println("You swapped your " + tile.getMule().outfit() + " MULE with the tile's "
+                                + currPlayer.getMule().outfit() + " MULE.");
                     } else {
                         tile.setMule(currPlayer.getMule());
                         currPlayer.removeMule();
-                        System.out.println(tile.getMule().outfit());
+                        System.out.println("You put your " + tile.getMule().outfit() + " MULE on the tile.");
                     }
                 } else {
                     if (tile.hasMule()) {
                         currPlayer.setMule(tile.getMule());
                         tile.removeMule();
-                        System.out.println(currPlayer.getMule().outfit());
+                        System.out.println("You took the tile's " + currPlayer.getMule().outfit() + " MULE.");
                     } else {
-                        System.out.println("No mules!");
+                        System.out.println("There are no MULEs!");
                     }
                 }
             } else {
-                currPlayer.removeMule();
-                System.out.println("Your mule ran away!");
+                if (currPlayer.hasMule()) {
+                    currPlayer.removeMule();
+                    System.out.println("Your mule ran away because this isn't your tile!");
+                } else {
+                    System.out.println("You don't own this tile!");
+                }
             }
         }
     }

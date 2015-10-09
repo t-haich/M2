@@ -113,7 +113,7 @@ public class TownDisplayController implements Initializable {
 
     public void buyMule() {
         if (!(MapController.currPlayer.hasMule()) && MapController.currPlayer.getMoney() >= 100) {
-            MapController.currPlayer.giveMule(Mule.EMPTY);
+            MapController.currPlayer.setMule(Mule.EMPTY);
             MapController.currPlayer.addMoney(-100);
         }
     }

@@ -31,19 +31,13 @@ public class Player implements Comparable{
         return hasMule;
     }
 
-    public void giveMule(Mule mule) {
-        if (!hasMule()) {
-            hasMule = true;
-            this.mule = mule;
-        }
-    }
-
     public Mule getMule() {
         return mule;
     }
 
     public void setMule(Mule mule) {
         this.mule = mule;
+        hasMule = true;
     }
 
     public boolean getTurn() {
