@@ -110,11 +110,8 @@ public class MapController implements Initializable {
             if (currPlayer.equals(tile.getOwner())) {
                 if (currPlayer.hasMule()) {
                     if (tile.hasMule()) {
-                        Mule temp = tile.getMule();
-                        tile.setMule(currPlayer.getMule());
-                        currPlayer.setMule(temp);
-                        System.out.println("You swapped your " + tile.getMule().outfit() + " MULE with the tile's "
-                                + currPlayer.getMule().outfit() + " MULE.");
+                        currPlayer.removeMule();
+                        System.out.println("Your MULE ran away because there's already a MULE here!");
                     } else {
                         tile.setMule(currPlayer.getMule());
                         currPlayer.removeMule();
@@ -145,16 +142,6 @@ public class MapController implements Initializable {
         g2d.setFill(t.getOwner().getColor());
         g2d.fillRect(t.getX(), t.getY(), 67, 80);
     }*/
-
-    public void repaint() {
-        g2d = canvas.getGraphicsContext2D();
-        for (int i = 0; i < tiles.size(); i++) {
-            Tile tile = tiles.get(i);
-            System.out.println(tile.getX());
-            //MapController.repaint(tile);
-            g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
-        }
-    }
 
     public void endTurn() {
         if (phase1()) {
