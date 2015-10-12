@@ -2,6 +2,7 @@ package Characters;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.paint.Color;
+import main.app;
 
 public class Player implements Comparable{
     private String name;
@@ -70,15 +71,15 @@ public class Player implements Comparable{
     }
 
     public void addFood(int add) {
-        money += food;
+        food += add;
     }
 
     public void addEnergy(int add) {
-        money += add;
+        energy += add;
     }
 
     public void addSmithore(int add) {
-        money += add;
+        smithore += add;
     }
 
     public int getMoney() {
@@ -129,5 +130,47 @@ public class Player implements Comparable{
     }
     public void setName(String n) {
         name = n;
+    }
+
+    //This is SOOOOOOOOO unoptimal, fix it later
+    public void endTurnProduction() {
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col < 9; col++) {
+                if (!(row == 2 && col == 4)) {
+                    if (app.map.getMap()[row][col].getOwner() != null
+                            && this.equals(app.map.getMap()[row][col].getOwner())
+                            && app.map.getMap()[row][col].getMule() != null
+                            && app.map.getMap()[row][col].getMule().outfit().equals("Energy")) {
+                        app.map.getMap()[row][col].getProduction(this);
+                        System.out.println("Generated some energy");
+                        System.out.println(this.energy);
+                    }
+                }
+            }
+        }
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col < 9; col++) {
+                if (!(row == 2 && col == 4)) {
+                    if (app.map.getMap()[row][col].getOwner() != null
+                            && this.equals(app.map.getMap()[row][col].getOwner())
+                            && app.map.getMap()[row][col].getMule() != null
+                            && !(app.map.getMap()[row][col].getMule().outfit().equals("Energy"))) {
+                        if (this.energy > 0) {
+                            this.addEnergy(-1);
+                            app.map.getMap()[row][col].getProduction(this);
+                            if (app.map.getMap()[row][col].getMule().outfit().equals("Miner")) {
+                                System.out.println("Mined some smithore");
+                                System.out.println(this.smithore);
+                            } else if (app.map.getMap()[row][col].getMule().outfit().equals("Farmer")) {
+                                System.out.println("Made some food");
+                                System.out.println(this.food);
+                            }
+                        } else {
+                            System.out.println("Out of energy!");
+                        }
+                    }
+                }
+            }
+        }
     }
 }

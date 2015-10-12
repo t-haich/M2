@@ -201,6 +201,7 @@ public class MapController implements Initializable {
                     timer.purge();
                 } else {
                     tileClicked = false;
+                    currPlayer.endTurnProduction();
                     currPlayer = nextPlayer();
                     System.out.println(currPlayer.toString());
                     System.out.println("CurrPlayer: " + currPlayer.getMoney());

@@ -44,6 +44,10 @@ public class Map {
         return null;
     }
 
+    public Tile[][] getMap() {
+        return map;
+    }
+
     /*public void setTileOwnership(double x, double y, Player p) {
         getTile(x, y).setOwner(p);
     }*/
