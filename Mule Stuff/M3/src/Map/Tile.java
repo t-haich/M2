@@ -11,6 +11,12 @@ public class Tile {
     private double y;
     private Player owner;
 
+    /**
+     * The constructor for the tile
+     * @param type The terrain type
+     * @param x The x-coordinate of the tile
+     * @param y The y-coordinate of the tile
+     */
     public Tile(Terrain type, double x, double y) {
         this.type = type;
         this.hasMule = false;
@@ -19,50 +25,90 @@ public class Tile {
         this.owner = null;
     }
 
+    /**
+     * Gets the x-coordinate of the tile
+     * @return the x-coordinate
+     */
     public double getX() {
          return x;
     }
 
+    /**
+     * Gets the y-coordinate of the tile
+     * @return the y-coordinate
+     */
     public double getY() {
          return y;
     }
 
+    /**
+     * Checks if the tile is owned
+     * @return Whether or not the tile is owned
+     */
     public boolean isOwned() {
         return owner != null;
     }
 
+    /**
+     * Checks whether or not a mule is at the tile
+     * @return Whether or not a mule is at the tile via true or false
+     */
     public boolean hasMule() {
        return hasMule;
     }
 
+    /**
+     * The setter method that officially gives the tile a mule
+     * @param m The desired mule to be placed
+     */
     public void setMule(Mule m) {
         mule = m;
         hasMule = true;
     }
 
+    /**
+     * Removes the mule from a tile
+     */
     public void removeMule() {
         mule = null;
         hasMule = false;
     }
 
+    /**
+     * Sets the owner
+     * @param p The desired owner
+     */
     public void setOwner(Player p) {
         owner = p;
     }
 
+    /**
+     * The getter method to access who owns the tile
+     * @return The owner
+     */
     public Player getOwner() {
         return owner;
     }
 
+    /**
+     * The getter method that accesses the mule at the tile
+     * @return Returns the mule at the desired tile
+     */
     public Mule getMule() {
         return mule;
     }
 
+    @Override
     public String toString() {
         String out = "";
         out += "( " + x + ", " + y + ", " + type.label() + ")";
         return out;
     }
 
+    /**
+     * Gets the amount of neighboring tiles that are owned
+     * @return Returns the number of adjacent, owned tiles
+     */
     public int numAdjacentTiles() {
         int total = 0;
         Tile tempTile = app.map.getTile((this.x - 1), this.y);
@@ -88,6 +134,10 @@ public class Tile {
         return total;
     }
 
+    /**
+     * Calculates the production of mule at the tile
+     * @param p The player whose production will be calculated
+     */
     public void getProduction(Player p) {
         double mult = 1;
         if (this.getMule().outfit().equals("Energy")) {
