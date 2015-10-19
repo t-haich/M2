@@ -17,6 +17,12 @@ public class Player implements Comparable{
     private Mule mule;
     private int tiles;
 
+    /**
+     * This constructor instantiates the player
+     * @param name The name of the player
+     * @param col The color the player uses to claim his/her land
+     * @param race The race of the player
+     */
     public Player (String name, Color col, Race race) {
         this.name = name;
         pColor = col;
@@ -28,29 +34,41 @@ public class Player implements Comparable{
         tiles = 0;
     }
 
+    /**
+     * Method checks if the player has a Mule
+     * @return Whether or not the player owns a mule via true/false
+     */
     public boolean hasMule() {
         return hasMule;
     }
 
+    /**
+     * The getter method for whatever mule the player has at the time
+     * @return Returns the mule that the player has
+     */
     public Mule getMule() {
         return mule;
     }
 
+    /**
+     * The setter method that officially gives the player a mule
+     * @param mule The desired mule to be owned
+     */
     public void setMule(Mule mule) {
         this.mule = mule;
         hasMule = true;
     }
 
-    public boolean getTurn() {
-        return turn;
-    }
-
-    public void setTurn(boolean set) {
-        turn = set;
-    }
-
+    /**
+     * The getter method to access the player's color
+     * @return Returns the player's chosen color
+     */
     public Color getColor() { return pColor; }
 
+    /**
+     * Sets the player's desired color from the four choices he/she was given
+     * @param col The player's desired color
+     */
     public void setColor(Color col) {
         Color opColor = null;
         float alpha = (float) 30 / 100;
@@ -66,56 +84,103 @@ public class Player implements Comparable{
         }
     }
 
+    /**
+     * Adds the money the player earns throughout the game
+     * @param add the amount of money the player earned
+     */
     public void addMoney(int add) {
         money += add;
     }
 
+    /**
+     * Adds the food the player earns throughout the game
+     * @param add the amount of food the player earned
+     */
     public void addFood(int add) {
         food += add;
     }
 
+    /**
+     * Adds the energy the player earns throughout the game
+     * @param add the amount of energy the player earned
+     */
     public void addEnergy(int add) {
         energy += add;
     }
 
+    /**
+     * Adds the smithore the player earns throughout the game
+     * @param add the amount of smithore the player earned
+     */
     public void addSmithore(int add) {
         smithore += add;
     }
 
+    /**
+     * The getter method to access how much money the player has a given time
+     * @return The amount of money the player has
+     */
     public int getMoney() {
         return money;
     }
 
+    /**
+     * The getter method to access how much energy the player has a given time
+     * @return The amount of energy the player has
+     */
     public int getEnergy() {
         return energy;
     }
 
+    /**
+     * The getter method to access how much food the player has a given time
+     * @return The amount of food the player has
+     */
     public int getFood() {
         return food;
     }
 
+    /**
+     * The getter method to access how much smithore the player has a given time
+     * @return The amount of smithore the player has
+     */
     public int getSmithore() {
         return smithore;
     }
 
+    /**
+     * The getter method to access the score the player has a given time
+     * @return The score the player has
+     */
     public int getScore() {
         return (money + (smithore * 50) + (food * 30)
                 + (energy * 25) + (500 * tiles));
     }
 
+    /**
+     * The getter method to access how much time the player has a given turn
+     * @return The amount of time the player has
+     */
     public int getTurnTime() {
         return (food * 15);
     }
 
+    /**
+     * Add the tile the player just claimed
+     */
     public void addTile() {
         tiles++;
     }
 
+    /**
+     * Removes the mule from a player's ownership
+     */
     public void removeMule() {
         hasMule = false;
         mule = null;
     }
 
+    @Override
     public int compareTo(Object t) {
         if (this.getScore() < ((Player) t).getScore()) {
             return -1;
@@ -126,13 +191,22 @@ public class Player implements Comparable{
         return 0;
     }
 
+    @Override
     public String toString() {
         return name;
     }
+
+    /**
+     * Sets the player's name
+     * @param n The player's desired name
+     */
     public void setName(String n) {
         name = n;
     }
 
+    /**
+     * At the end of the turn, calculate production at the turn
+     */
     //This is SOOOOOOOOO unoptimal, fix it later
     public void endTurnProduction() {
         for (int row = 0; row < 5; row++) {

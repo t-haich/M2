@@ -12,6 +12,13 @@ public enum Terrain {
     private int energy;
     private String label;
 
+    /**
+     * The terrain constructor
+     * @param energy The energy
+     * @param food The food
+     * @param smithore The smithore
+     * @param label The label
+     */
     Terrain(int energy, int food, int smithore, String label) {
         this.energy = energy;
         this.food = food;
@@ -19,18 +26,34 @@ public enum Terrain {
         this.label = label;
     }
 
+    /**
+     * Access to the smithore of the terrain
+     * @return The amount of smithore
+     */
     public int smithore() {
         return smithore;
     }
 
+    /**
+     * Access to the food of the terrain
+     * @return The amount of food
+     */
     public int food() {
         return food;
     }
 
+    /**
+     * Access to the energy of the terrain
+     * @return The amount of energy
+     */
     public int energy() {
         return energy;
     }
 
+    /**
+     * Access to the label of the terrain
+     * @return The amount of label
+     */
     public String label() {
         return label;
     }
