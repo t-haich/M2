@@ -43,37 +43,6 @@ public class MapController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         arr = PlayerConfigController.players;
         currPlayer = arr[0];
-        /*while (phase == 1) {//phase1()) {
-
-        }
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                turnTime = System.currentTimeMillis();
-                turns++;
-                if (turns >= 7) {
-                    timer.cancel();
-                    timer.purge();
-                } else {
-                    tileClicked = false;
-                    System.out.println("1");
-                    turn(PlayerConfigController.player1);
-                    System.out.println(currPlayer.getMoney());
-                }
-            }
-        }, 0, 10000);
-        //timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                turnTime = System.currentTimeMillis();
-                tileClicked = false;
-                System.out.println("2");
-                turn(PlayerConfigController.player2);
-                System.out.println(currPlayer.getMoney());
-            }
-        }, 5000, 10000);*/
     }
 
 
@@ -83,7 +52,6 @@ public class MapController implements Initializable {
             myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
             Scene scene = new Scene(myPane);
             app.primaryStage.setScene(scene);
-            //townStage.show();
         }
     }
 
@@ -111,17 +79,20 @@ public class MapController implements Initializable {
                 if (currPlayer.hasMule()) {
                     if (tile.hasMule()) {
                         currPlayer.removeMule();
-                        System.out.println("Your MULE ran away because there's already a MULE here!");
+                        System.out.println("Your MULE ran away "
+                                + "because there's already a MULE here!");
                     } else {
                         tile.setMule(currPlayer.getMule());
                         currPlayer.removeMule();
-                        System.out.println("You put your " + tile.getMule().outfit() + " MULE on the tile.");
+                        System.out.println("You put your " + tile.getMule().outfit()
+                                + " MULE on the tile.");
                     }
                 } else {
                     if (tile.hasMule()) {
                         currPlayer.setMule(tile.getMule());
                         tile.removeMule();
-                        System.out.println("You took the tile's " + currPlayer.getMule().outfit() + " MULE.");
+                        System.out.println("You took the tile's "
+                                + currPlayer.getMule().outfit() + " MULE.");
                     } else {
                         System.out.println("There are no MULEs!");
                     }
@@ -129,19 +100,14 @@ public class MapController implements Initializable {
             } else {
                 if (currPlayer.hasMule()) {
                     currPlayer.removeMule();
-                    System.out.println("Your mule ran away because this isn't your tile!");
+                    System.out.println("Your mule ran away because"
+                        + "this isn't your tile!");
                 } else {
                     System.out.println("You don't own this tile!");
                 }
             }
         }
     }
-
-    /*public void repaint(Tile t) {
-        g2d = canvas.getGraphicsContext2D();
-        g2d.setFill(t.getOwner().getColor());
-        g2d.fillRect(t.getX(), t.getY(), 67, 80);
-    }*/
 
     public void endTurn() {
         if (phase1()) {
@@ -181,14 +147,8 @@ public class MapController implements Initializable {
         }
     }
 
-    public void turn(Player player) {
-        currPlayer = player;
-    }
-
     public static void turns(Player p) {
         int totalTime = PlayerConfigController.getAllTime(round);
-        int timeOne = PlayerConfigController.getTurnTime(PlayerConfigController.getOrder(1), round);
-        //currPlayer = p;
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -208,10 +168,5 @@ public class MapController implements Initializable {
                 }
             }
         }, 0, totalTime);
-
-    }
-
-    public Canvas getCanvas() {
-        return this.canvas;
     }
 }

@@ -99,7 +99,8 @@ public class Player implements Comparable{
     }
 
     public int getScore() {
-        return (money + (smithore * 50) + (food * 30) + (energy * 25) + (500 * tiles));
+        return (money + (smithore * 50) + (food * 30)
+                + (energy * 25) + (500 * tiles));
     }
 
     public int getTurnTime() {
