@@ -1,4 +1,4 @@
-
+package Map;
 
 public enum RandomEvent {
 
@@ -12,13 +12,13 @@ public enum RandomEvent {
 
     private int smithore;
     private int food;
-    private int energy;
+    private double energy;
     private int money;
     private int arith;
     private int m;
     private String label;
 
-    RandomEvent(int smithore, int food, int energy, int money, String label, int arith, int m) {
+    RandomEvent(int smithore, int food, double energy, int money, String label, int arith, int m) {
         this.energy = energy;
         this.food = food;
         this.smithore = smithore;
@@ -35,7 +35,7 @@ public enum RandomEvent {
         return food;
     }
 
-    public int energy() {
+    public double energy() {
         return energy;
     }
 
