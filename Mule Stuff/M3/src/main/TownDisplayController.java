@@ -17,6 +17,8 @@ import javafx.scene.canvas.GraphicsContext;
 public class TownDisplayController implements Initializable {
     @FXML
     private Canvas canvas = new Canvas();
+    @FXML
+    private Canvas canvasFront = new Canvas();
     public GraphicsContext g2d;
     public int storeSmithore = 10;
     public int storeEnergy = 0;

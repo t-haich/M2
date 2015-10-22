@@ -12,6 +12,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,10 +24,13 @@ import java.util.ArrayList;
 import Map.Map;
 import Map.Tile;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 public class MapController implements Initializable {
     @FXML
     private Canvas canvas;
+    @FXML
+    private Canvas canvasFront;
     public static List<Tile> tiles = new ArrayList<Tile>();
     //public static Map map = new Map();
     public static Player currPlayer;
@@ -40,6 +45,7 @@ public class MapController implements Initializable {
     public static Stage playStage = new Stage();
     public static Player[] arr;
     public GraphicsContext g2d;
+    public GraphicsContext g2dFront;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -85,9 +91,11 @@ public class MapController implements Initializable {
                                 + "because there's already a MULE here!");
                     } else {
                         tile.setMule(currPlayer.getMule());
+                        drawMule(currPlayer, tile);
                         currPlayer.removeMule();
                         System.out.println("You put your " + tile.getMule().outfit()
                                 + " MULE on the tile.");
+
                     }
                 } else {
                     if (tile.hasMule()) {
@@ -95,6 +103,7 @@ public class MapController implements Initializable {
                         tile.removeMule();
                         System.out.println("You took the tile's "
                                 + currPlayer.getMule().outfit() + " MULE.");
+                        eraseMule(tile);
                     } else {
                         System.out.println("There are no MULEs!");
                     }
@@ -108,6 +117,23 @@ public class MapController implements Initializable {
                     System.out.println("You don't own this tile!");
                 }
             }
+        }
+    }
+
+    private void eraseMule(Tile tile) {
+        g2dFront = canvasFront.getGraphicsContext2D();
+        g2dFront.clearRect(tile.getX(), tile.getY(), 67, 80);
+    }
+
+    private void drawMule(Player player, Tile tile) {
+        g2dFront = canvasFront.getGraphicsContext2D();
+        Mule tempMule = player.getMule();
+        if (tempMule.outfit().equals("Farmer")) {
+            g2dFront.drawImage(new Image("/fxml/food.png"),tile.getX() + 10, tile.getY() + 20);
+        } else if (tempMule.outfit().equals("Miner")) {
+            g2dFront.drawImage(new Image("/fxml/miner.png"),tile.getX() + 10, tile.getY() + 10);
+        } else {
+            g2dFront.drawImage(new Image("/fxml/energy.png"),tile.getX() + 10, tile.getY() + 10);
         }
     }
 
