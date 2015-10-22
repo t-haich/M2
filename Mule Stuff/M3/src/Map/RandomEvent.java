@@ -11,14 +11,14 @@ public enum RandomEvent {
     SEVEN(0, 0, 0, -6, "YOUR SPACE GYPSY INLAWS MADE A MESS OF THE TOWN. IT COST YOU $6*m TO CLEAN IT UP.", 1, 1);
 
     private int smithore;
-    private int food;
-    private double energy;
+    private double food;
+    private int energy;
     private int money;
     private int arith;
     private int m;
     private String label;
 
-    RandomEvent(int smithore, int food, double energy, int money, String label, int arith, int m) {
+    RandomEvent(int smithore, double food, int energy, int money, String label, int arith, int m) {
         this.energy = energy;
         this.food = food;
         this.smithore = smithore;
@@ -31,7 +31,7 @@ public enum RandomEvent {
         return smithore;
     }
 
-    public int food() {
+    public double food() {
         return food;
     }
 

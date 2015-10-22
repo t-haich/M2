@@ -1,6 +1,7 @@
 package Map;
 import Characters.Player;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.PriorityQueue;
 import java.util.Random;
@@ -26,7 +27,7 @@ public class RandEventPhase {
             int chance = rand.nextInt(101);
             if (chance <= 27) {
                 RandomEvent temp = RandomEvent.ONE;
-                RandomEvent[] arr = temp.getEnumConstants();    //fix... lol
+                RandomEvent[] arr = temp.values();    //fix... lol
                 int eventChoice = rand.nextInt(arr.length + 1);
                 temp = arr[eventChoice];
                 runEvent(temp, (Player) it.next());
@@ -42,17 +43,17 @@ public class RandEventPhase {
                 p.addEnergy((int) e.energy() * round);
                 p.addMoney(e.money() * round);
                 p.addFood(e.smithore() * round);
-                p.addSmithore(e.food() * round);
+                p.addSmithore((int)(e.food() * round));
             } else {
                 p.addEnergy((int) (p.getEnergy() * e.energy()));
                 p.addMoney(p.getMoney() * e.money());
-                p.addFood(p.getFood() * e.food());
+                p.addFood((int)(p.getFood() * e.food()));
                 p.addSmithore(p.getSmithore() * e.smithore());
             }
         } else {
             p.addEnergy((int) e.energy());
             p.addMoney(e.money());
-            p.addFood(e.food());
+            p.addFood((int)(e.food()));
             p.addSmithore(e.smithore());
         }
     }
