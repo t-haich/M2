@@ -2,6 +2,7 @@ package main;
 
 import Characters.*;
 import com.sun.org.apache.xml.internal.security.Init;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -36,6 +37,7 @@ public class MapController implements Initializable {
     public static int phase = 1;
     public static int pass = 0;
     public static int round = 0;
+    public static Stage playStage = new Stage();
     public static Player[] arr;
     public GraphicsContext g2d;
 
@@ -116,9 +118,12 @@ public class MapController implements Initializable {
             //round++;
             if (pass == 4) {
                 endPhase();
-                turns(currPlayer);
+                try {
+                    playerTurnDisplay();
+                } catch (IOException e) {
+
+                }
             }
-            currPlayer = nextPlayer();
         }
     }
 
@@ -147,26 +152,81 @@ public class MapController implements Initializable {
         }
     }
 
-    public static void turns(Player p) {
+    public static void turns() {
         int totalTime = PlayerConfigController.getAllTime(round);
         timer = new Timer();
+        currPlayer = nextPlayer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 turnTime = System.currentTimeMillis();
                 turns++;
-                if (turns >= 10) {
+                if (turns >= 20) {
                     phase = 1;
                     timer.cancel();
                     timer.purge();
                 } else {
                     tileClicked = false;
-                    currPlayer.endTurnProduction();
-                    currPlayer = nextPlayer();
+                    currPlayer = arr[turns % 2];
                     System.out.println(currPlayer.toString());
                     System.out.println("CurrPlayer: " + currPlayer.getMoney());
                 }
             }
-        }, 0, totalTime);
+        }, 0, 2*totalTime);
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+
+            }
+        }, totalTime, 2*totalTime);
+
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    which();
+                    timer.cancel();
+                    timer.purge();
+                });
+            }
+        }, totalTime, 5000);
+    }
+
+    public static void playerTurnDisplay() throws IOException {
+        Pane myPane;
+        MapController control = new MapController();
+        myPane = FXMLLoader.load(control.getClass().getResource("/fxml/PlayerTurnView.fxml"));
+        playStage = new Stage();
+        playStage.setScene(new Scene(myPane));
+        playStage.show();
+    }
+    public void playerOkay() {
+        turns();
+        playStage.close();
+        phase = 2;
+    }
+
+    public static void landSelectDisplay() throws IOException {
+        Pane myPane;
+        MapController control = new MapController();
+        myPane = FXMLLoader.load(control.getClass().getResource("/fxml/landSelection.fxml"));
+        playStage = new Stage();
+        playStage.setScene(new Scene(myPane));
+        playStage.show();
+    }
+    public void landOkay() {
+        playStage.close();
+        phase = 1;
+    }
+
+    public static void which() {
+        try {
+            if (turns % 2 == 1)
+                playerTurnDisplay();
+            else
+                landSelectDisplay();
+        } catch (IOException e) {
+
+        }
     }
 }

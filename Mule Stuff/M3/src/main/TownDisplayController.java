@@ -86,7 +86,7 @@ public class TownDisplayController implements Initializable {
         } else {
             MapController.currPlayer.addMoney(moneyBonus);
         }
-        MapController.turns(MapController.nextPlayer());
+        MapController.which();
     }
 
     public void buyMule() {
