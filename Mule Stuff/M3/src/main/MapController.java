@@ -1,6 +1,7 @@
 package main;
 
 import Characters.*;
+import Map.*;
 import com.sun.org.apache.xml.internal.security.Init;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -244,6 +245,10 @@ public class MapController implements Initializable {
     public void landOkay() {
         playStage.close();
         phase = 1;
+        if (round > 2) {
+
+            RandEventPhase randEvent = new RandEventPhase(arr, turns / 2);
+        }
     }
 
     public static void which() {

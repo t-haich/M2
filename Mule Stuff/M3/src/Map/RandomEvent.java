@@ -24,6 +24,7 @@ public enum RandomEvent {
         this.smithore = smithore;
         this.label = label;
         this.arith = arith;
+        this.money = money;
         this.m = m;
     }
 

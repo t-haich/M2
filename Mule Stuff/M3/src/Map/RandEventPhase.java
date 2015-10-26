@@ -23,19 +23,24 @@ public class RandEventPhase {
             p.add(players[0]);
         }
         p.poll();
-        Iterator it = p.iterator();
-        while (it.hasNext()) {
+        while (p.size() > 0) {
+            Player nextPlayer = p.poll();
             int chance = rand.nextInt(101);
-            if (chance <= 27) {
+            if (chance <= 80) {
                 RandomEvent[] arr = RandomEvent.values();    //fix... lol
                 int eventChoice = rand.nextInt(arr.length + 1);
-                temp = arr[eventChoice];
-                runEvent(temp, (Player) it.next());
+                RandomEvent temp = arr[eventChoice];
+                runEvent(temp, nextPlayer);
+            } else {
+                System.out.println("No Random Event Occured");
             }
         }
     }
 
     private void runEvent(RandomEvent e, Player p) {
+        System.out.println(p + ": " + e.label());
+        System.out.println("Resources Before: ");
+        System.out.println("Energy: " + p.getEnergy() + ",\t Money: " + p.getMoney() + ",\t Food: " + p.getFood() + ",\t Smithore: " + p.getSmithore());
         int arith = e.arith();
         int m = e.m();
         if (arith == 1) {
@@ -56,5 +61,8 @@ public class RandEventPhase {
             p.addFood((int)(e.food()));
             p.addSmithore(e.smithore());
         }
+        System.out.println("Resources After: ");
+        System.out.println("Energy: " + p.getEnergy() + ",\t Money: " + p.getMoney() + ",\t Food: " + p.getFood() + ",\t Smithore: " + p.getSmithore());
+
     }
 }
