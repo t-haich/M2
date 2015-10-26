@@ -69,7 +69,7 @@ public class MapController implements Initializable {
         Tile tile = app.map.getTile(xloc, yloc);
         if (phase == 1) {
             if (tile != null && !tile.isOwned()) {
-                if (round >= 4 && currPlayer.getMoney() >= 300) {
+                if ((turns > 0 || round >= 4) && currPlayer.getMoney() >= 300) {
                         currPlayer.addMoney(-300);
                 }
                 tile.setOwner(currPlayer);
@@ -142,7 +142,8 @@ public class MapController implements Initializable {
             tileClicked = true;
             pass++;
             //round++;
-            if (pass == 4) {
+            if (pass == arr.length) {
+                pass = 0;
                 endPhase();
                 try {
                     playerTurnDisplay();
