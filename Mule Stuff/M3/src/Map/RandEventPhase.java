@@ -14,6 +14,7 @@ public class RandEventPhase {
     public RandEventPhase(Player[] players, int round) {
         this.players = players;
         this.round = round;
+        runRandomEvent();
     }
 
     public void runRandomEvent() {
@@ -26,8 +27,7 @@ public class RandEventPhase {
         while (it.hasNext()) {
             int chance = rand.nextInt(101);
             if (chance <= 27) {
-                RandomEvent temp = RandomEvent.ONE;
-                RandomEvent[] arr = temp.values();    //fix... lol
+                RandomEvent[] arr = RandomEvent.values();    //fix... lol
                 int eventChoice = rand.nextInt(arr.length + 1);
                 temp = arr[eventChoice];
                 runEvent(temp, (Player) it.next());
