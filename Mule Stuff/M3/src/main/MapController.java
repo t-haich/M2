@@ -181,7 +181,7 @@ public class MapController implements Initializable {
     }
 
     public static void turns() {
-        int totalTime = PlayerConfigController.getAllTime(round);
+        int totalTime = PlayerConfigController.getAllTime(turns / 2);
         timer = new Timer();
         currPlayer = nextPlayer();
         timer.schedule(new TimerTask() {
