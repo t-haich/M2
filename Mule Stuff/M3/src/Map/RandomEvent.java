@@ -18,6 +18,16 @@ public enum RandomEvent {
     private int m;
     private String label;
 
+    /**
+     * Random event constructor
+     * @param smithore current smithore
+     * @param food current food
+     * @param energy current energy
+     * @param money current money
+     * @param label current label
+     * @param arith arith
+     * @param m m
+     */
     RandomEvent(int smithore, double food, int energy, int money, String label, int arith, int m) {
         this.energy = energy;
         this.food = food;
@@ -28,30 +38,58 @@ public enum RandomEvent {
         this.m = m;
     }
 
+    /**
+     * Gets smithore
+     * @return smithore
+     */
     public int smithore() {
         return smithore;
     }
 
+    /**
+     * Gets food
+     * @return food
+     */
     public double food() {
         return food;
     }
 
+    /**
+     * Gets energy
+     * @return energy
+     */
     public double energy() {
         return energy;
     }
 
+    /**
+     * Get money
+     * @return money
+     */
     public int money() {
         return money;
     }
 
+    /**
+     * Gets label
+     * @return label
+     */
     public String label() {
         return label;
     }
 
+    /**
+     * Gets arith
+     * @return arith
+     */
     public int arith() {
         return arith;
     }
 
+    /**
+     * Gets m
+     * @return m
+     */
     public int m() {
         return m;
     }

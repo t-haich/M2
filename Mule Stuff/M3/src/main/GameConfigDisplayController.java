@@ -13,6 +13,10 @@ public class GameConfigDisplayController implements Initializable {
 
     Stage prevStage;
 
+    /**
+     * Sets previous screen
+     * @param stage screen prior to this one
+     */
     public void setPrevStage(Stage stage){
         this.prevStage = stage;
     }
@@ -21,6 +25,10 @@ public class GameConfigDisplayController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
+    /**
+     * Displays player screen
+     * @throws IOException just in case there is no input/it failed
+     */
     public void toPlayerScreen() throws IOException {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/PlayerConfig.fxml"));

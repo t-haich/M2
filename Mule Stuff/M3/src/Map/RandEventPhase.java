@@ -11,12 +11,20 @@ public class RandEventPhase {
     private int round;
     private static Random rand = new Random();
 
+    /**
+     * Creates a random event in the game
+     * @param players The players in the game who will be affected
+     * @param round The current round
+     */
     public RandEventPhase(Player[] players, int round) {
         this.players = players;
         this.round = round;
         runRandomEvent();
     }
 
+    /**
+     * Runs the chance of a random event
+     */
     public void runRandomEvent() {
         PriorityQueue<Player> p = new PriorityQueue<>();
         for (int i = 0; i < players.length; i++) {
@@ -37,6 +45,11 @@ public class RandEventPhase {
         }
     }
 
+    /**
+     * Runs the random event
+     * @param e The random event to occur
+     * @param p The player affected
+     */
     private void runEvent(RandomEvent e, Player p) {
         System.out.println(p + ": " + e.label());
         System.out.println("Resources Before: ");

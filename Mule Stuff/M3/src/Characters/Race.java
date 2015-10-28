@@ -9,16 +9,28 @@ public enum Race {
     private final String race;
     private final int money;
 
-
+    /**
+     * Sets desired race of player
+     * @param race The race desired
+     * @param money The amount of money the race is entitled to
+     */
     Race(String race, int money) {
         this.race = race;
         this.money = money;
     }
 
+    /**
+     * Gets the race
+     * @return race
+     */
     public String race() {
         return race;
     }
 
+    /**
+     * Gets the amount of money
+     * @return money
+     */
     public int money() {
         return money;
     }

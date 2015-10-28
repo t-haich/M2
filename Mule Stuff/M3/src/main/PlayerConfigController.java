@@ -41,6 +41,10 @@ public class PlayerConfigController implements Initializable {
     public static Player[] players;
     public static Scene mapScene;
 
+    /**
+     * Sets previous screen
+     * @param stage screen prior to this one
+     */
     public void setPrevStage(Stage stage){
         this.prevStage = stage;
     }
@@ -87,6 +91,10 @@ public class PlayerConfigController implements Initializable {
         players[1] = (player2);
     }
 
+    /**
+     * Goes to map screen
+     * @throws IOException just in case there is no input/it failed
+     */
     public void toMapScreen() throws IOException {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
@@ -97,6 +105,10 @@ public class PlayerConfigController implements Initializable {
         System.out.println(name.getText() + race.getValue());
     }
 
+    /**
+     * Displays congifuration screen
+     * @throws IOException just in case there is no input/it failed
+     */
     public void toConfigScreen() throws IOException {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/GameConfigDisplay.fxml"));
@@ -104,6 +116,11 @@ public class PlayerConfigController implements Initializable {
         app.primaryStage.setScene(scene);
     }
 
+    /**
+     * gets the player's color
+     * @param col The color that the player wants for himself/herself
+     * @return The chosen color
+     */
     private Color getColor(String col) {
         float alpha = (float) 30 / 100;
         float base = 255;
@@ -116,6 +133,12 @@ public class PlayerConfigController implements Initializable {
         else
             return Color.PURPLE;
     }
+
+    /**
+     * Gets the race of the player
+     * @param rac The requested race
+     * @return The desired race
+     */
     private Race getRace(String rac) {
         Race raceE;
         if (rac.equals("Bonzoid"))
@@ -131,12 +154,23 @@ public class PlayerConfigController implements Initializable {
         return raceE;
     }
 
+    /**
+     * Gets the player order
+     * @param i The numerical value of the player
+     * @return The place in line the current player is in
+     */
     public static Player getOrder(int i) {
         Player[] arr = players;
         Arrays.sort(arr);
         return arr[i - 1];
     }
 
+    /**
+     * Determines what happens when there is a shortage in the game
+     * @param round The round one is in
+     * @param p The current player
+     * @return How much time the player actually needs
+     */
     private static int shortage(int round, Player p) {
         int need = 3;
         if (round == 12) {
@@ -157,6 +191,12 @@ public class PlayerConfigController implements Initializable {
         return 0;
     }
 
+    /**
+     * Gets the turn time left of the current player
+     * @param p the current player
+     * @param round What round he/she is in
+     * @return time left
+     */
     public static int getTurnTime(Player p, int round) {
         int timeLost = shortage(round, p);
         int miliScale = 1000;
@@ -165,6 +205,11 @@ public class PlayerConfigController implements Initializable {
         return base * miliScale;
     }
 
+    /**
+     * Gets the time allotted of the entire round
+     * @param round The round that wants to know its overall length
+     * @return The overall time for the round
+     */
     public static int getAllTime(int round) {
         int sum = 0;
         for (int i = 0; i < players.length; i++) {

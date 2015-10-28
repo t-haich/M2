@@ -6,6 +6,9 @@ public class Map {
     private final double WIDE = 67;
     private final double TALL = 80;
 
+    /**
+     * Map constructor
+     */
     public Map() {
         this.map = new Tile[5][9];
         for (int row = 0; row < 5; row++) {
@@ -27,6 +30,12 @@ public class Map {
         }
     }
 
+    /**
+     * Gets the selected tile
+     * @param x The x coordinate
+     * @param y The y coordinate
+     * @return The tile that matches the coordinates
+     */
     public Tile getTile(double x, double y) {
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 9; col++) {
@@ -44,6 +53,10 @@ public class Map {
         return null;
     }
 
+    /**
+     * Gets map
+     * @return map
+     */
     public Tile[][] getMap() {
         return map;
     }
