@@ -157,6 +157,14 @@ public class Player implements Comparable{
                 + (energy * 25) + (500 * tiles));
     }
 
+    public int getTiles() {
+        return tiles;
+    }
+
+    public Race getRace() {
+        return race;
+    }
+
     /**
      * The getter method to access how much time the player has a given turn
      * @return The amount of time the player has
@@ -202,6 +210,30 @@ public class Player implements Comparable{
      */
     public void setName(String n) {
         name = n;
+    }
+
+    public void setMoney(int i) {
+        money = i;
+    }
+
+    public void setFood(int i) {
+        food = i;
+    }
+
+    public void setSmithore(int i) {
+        smithore = i;
+    }
+
+    public void setEnergy(int i) {
+        energy = i;
+    }
+
+    public void setTiles(int i) {
+        tiles = i;
+    }
+
+    public void setHasMule(boolean b) {
+        hasMule = b;
     }
 
     /**
