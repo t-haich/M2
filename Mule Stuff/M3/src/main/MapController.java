@@ -1,7 +1,7 @@
 package main;
 
-import characters.*;
-import map.*;
+import Characters.*;
+import Map.*;
 import com.sun.org.apache.xml.internal.security.Init;
 import javafx.application.Platform;
 import javafx.fxml.FXML;

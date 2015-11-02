@@ -1,4 +1,4 @@
-package characters;
+package Characters;
 
 import javafx.scene.paint.Color;
 import main.app;

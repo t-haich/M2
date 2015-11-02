@@ -1,4 +1,4 @@
-package characters;
+package Characters;
 public enum Mule {
     FARMER("Farmer"),
     MINER("Miner"),

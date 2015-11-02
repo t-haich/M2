@@ -1,6 +1,6 @@
 package main;
 
-import characters.*;
+import Characters.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;

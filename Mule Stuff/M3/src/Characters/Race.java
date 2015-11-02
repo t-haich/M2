@@ -1,4 +1,4 @@
-package characters;
+package Characters;
 public enum Race {
     BONZOID("Bonzoid", 1000),
     UGAITE("Ugaite", 1000),

@@ -1,6 +1,6 @@
 package main;
-import characters.Mule;
-import characters.Player;
+import Characters.Mule;
+import Characters.Player;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -84,6 +84,12 @@ public class GameData {
                     }
                 } else {
                     MapController.arr[i].setHasMule(false);
+                }
+                line = bufferReader.readLine();
+                while (line != " ") {
+                    int row = Integer.parseInt(line);
+                    int col = Integer.parseInt(bufferReader.readLine());
+
                 }
             }
 
