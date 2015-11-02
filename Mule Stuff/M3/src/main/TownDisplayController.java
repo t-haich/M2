@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
-import Map.Tile;
+import map.Tile;
 import javafx.scene.canvas.GraphicsContext;
 
 public class TownDisplayController implements Initializable {

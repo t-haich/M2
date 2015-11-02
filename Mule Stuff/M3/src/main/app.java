@@ -1,7 +1,7 @@
 package main;
 
 import Characters.Player;
-import Map.Map;
+import map.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 

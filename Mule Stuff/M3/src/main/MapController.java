@@ -1,7 +1,7 @@
 package main;
 
 import Characters.*;
-import Map.*;
+import map.*;
 import com.sun.org.apache.xml.internal.security.Init;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -22,8 +22,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.List;
 import java.util.ArrayList;
-import Map.Map;
-import Map.Tile;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 

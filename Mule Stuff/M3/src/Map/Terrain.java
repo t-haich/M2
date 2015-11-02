@@ -1,4 +1,4 @@
-package Map;
+package map;
 
 public enum Terrain {
     PLAIN(2, 3, 1, "Plain"),
