@@ -1,4 +1,4 @@
-package map; // handle Map to map issue
+package map;
 
 import Characters.*;
 import main.app;
