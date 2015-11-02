@@ -22,7 +22,7 @@ public class GameConfigDisplayController implements Initializable {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/PlayerConfig.fxml"));
         Scene scene = new Scene(myPane);
-        app.primaryStage.setScene(scene);
+        App.primaryStage.setScene(scene);
     }
 
 

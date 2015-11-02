@@ -1,7 +1,7 @@
 package main;
 
-import Characters.*;
-import Map.*;
+import characters.*;
+import map.*;
 import com.sun.org.apache.xml.internal.security.Init;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -30,6 +30,10 @@ public class MapController implements Initializable {
     private Canvas canvas;
     @FXML
     private Canvas canvasFront;
+    @FXML
+    public static Label textOne;
+    @FXML
+    public static Label textTwo;
     public static List<Tile> tiles = new ArrayList<Tile>();
     //public static Map map = new Map();
     public static Player currPlayer;
@@ -60,7 +64,7 @@ public class MapController implements Initializable {
             Pane myPane;
             myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
             Scene scene = new Scene(myPane);
-            app.primaryStage.setScene(scene);
+            App.primaryStage.setScene(scene);
         }
     }
 
@@ -71,21 +75,23 @@ public class MapController implements Initializable {
     public void handleMouseClick(MouseEvent e) {
         double xloc = e.getX();
         double yloc = e.getY();
-        Tile tile = app.map.getTile(xloc, yloc);
+        Tile tile = App.map.getTile(xloc, yloc);
         if (phase == 1) {
-            if (tile != null && !tile.isOwned()) {
-                if ((turns > 0 || round >= 4) && currPlayer.getMoney() >= 300) {
+            if (currPlayer.getMoney() >= 300) {
+                if (tile != null && !tile.isOwned()) {
+                    if ((turns > 0 || round >= 4)) {
                         currPlayer.addMoney(-300);
+                    }
+                    tile.setOwner(currPlayer);
+                    g2d = canvas.getGraphicsContext2D();
+                    g2d.setFill(currPlayer.getColor());
+                    g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
+                    tileClicked = true;
+                    pass = 0;
+                    currPlayer.addTile();
+                    tiles.add(tile);
+                    currPlayer = nextPlayer();
                 }
-                tile.setOwner(currPlayer);
-                g2d = canvas.getGraphicsContext2D();
-                g2d.setFill(currPlayer.getColor());
-                g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
-                tileClicked = true;
-                pass = 0;
-                currPlayer.addTile();
-                tiles.add(tile);
-                currPlayer = nextPlayer();
             }
         } else {
             if (currPlayer.equals(tile.getOwner())) {

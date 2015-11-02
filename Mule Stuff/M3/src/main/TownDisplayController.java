@@ -1,6 +1,6 @@
 package main;
 
-import Characters.*;
+import characters.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
-import Map.Tile;
+import map.Tile;
 import javafx.scene.canvas.GraphicsContext;
 
 public class TownDisplayController implements Initializable {
@@ -37,7 +37,7 @@ public class TownDisplayController implements Initializable {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
         Scene scene = new Scene(myPane);
-        app.primaryStage.setScene(PlayerConfigController.mapScene);
+        App.primaryStage.setScene(PlayerConfigController.mapScene);
         g2d = canvas.getGraphicsContext2D();
         for (int i = 0; i < MapController.tiles.size(); i++) {
             Tile tile = MapController.tiles.get(i);
@@ -54,7 +54,7 @@ public class TownDisplayController implements Initializable {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
         Scene scene = new Scene(myPane);
-        app.primaryStage.setScene(scene);
+        App.primaryStage.setScene(scene);
     }
 
     /**
@@ -65,7 +65,7 @@ public class TownDisplayController implements Initializable {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Shop.fxml"));
         Scene scene = new Scene(myPane);
-        app.primaryStage.setScene(scene);
+        App.primaryStage.setScene(scene);
     }
 
     /**

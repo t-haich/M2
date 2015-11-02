@@ -1,7 +1,7 @@
-package Map;
+package map;
 
-import Characters.*;
-import main.app;
+import characters.*;
+import main.App;
 
 public class Tile {
 
@@ -124,22 +124,22 @@ public class Tile {
      */
     public final int numAdjacentTiles() {
         int total = 0;
-        Tile tempTile = app.map.getTile((this.x - 1), this.y);
+        Tile tempTile = App.map.getTile((this.x - 1), this.y);
         if (tempTile != null && tempTile.getOwner() != null && tempTile.getOwner().equals(this.getOwner())
                 && tempTile.hasMule() && tempTile.getMule().outfit().equals(this.getMule().outfit())) {
             total++;
         }
-        tempTile = app.map.getTile((this.x + TILE_OFFSET), this.y);
+        tempTile = App.map.getTile((this.x + TILE_OFFSET), this.y);
         if (tempTile != null && tempTile.getOwner() != null && tempTile.getOwner().equals(this.getOwner())
                 && tempTile.hasMule() && tempTile.getMule().outfit().equals(this.getMule().outfit())) {
             total++;
         }
-        tempTile = app.map.getTile(this.x, (this.y - 1));
+        tempTile = App.map.getTile(this.x, (this.y - 1));
         if (tempTile != null && tempTile.getOwner() != null && tempTile.getOwner().equals(this.getOwner())
                 && tempTile.hasMule() && tempTile.getMule().outfit().equals(this.getMule().outfit())) {
             total++;
         }
-        tempTile = app.map.getTile(this.x, (this.y + TILE_OFFSET));
+        tempTile = App.map.getTile(this.x, (this.y + TILE_OFFSET));
         if (tempTile != null && tempTile.getOwner() != null && tempTile.getOwner().equals(this.getOwner())
                 && tempTile.hasMule() && tempTile.getMule().outfit().equals(this.getMule().outfit())) {
             total++;

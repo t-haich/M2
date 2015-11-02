@@ -1,6 +1,6 @@
 package main;
 
-import Characters.*;
+import characters.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -99,7 +99,7 @@ public class PlayerConfigController implements Initializable {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
         Scene scene = new Scene(myPane);
-        app.primaryStage.setScene(scene);
+        App.primaryStage.setScene(scene);
         mapScene = scene;
         System.out.println(color.getValue());
         System.out.println(name.getText() + race.getValue());
@@ -113,7 +113,7 @@ public class PlayerConfigController implements Initializable {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/GameConfigDisplay.fxml"));
         Scene scene = new Scene(myPane);
-        app.primaryStage.setScene(scene);
+        App.primaryStage.setScene(scene);
     }
 
     /**

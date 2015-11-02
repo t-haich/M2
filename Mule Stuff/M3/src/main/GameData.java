@@ -1,6 +1,6 @@
 package main;
-import Characters.Mule;
-import Characters.Player;
+import characters.Mule;
+import characters.Player;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -37,11 +37,11 @@ public class GameData {
             }
             for (int row = 0; row < 5; row++) {
                 for (int col = 0; col < 9; col++) {
-                    if (app.map.getMap()[row][col].getOwner().equals(MapController.arr[i])) {
+                    if (App.map.getMap()[row][col].getOwner().equals(MapController.arr[i])) {
                         writer.println(row);
                         writer.println(col);
-                        if (app.map.getMap()[row][col].getMule() != null) {
-                            writer.println(app.map.getMap()[row][col].getMule().outfit());
+                        if (App.map.getMap()[row][col].getMule() != null) {
+                            writer.println(App.map.getMap()[row][col].getMule().outfit());
                         } else {
                             writer.println("n");
                         }
@@ -110,7 +110,7 @@ public class GameData {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
         Scene scene = new Scene(myPane);
-        app.primaryStage.setScene(scene);
+        App.primaryStage.setScene(scene);
         mapScene = scene;
     }
 }

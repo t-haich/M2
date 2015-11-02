@@ -1,7 +1,7 @@
-package Characters;
+package characters;
 
 import javafx.scene.paint.Color;
-import main.app;
+import main.App;
 
 public class Player implements Comparable{
     private String name;
@@ -251,11 +251,11 @@ public class Player implements Comparable{
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 9; col++) {
                 if (!(row == 2 && col == 4)) {
-                    if (app.map.getMap()[row][col].getOwner() != null
-                            && this.equals(app.map.getMap()[row][col].getOwner())
-                            && app.map.getMap()[row][col].getMule() != null
-                            && app.map.getMap()[row][col].getMule().outfit().equals("Energy")) {
-                        app.map.getMap()[row][col].getProduction(this);
+                    if (App.map.getMap()[row][col].getOwner() != null
+                            && this.equals(App.map.getMap()[row][col].getOwner())
+                            && App.map.getMap()[row][col].getMule() != null
+                            && App.map.getMap()[row][col].getMule().outfit().equals("Energy")) {
+                        App.map.getMap()[row][col].getProduction(this);
                         System.out.println("Generated some energy");
                         System.out.println(this.energy);
                     }
@@ -265,17 +265,17 @@ public class Player implements Comparable{
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 9; col++) {
                 if (!(row == 2 && col == 4)) {
-                    if (app.map.getMap()[row][col].getOwner() != null
-                            && this.equals(app.map.getMap()[row][col].getOwner())
-                            && app.map.getMap()[row][col].getMule() != null
-                            && !(app.map.getMap()[row][col].getMule().outfit().equals("Energy"))) {
+                    if (App.map.getMap()[row][col].getOwner() != null
+                            && this.equals(App.map.getMap()[row][col].getOwner())
+                            && App.map.getMap()[row][col].getMule() != null
+                            && !(App.map.getMap()[row][col].getMule().outfit().equals("Energy"))) {
                         if (this.energy > 0) {
                             this.addEnergy(-1);
-                            app.map.getMap()[row][col].getProduction(this);
-                            if (app.map.getMap()[row][col].getMule().outfit().equals("Miner")) {
+                            App.map.getMap()[row][col].getProduction(this);
+                            if (App.map.getMap()[row][col].getMule().outfit().equals("Miner")) {
                                 System.out.println("Mined some smithore");
                                 System.out.println(this.smithore);
-                            } else if (app.map.getMap()[row][col].getMule().outfit().equals("Farmer")) {
+                            } else if (App.map.getMap()[row][col].getMule().outfit().equals("Farmer")) {
                                 System.out.println("Made some food");
                                 System.out.println(this.food);
                             }
