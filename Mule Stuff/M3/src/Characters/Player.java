@@ -1,4 +1,4 @@
-package Characters;
+package characters;
 
 import javafx.scene.paint.Color;
 import main.app;
@@ -12,7 +12,7 @@ public class Player implements Comparable{
     private static int food = 8;
     private int energy = 4;
     private int money;
-    private boolean turn;
+    private boolean turn; // Never used
     private boolean hasMule;
     private Mule mule;
     private int tiles;
@@ -163,13 +163,13 @@ public class Player implements Comparable{
                 + (energy * energyMult) + (tilesMult * tiles));
     }
 
-    public int getTiles() {
+    public final int getTiles() {
         return tiles;
     }
 
-    public Race getRace() {
+    public final Race getRace() {
         return race;
-    }
+    } // Never used
 
     /**
      * The getter method to access how much time the player has a given turn
@@ -219,27 +219,27 @@ public class Player implements Comparable{
         name = n;
     }
 
-    public void setMoney(int i) {
+    public final void setMoney(int i) {
         money = i;
     }
 
-    public void setFood(int i) {
+    public final void setFood(int i) {
         food = i;
     }
 
-    public void setSmithore(int i) {
+    public final void setSmithore(int i) {
         smithore = i;
     }
 
-    public void setEnergy(int i) {
+    public final void setEnergy(int i) {
         energy = i;
     }
 
-    public void setTiles(int i) {
+    public final void setTiles(int i) {
         tiles = i;
     }
 
-    public void setHasMule(boolean b) {
+    public final void setHasMule(boolean b) {
         hasMule = b;
     }
 

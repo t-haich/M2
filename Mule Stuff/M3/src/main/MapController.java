@@ -1,6 +1,6 @@
 package main;
 
-import Characters.*;
+import characters.*;
 import map.*;
 import com.sun.org.apache.xml.internal.security.Init;
 import javafx.application.Platform;

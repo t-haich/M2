@@ -1,6 +1,6 @@
 package main;
 
-import Characters.*;
+import characters.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

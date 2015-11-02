@@ -1,10 +1,9 @@
 package main;
-import Characters.Mule;
-import Characters.Player;
+import characters.Mule;
+import characters.Player;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-
 import javafx.scene.paint.Color;
 import java.io.*;
 

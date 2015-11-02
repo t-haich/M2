@@ -1,5 +1,5 @@
 package map;
-import Characters.Player;
+import characters.Player;
 import java.util.PriorityQueue;
 import java.util.Random;
 

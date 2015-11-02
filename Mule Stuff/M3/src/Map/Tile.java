@@ -1,6 +1,6 @@
 package map;
 
-import Characters.*;
+import characters.*;
 import main.app;
 
 public class Tile {
