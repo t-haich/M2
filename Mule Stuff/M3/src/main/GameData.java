@@ -63,6 +63,9 @@ public class GameData {
             for (int i = 0; i < MapController.arr.length; i++) {
                 MapController.arr[i] = new Player(null, null, null);
                 MapController.arr[i].setName(bufferReader.readLine());
+                if (currPlayer.equals(MapController.arr[i].toString())) {
+                    MapController.currPlayer = MapController.arr[i];
+                }
                 MapController.arr[i].setColor(new Color((float) Integer.parseInt(bufferReader.readLine())/255
                         , (float) Integer.parseInt(bufferReader.readLine())/255
                         , (float) Integer.parseInt(bufferReader.readLine())/255, (float) 30/100));
@@ -89,6 +92,7 @@ public class GameData {
                 while (line != " ") {
                     int row = Integer.parseInt(line);
                     int col = Integer.parseInt(bufferReader.readLine());
+                    String mule = bufferReader.readLine();
 
                 }
             }
