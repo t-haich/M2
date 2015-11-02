@@ -2,9 +2,9 @@ package map;
 
 public class Map {
 
-    Tile[][] map;
-    private final double WIDE = 67;
-    private final double TALL = 80;
+    private Tile[][] map;
+    private static final double WIDE = 67;
+    private static final double TALL = 80;
 
     /**
      * Map constructor
@@ -36,7 +36,7 @@ public class Map {
      * @param y The y coordinate
      * @return The tile that matches the coordinates
      */
-    public Tile getTile(double x, double y) {
+    public final Tile getTile(double x, double y) {
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 9; col++) {
                 if (map[row][col] != null) {
@@ -57,7 +57,7 @@ public class Map {
      * Gets map
      * @return map
      */
-    public Tile[][] getMap() {
+    public final Tile[][] getMap() {
         return map;
     }
 }

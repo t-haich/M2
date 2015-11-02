@@ -14,7 +14,7 @@ public class RandEventPhase {
      * @param round The current round
      */
     public RandEventPhase(Player[] players, int round) {
-        this.players = players;
+        this.players = players; // Whats stored directly?
         this.round = round;
         runRandomEvent();
     }
@@ -22,7 +22,7 @@ public class RandEventPhase {
     /**
      * Runs the chance of a random event
      */
-    public void runRandomEvent() {
+    public final void runRandomEvent() {
         PriorityQueue<Player> p = new PriorityQueue<>();
         for (int i = 0; i < players.length; i++) {
             p.add(players[0]);
@@ -30,8 +30,8 @@ public class RandEventPhase {
         p.poll();
         while (p.size() > 0) {
             Player nextPlayer = p.poll();
-            int chance = rand.nextInt(101);
-            if (chance <= 80) {
+            int chance = rand.nextInt(101); // What is this?
+            if (chance <= 80) {             // What is this?
                 RandomEvent[] arr = RandomEvent.values();    //fix... lol
                 int eventChoice = rand.nextInt(arr.length + 1);
                 RandomEvent temp = arr[eventChoice];
