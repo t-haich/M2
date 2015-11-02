@@ -1,4 +1,4 @@
-package Map ;
+package Map; // handle Map to map issue
 
 import Characters.*;
 import main.app;
@@ -11,8 +11,8 @@ public class Tile {
     private double x;
     private double y;
     private Player owner;
-    private final int tileOffSet = 68;
-    private final double tileMulti = 1.2;
+    private static final int TILE_OFFSET = 68;
+    private static final double TILE_MULTI = 1.2;
 
     /**
      * The constructor for the tile.
@@ -129,7 +129,7 @@ public class Tile {
                 && tempTile.hasMule() && tempTile.getMule().outfit().equals(this.getMule().outfit())) {
             total++;
         }
-        tempTile = app.map.getTile((this.x + tileOffSet), this.y);
+        tempTile = app.map.getTile((this.x + TILE_OFFSET), this.y);
         if (tempTile != null && tempTile.getOwner() != null && tempTile.getOwner().equals(this.getOwner())
                 && tempTile.hasMule() && tempTile.getMule().outfit().equals(this.getMule().outfit())) {
             total++;
@@ -139,7 +139,7 @@ public class Tile {
                 && tempTile.hasMule() && tempTile.getMule().outfit().equals(this.getMule().outfit())) {
             total++;
         }
-        tempTile = app.map.getTile(this.x, (this.y + tileOffSet));
+        tempTile = app.map.getTile(this.x, (this.y + TILE_OFFSET));
         if (tempTile != null && tempTile.getOwner() != null && tempTile.getOwner().equals(this.getOwner())
                 && tempTile.hasMule() && tempTile.getMule().outfit().equals(this.getMule().outfit())) {
             total++;
@@ -156,19 +156,19 @@ public class Tile {
         double mult = 1;
         if (this.getMule().outfit().equals("Energy")) {
             for (int i = 0; i < this.numAdjacentTiles(); i++) {
-                mult = mult * tileMulti;
+                mult = mult * TILE_MULTI;
             }
             p.addEnergy((int) Math.ceil(this.type.energy() * mult));
         }
         if (this.getMule().outfit().equals("Miner")) {
             for (int i = 0; i < this.numAdjacentTiles(); i++) {
-                mult = mult * tileMulti;
+                mult = mult * TILE_MULTI;
             }
             p.addSmithore((int) Math.ceil(this.type.smithore() * mult));
         }
         if (this.getMule().outfit().equals("Farmer")) {
             for (int i = 0; i < this.numAdjacentTiles(); i++) {
-                mult = mult * tileMulti;
+                mult = mult * TILE_MULTI;
             }
             p.addFood((int) Math.ceil(this.type.food() * mult));
         }
