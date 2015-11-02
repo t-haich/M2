@@ -1,8 +1,7 @@
 package main;
 
-import characters.*;
-import map.*;
-import com.sun.org.apache.xml.internal.security.Init;
+import characters.Mule;
+import characters.Player;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
-import java.awt.*;
+import java.awt.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,6 +21,8 @@ import java.util.List;
 import java.util.ArrayList;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import map.RandEventPhase;
+import map.Tile;
 
 public class MapController implements Initializable {
     @FXML
@@ -303,7 +302,6 @@ public class MapController implements Initializable {
         playStage.close();
         phase = 1;
         if (round > 2) {
-
             RandEventPhase randEvent = new RandEventPhase(arr, turns / 2);
         }
     }

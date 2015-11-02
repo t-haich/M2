@@ -1,22 +1,18 @@
 package main;
 
-import characters.*;
+import characters.Player;
+import characters.Race;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
-
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.awt.*;
-import java.awt.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

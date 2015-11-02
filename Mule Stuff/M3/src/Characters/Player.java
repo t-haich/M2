@@ -12,7 +12,6 @@ public class Player implements Comparable{
     private static int food = 8;
     private int energy = 4;
     private int money;
-    private boolean turn; // Never used
     private boolean hasMule;
     private Mule mule;
     private int tiles;
@@ -23,12 +22,21 @@ public class Player implements Comparable{
      * @param col The color the player uses to claim his/her land
      * @param race The race of the player
      */
-    public Player (String name, Color col, Race race) {
+    /*public Player (String name, Color col, Race race) {
         this.name = name;
         pColor = col;
         money = race.money();
         this.race = race;
-        turn = false;
+        hasMule = false;
+        mule = null;
+        tiles = 0;
+    }*/
+
+    public Player(String name, Color col, Race race) {
+        this.name = name;
+        pColor = col;
+        money = race.money();
+        this.race = race;
         hasMule = false;
         mule = null;
         tiles = 0;

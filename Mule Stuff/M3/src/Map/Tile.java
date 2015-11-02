@@ -1,6 +1,7 @@
 package map;
 
-import characters.*;
+import characters.Mule;
+import characters.Player;
 import main.App;
 
 public class Tile {
