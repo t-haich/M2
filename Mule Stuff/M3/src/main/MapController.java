@@ -26,7 +26,7 @@ import map.Tile;
 
 public class MapController implements Initializable {
     @FXML
-    private Canvas canvas;
+    private Canvas canvas = new Canvas();
     @FXML
     private Canvas canvasFront;
     @FXML
@@ -298,11 +298,21 @@ public class MapController implements Initializable {
     /**
      * Closes land display
      */
-    public void landOkay() {
+    public void landOkay() throws IOException {
         playStage.close();
         phase = 1;
         if (round > 2) {
             RandEventPhase randEvent = new RandEventPhase(arr, turns / 2);
+        }
+        Pane myPane;
+        myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
+        Scene scene = new Scene(myPane);
+        App.primaryStage.setScene(PlayerConfigController.mapScene);
+        g2d = canvas.getGraphicsContext2D();
+        for (int i = 0; i < MapController.tiles.size(); i++) {
+            Tile tile = MapController.tiles.get(i);
+            System.out.println(tile.getX());
+            g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
         }
     }
 

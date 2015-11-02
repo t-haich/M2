@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.TownDisplayController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: BCB787;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.TownDisplayController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="-1.0" layoutY="-2.0" pickOnBounds="true">
          <image>
@@ -23,5 +24,6 @@
       <Button layoutX="385.0" layoutY="209.0" mnemonicParsing="false" onAction="#sellEnergy" opacity="0.0" prefHeight="31.0" prefWidth="48.0" rotate="24.0" text="Sell Energy" />
       <Button layoutX="460.0" layoutY="184.0" mnemonicParsing="false" onAction="#buyFood" opacity="0.0" prefHeight="24.0" prefWidth="36.0" rotate="24.4" text="Buy Food" />
       <Button layoutX="477.0" layoutY="149.0" mnemonicParsing="false" onAction="#sellFood" opacity="0.0" prefHeight="23.0" prefWidth="43.0" rotate="26.6" text="Sell Food" />
+      <Line endX="500.0" layoutX="100.0" layoutY="399.0" startX="-100.0" />
    </children>
 </AnchorPane>
