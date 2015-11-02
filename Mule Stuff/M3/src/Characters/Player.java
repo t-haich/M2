@@ -1,6 +1,5 @@
 package Characters;
 
-import javafx.scene.control.ComboBox;
 import javafx.scene.paint.Color;
 import main.app;
 
@@ -9,7 +8,8 @@ public class Player implements Comparable{
     private Color pColor;
     private Race race;
     private int smithore = 0;
-    private int food = 8;
+    //food and energy are magic numbers - change or ignore or prep for argument?
+    private static int food = 8;
     private int energy = 4;
     private int money;
     private boolean turn;
@@ -38,7 +38,7 @@ public class Player implements Comparable{
      * Method checks if the player has a Mule
      * @return Whether or not the player owns a mule via true/false
      */
-    public boolean hasMule() {
+    public final boolean hasMule() {
         return hasMule;
     }
 
@@ -46,7 +46,7 @@ public class Player implements Comparable{
      * The getter method for whatever mule the player has at the time
      * @return Returns the mule that the player has
      */
-    public Mule getMule() {
+    public final Mule getMule() {
         return mule;
     }
 
@@ -54,7 +54,7 @@ public class Player implements Comparable{
      * The setter method that officially gives the player a mule
      * @param mule The desired mule to be owned
      */
-    public void setMule(Mule mule) {
+    public final void setMule(Mule mule) {
         this.mule = mule;
         hasMule = true;
     }
@@ -63,18 +63,20 @@ public class Player implements Comparable{
      * The getter method to access the player's color
      * @return Returns the player's chosen color
      */
-    public Color getColor() { return pColor; }
+    public final Color getColor() { return pColor; }
 
     /**
      * Sets the player's desired color from the four choices he/she was given
      * @param col The player's desired color
      */
-    public void setColor(Color col) {
-        Color opColor = null;
-        float alpha = (float) 30 / 100;
-        float base = 255;
+    public final void setColor(Color col) {
+        final int divAlpha = 100;
+        final int numAlpha = 30;
+        final float baseNum = 255;
+        float alpha = (float) numAlpha / divAlpha;
+        float base = baseNum;
         if (col.equals(Color.BLUE)) {
-            pColor = new Color(0/base, 11/base, 229/base, alpha);
+            pColor = new Color(0/base, 11/base, 229/base, alpha); //RGB values; create constants like in line 72?
         } else if (col.equals(Color.RED)) {
             pColor = new Color(229/base, 0, 3/base, alpha);
         } else if (col.equals(Color.GREEN)) {
@@ -88,7 +90,7 @@ public class Player implements Comparable{
      * Adds the money the player earns throughout the game
      * @param add the amount of money the player earned
      */
-    public void addMoney(int add) {
+    public final void addMoney(int add) {
         money += add;
     }
 
@@ -96,7 +98,7 @@ public class Player implements Comparable{
      * Adds the food the player earns throughout the game
      * @param add the amount of food the player earned
      */
-    public void addFood(int add) {
+    public final void addFood(int add) {
         food += add;
     }
 
@@ -104,7 +106,7 @@ public class Player implements Comparable{
      * Adds the energy the player earns throughout the game
      * @param add the amount of energy the player earned
      */
-    public void addEnergy(int add) {
+    public final void addEnergy(int add) {
         energy += add;
     }
 
@@ -112,7 +114,7 @@ public class Player implements Comparable{
      * Adds the smithore the player earns throughout the game
      * @param add the amount of smithore the player earned
      */
-    public void addSmithore(int add) {
+    public final void addSmithore(int add) {
         smithore += add;
     }
 
@@ -120,7 +122,7 @@ public class Player implements Comparable{
      * The getter method to access how much money the player has a given time
      * @return The amount of money the player has
      */
-    public int getMoney() {
+    public final int getMoney() {
         return money;
     }
 
@@ -128,7 +130,7 @@ public class Player implements Comparable{
      * The getter method to access how much energy the player has a given time
      * @return The amount of energy the player has
      */
-    public int getEnergy() {
+    public final int getEnergy() {
         return energy;
     }
 
@@ -136,7 +138,7 @@ public class Player implements Comparable{
      * The getter method to access how much food the player has a given time
      * @return The amount of food the player has
      */
-    public int getFood() {
+    public final int getFood() {
         return food;
     }
 
@@ -144,7 +146,7 @@ public class Player implements Comparable{
      * The getter method to access how much smithore the player has a given time
      * @return The amount of smithore the player has
      */
-    public int getSmithore() {
+    public final int getSmithore() {
         return smithore;
     }
 
@@ -152,9 +154,13 @@ public class Player implements Comparable{
      * The getter method to access the score the player has a given time
      * @return The score the player has
      */
-    public int getScore() {
-        return (money + (smithore * 50) + (food * 30)
-                + (energy * 25) + (500 * tiles));
+    public final int getScore() {
+        final int foodMult = 30;
+        final int smithoreMult = 50;
+        final int energyMult = 25;
+        final int tilesMult = 500;
+        return (money + (smithore * smithoreMult) + (food * foodMult)
+                + (energy * energyMult) + (tilesMult * tiles));
     }
 
     public int getTiles() {
@@ -169,27 +175,28 @@ public class Player implements Comparable{
      * The getter method to access how much time the player has a given turn
      * @return The amount of time the player has
      */
-    public int getTurnTime() {
-        return (food * 15);
+    public final int getTurnTime() {
+        final int timeMult = 15;
+        return (food * timeMult);
     }
 
     /**
      * Add the tile the player just claimed
      */
-    public void addTile() {
+    public final void addTile() {
         tiles++;
     }
 
     /**
      * Removes the mule from a player's ownership
      */
-    public void removeMule() {
+    public final void removeMule() {
         hasMule = false;
         mule = null;
     }
 
     @Override
-    public int compareTo(Object t) {
+    public final int compareTo(Object t) {
         if (this.getScore() < ((Player) t).getScore()) {
             return -1;
         }
@@ -200,7 +207,7 @@ public class Player implements Comparable{
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
         return name;
     }
 
@@ -208,7 +215,7 @@ public class Player implements Comparable{
      * Sets the player's name
      * @param n The player's desired name
      */
-    public void setName(String n) {
+    public final void setName(String n) {
         name = n;
     }
 
@@ -240,7 +247,7 @@ public class Player implements Comparable{
      * At the end of the turn, calculate production at the turn
      */
     //This is SOOOOOOOOO unoptimal, fix it later
-    public void endTurnProduction() {
+    public final void endTurnProduction() {
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 9; col++) {
                 if (!(row == 2 && col == 4)) {
