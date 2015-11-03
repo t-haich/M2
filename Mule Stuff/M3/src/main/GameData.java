@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import map.Tile;
 
 import java.io.*;
 
@@ -44,7 +45,7 @@ public class GameData {
                         if (App.map.getMap()[row][col].getMule() != null) {
                             writer.println(App.map.getMap()[row][col].getMule().outfit());
                         } else {
-                            writer.println("n");
+                            writer.println("0");
                         }
                     }
                 }
@@ -94,10 +95,24 @@ public class GameData {
                     int row = Integer.parseInt(line);
                     int col = Integer.parseInt(bufferReader.readLine());
                     String mule = bufferReader.readLine();
-
+                    Tile tile = App.map.getMap()[row][col];
+                    tile.setOwner(MapController.arr[i]);
+                    if (line != "0") {
+                        if (line == "Farmer") {
+                            tile.setMule(Mule.FARMER);
+                        } else if (line == "Miner") {
+                            tile.setMule(Mule.MINER);
+                        } else if (line == "Energy") {
+                            tile.setMule(Mule.ENERGY);
+                        } else {
+                            tile.setMule(Mule.EMPTY);
+                        }
+                    } else {
+                        tile.removeMule();
+                    }
+                    line = bufferReader.readLine();
                 }
             }
-
         }
         catch(FileNotFoundException ex) {
             System.out.println("File not found!");

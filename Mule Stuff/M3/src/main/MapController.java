@@ -130,6 +130,14 @@ public class MapController implements Initializable {
         }
     }
 
+    public void setColor(Player p, Tile t) {
+        g2d = canvas.getGraphicsContext2D();
+        g2d.setFill(p.getColor());
+        g2d.fillRect(t.getX(), t.getY(), 67, 80);
+        p.addTile();
+        tiles.add(t);
+    }
+
     /**
      * Removes a mule from a tile
      * @param tile Which tile needs a mule removed
