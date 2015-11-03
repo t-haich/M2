@@ -25,9 +25,14 @@
             <Reflection />
          </effect>
       </Text>
-      <Button layoutX="448.0" layoutY="305.0" mnemonicParsing="false" onAction="#toConfigScreen" text="Start">
+      <Button layoutX="395.0" layoutY="305.0" mnemonicParsing="false" onAction="#toConfigScreen" text="Start">
          <font>
-            <Font size="29.0" />
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="491.0" layoutY="305.0" mnemonicParsing="false" onAction="#load" text="Load">
+         <font>
+            <Font size="20.0" />
          </font>
       </Button>
    </children>

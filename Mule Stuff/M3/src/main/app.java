@@ -9,7 +9,7 @@ import map.Map;
 
 public class App extends Application {
     public static Stage primaryStage;
-    public static Map map = new Map();
+    public static Map map;
 
     public static void main(String[] args) {
         launch(args);
@@ -17,6 +17,7 @@ public class App extends Application {
 
     @Override
     public final void start(Stage primaryStage) throws Exception {
+        map = new Map();
         this.primaryStage = primaryStage;
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
 

@@ -7,7 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.Pane;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -211,6 +214,17 @@ public class TownDisplayController implements Initializable {
             MapController.currPlayer.addEnergy(-1);
             MapController.currPlayer.addMoney(25);
             storeEnergy++;
+        }
+    }
+
+    public void save() {
+        GameData data = new GameData();
+        try {
+            data.save();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -35,4 +35,9 @@ public class MainController implements Initializable {
         Scene scene = new Scene(myPane);
         prevStage.setScene(scene);
     }
+
+    public void load() {
+        GameData data = new GameData();
+        data.load();
+    }
 }
