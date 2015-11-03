@@ -14,7 +14,7 @@ public class MainController implements Initializable {
     Stage prevStage;
 
     /**
-     * Sets previous screen
+     * Sets previous screen.
      * @param stage screen prior to this one
      */
     public void setPrevStage(Stage stage){
@@ -26,16 +26,20 @@ public class MainController implements Initializable {
     }
 
     /**
-     * Goes to Configuration screen
+     * Goes to Configuration screen.
      * @throws IOException just in case there is no input/it failed
      */
     public void toConfigScreen() throws IOException {
         Pane myPane;
-        myPane = FXMLLoader.load(getClass().getResource("/fxml/GameConfigDisplay.fxml"));
+        myPane = FXMLLoader.load(getClass()
+                .getResource("/fxml/GameConfigDisplay.fxml"));
         Scene scene = new Scene(myPane);
         prevStage.setScene(scene);
     }
 
+    /**
+     * Function to load game data.
+     */
     public void load() {
         GameData data = new GameData();
         data.load();

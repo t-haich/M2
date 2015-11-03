@@ -15,16 +15,15 @@ public class GameConfigDisplayController implements Initializable {
     }
 
     /**
-     * Displays player screen
+     * Displays player screen.
      * @throws IOException just in case there is no input/it failed
      */
     public final void toPlayerScreen() throws IOException {
         Pane myPane;
-        myPane = FXMLLoader.load(getClass().getResource("/fxml/PlayerConfig.fxml"));
+        myPane = FXMLLoader.load(getClass()
+                .getResource("/fxml/PlayerConfig.fxml"));
         Scene scene = new Scene(myPane);
         App.primaryStage.setScene(scene);
     }
-
-
 }
 

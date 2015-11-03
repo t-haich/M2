@@ -56,7 +56,7 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Sets the view of the player to the town screen
+     * Sets the view of the player to the town screen.
      */
     public void toTownScreen() throws IOException {
         if (phase != 1) {
@@ -68,7 +68,7 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Determines what happens if you click on a tile of land
+     * Determines what happens if you click on a tile of land.
      * @param e Where you clicked and what tile you chose.
      */
     public void handleMouseClick(MouseEvent e) {
@@ -84,7 +84,8 @@ public class MapController implements Initializable {
                     tile.setOwner(currPlayer);
                     g2d = canvas.getGraphicsContext2D();
                     g2d.setFill(currPlayer.getColor());
-                    g2d.fillRect(tile.getX(), tile.getY(), 67, 80);
+                    g2d.fillRect(tile.getX()
+                            , tile.getY(), 67, 80);
                     tileClicked = true;
                     pass = 0;
                     currPlayer.addTile();
@@ -98,12 +99,14 @@ public class MapController implements Initializable {
                     if (tile.hasMule()) {
                         currPlayer.removeMule();
                         System.out.println("Your MULE ran away "
-                                + "because there's already a MULE here!");
+                                + "because there's"
+                                + "already a MULE here!");
                     } else {
                         tile.setMule(currPlayer.getMule());
                         drawMule(currPlayer, tile);
                         currPlayer.removeMule();
-                        System.out.println("You put your " + tile.getMule().outfit()
+                        System.out.println("You put your "
+                                + tile.getMule().outfit()
                                 + " MULE on the tile.");
 
                     }
@@ -130,6 +133,11 @@ public class MapController implements Initializable {
         }
     }
 
+    /**
+     * Sets player's color of tile.
+     * @param p current player
+     * @param t current tile
+     */
     public void setColor(Player p, Tile t) {
         g2d = canvas.getGraphicsContext2D();
         g2d.setFill(p.getColor());
@@ -139,7 +147,7 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Removes a mule from a tile
+     * Removes a mule from a tile.
      * @param tile Which tile needs a mule removed
      */
     private void eraseMule(Tile tile) {
@@ -148,7 +156,7 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Places mule (and his image) on a tile
+     * Places mule (and his image) on a tile.
      * @param player The player who is setting his/her mule
      * @param tile The tile the muls is being placed
      */
@@ -165,13 +173,12 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Ends turn
+     * Ends turn land phase turn.
      */
     public void endTurn() {
         if (phase1()) {
             tileClicked = true;
             pass++;
-            //round++;
             if (pass == arr.length) {
                 pass = 0;
                 endPhase();
@@ -185,7 +192,7 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Sets up the next player for his/her turn
+     * Sets up the next player for his/her turn.
      * @return the next player in the game
      */
     public static Player nextPlayer() {
@@ -199,7 +206,7 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Checks if it is phase 1
+     * Checks if it is phase 1.
      * @return Whether or not it is phase 1
      */
     public boolean phase1() {
@@ -207,7 +214,7 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Checks if it is phase 2
+     * Checks if it is phase 2.
      * @return Whether or not it is phase 2
      */
     public boolean phase2() {
@@ -215,7 +222,7 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Ends phase
+     * Ends phase.
      */
     public void endPhase() {
         if (phase == 1) {
@@ -226,10 +233,11 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Sets up the time restraints for current player's turn
+     * Sets up the time restraints for current player's turn.
      */
     public static void turns() {
-        int totalTime = PlayerConfigController.getAllTime(turns / 2);
+        int totalTime =
+                PlayerConfigController.getAllTime(turns / 2);
         timer = new Timer();
         currPlayer = nextPlayer();
         timer.schedule(new TimerTask() {
@@ -245,7 +253,8 @@ public class MapController implements Initializable {
                     tileClicked = false;
                     currPlayer = arr[turns % 2];
                     System.out.println(currPlayer.toString());
-                    System.out.println("CurrPlayer: " + currPlayer.getMoney());
+                    System.out.println("CurrPlayer: "
+                            + currPlayer.getMoney());
                 }
             }
         }, 0, 2*totalTime);
@@ -269,20 +278,21 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Displays which player's turn it is
+     * Displays which player's turn it is.
      * @throws IOException just in case there is no input/it failed
      */
     public static void playerTurnDisplay() throws IOException {
         Pane myPane;
         MapController control = new MapController();
-        myPane = FXMLLoader.load(control.getClass().getResource("/fxml/PlayerTurnView.fxml"));
+        myPane = FXMLLoader.load(control.getClass()
+                .getResource("/fxml/PlayerTurnView.fxml"));
         playStage = new Stage();
         playStage.setScene(new Scene(myPane));
         playStage.show();
     }
 
     /**
-     * Checks if a player has any turns left and closes the display
+     * Checks if a player has any turns left and closes the display.
      */
     public void playerOkay() {
         turns();
@@ -291,20 +301,21 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Displays the land one selected
+     * Displays the land one selected.
      * @throws IOException just in case there is no input/it failed
      */
     public static void landSelectDisplay() throws IOException {
         Pane myPane;
         MapController control = new MapController();
-        myPane = FXMLLoader.load(control.getClass().getResource("/fxml/landSelection.fxml"));
+        myPane = FXMLLoader.load(control.getClass()
+                .getResource("/fxml/landSelection.fxml"));
         playStage = new Stage();
         playStage.setScene(new Scene(myPane));
         playStage.show();
     }
 
     /**
-     * Closes land display
+     * Closes land display.
      */
     public void landOkay() throws IOException {
         playStage.close();
@@ -325,7 +336,7 @@ public class MapController implements Initializable {
     }
 
     /**
-     * Determines which display should be shown
+     * Determines which display should be shown.
      */
     public static void which() {
         try {

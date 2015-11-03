@@ -33,7 +33,7 @@ public class TownDisplayController implements Initializable {
     }
 
     /**
-     * Displays map screen
+     * Displays map screen.
      * @throws IOException just in case there is no input/it failed
      */
     public void toMapScreen() throws IOException {
@@ -50,7 +50,7 @@ public class TownDisplayController implements Initializable {
     }
 
     /**
-     * Displays town screen
+     * Displays town screen.
      * @throws IOException just in case there is no input/it failed
      */
     public void toTownScreen() throws IOException {
@@ -61,7 +61,7 @@ public class TownDisplayController implements Initializable {
     }
 
     /**
-     * Displays shop screen
+     * Displays shop screen.
      * @throws IOException just in case there is no input/it failed
      */
     public void toShopScreen() throws IOException {
@@ -72,13 +72,13 @@ public class TownDisplayController implements Initializable {
     }
 
     /**
-     * What happens when player enters the pub
+     * What happens when player enters the pub.
      */
     public void toPub() {
         MapController.timer.cancel();
         MapController.timer.purge();
         long currTime = System.currentTimeMillis();
-        long remaining = currTime - MapController.turnTime; //add to MapController
+        long remaining = currTime - MapController.turnTime;
         int moneyBonus, timeBonus, roundBonus;
         if (MapController.turns < 4) {
             roundBonus = 50;
@@ -99,7 +99,8 @@ public class TownDisplayController implements Initializable {
             timeBonus = 50;
         }
         Random rand = new Random();
-        moneyBonus = roundBonus + (int) (rand.nextFloat() * timeBonus);
+        moneyBonus = roundBonus
+                + (int) (rand.nextFloat() * timeBonus);
         if (moneyBonus > 250) {
             MapController.currPlayer.addMoney(250);
         } else {
@@ -109,53 +110,61 @@ public class TownDisplayController implements Initializable {
     }
 
     /**
-     * What happens when player buys a mule
+     * What happens when player buys a mule.
      */
     public void buyMule() {
-        if (!(MapController.currPlayer.hasMule()) && MapController.currPlayer.getMoney() >= 100) {
+        if (!(MapController.currPlayer.hasMule())
+                && MapController.currPlayer.getMoney() >= 100) {
             MapController.currPlayer.setMule(Mule.EMPTY);
             MapController.currPlayer.addMoney(-100);
         }
     }
 
     /**
-     * Customize current mule to be a miner
+     * Customize current mule to be a miner.
      */
     public void outfitMuleMining() {
-        if (MapController.currPlayer.hasMule() && MapController.currPlayer.getMoney() >= 75
-                && !(MapController.currPlayer.getMule().outfit().equals("Mining"))) {
+        if (MapController.currPlayer.hasMule()
+                && MapController.currPlayer.getMoney() >= 75
+                && !(MapController.currPlayer.getMule()
+                .outfit().equals("Mining"))) {
             MapController.currPlayer.setMule(Mule.MINER);
             MapController.currPlayer.addMoney(-75);
         }
     }
 
     /**
-     * Customize current mule to work with energy
+     * Customize current mule to work with energy.
      */
     public void outfitMuleEnergy() {
-        if (MapController.currPlayer.hasMule() && MapController.currPlayer.getMoney() >= 50
-                && !(MapController.currPlayer.getMule().outfit().equals("Energy"))) {
+        if (MapController.currPlayer.hasMule()
+                && MapController.currPlayer.getMoney() >= 50
+                && !(MapController.currPlayer.getMule()
+                .outfit().equals("Energy"))) {
             MapController.currPlayer.setMule(Mule.ENERGY);
             MapController.currPlayer.addMoney(-50);
         }
     }
 
     /**
-     * Customize current mule to be a farmer
+     * Customize current mule to be a farmer.
      */
     public void outfitMuleFood() {
-        if (MapController.currPlayer.hasMule() && MapController.currPlayer.getMoney() >= 25
-                && !(MapController.currPlayer.getMule().outfit().equals("Farmer"))) {
+        if (MapController.currPlayer.hasMule()
+                && MapController.currPlayer.getMoney() >= 25
+                && !(MapController.currPlayer.getMule()
+                .outfit().equals("Farmer"))) {
             MapController.currPlayer.setMule(Mule.FARMER);
             MapController.currPlayer.addMoney(-25);
         }
     }
 
     /**
-     * What happens when player buys food
+     * What happens when player buys food.
      */
     public void buyFood() {
-        if (MapController.currPlayer.getMoney() >= 30 && storeFood > 0) {
+        if (MapController.currPlayer.getMoney() >= 30
+                && storeFood > 0) {
             MapController.currPlayer.addMoney(-30);
             MapController.currPlayer.addFood(1);
             storeFood--;
@@ -163,10 +172,11 @@ public class TownDisplayController implements Initializable {
     }
 
     /**
-     * What happens when player buys smithore
+     * What happens when player buys smithore.
      */
     public void buySmithore() {
-        if (MapController.currPlayer.getMoney() >= 50 && storeSmithore > 0) {
+        if (MapController.currPlayer.getMoney() >= 50
+                && storeSmithore > 0) {
             MapController.currPlayer.addMoney(-50);
             MapController.currPlayer.addSmithore(1);
             storeSmithore--;
@@ -174,10 +184,11 @@ public class TownDisplayController implements Initializable {
     }
 
     /**
-     * What happens when player buys energy
+     * What happens when player buys energy.
      */
     public void buyEnergy() {
-        if (MapController.currPlayer.getMoney() >= 25 && storeEnergy > 0) {
+        if (MapController.currPlayer.getMoney() >= 25
+                && storeEnergy > 0) {
             MapController.currPlayer.addMoney(-25);
             MapController.currPlayer.addEnergy(1);
             storeEnergy--;
@@ -185,7 +196,7 @@ public class TownDisplayController implements Initializable {
     }
 
     /**
-     * What happens when player sells food
+     * What happens when player sells food.
      */
     public void sellFood() {
         if (MapController.currPlayer.getFood() > 0) {
@@ -196,7 +207,7 @@ public class TownDisplayController implements Initializable {
     }
 
     /**
-     * What happens when player sells smithore
+     * What happens when player sells smithore.
      */
     public void sellSmithore() {
         if (MapController.currPlayer.getSmithore() > 0) {
@@ -207,7 +218,7 @@ public class TownDisplayController implements Initializable {
     }
 
     /**
-     * What happens when player sells energy
+     * What happens when player sells energy.
      */
     public void sellEnergy() {
         if (MapController.currPlayer.getEnergy() > 0) {
@@ -217,6 +228,9 @@ public class TownDisplayController implements Initializable {
         }
     }
 
+    /**
+     * Function to save game data.
+     */
     public void save() {
         GameData data = new GameData();
         try {
