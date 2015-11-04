@@ -23,9 +23,10 @@ public class Player implements Comparable{
      * @param raceArg The race of the player
      */
     public Player(String nameArg, Color colArg, Race raceArg) {
+        final int defMny = 1000;
         this.name = nameArg;
         pColor = colArg;
-        money = (race == null)? 1000 : race.money();
+        money = (race == null)? defMny : race.money();
         this.race = raceArg;
         hasMule = false;
         mule = null;
