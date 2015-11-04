@@ -37,16 +37,18 @@ public class GameData {
             } else {
                 writer.println("0");
             }
+            Player player = MapController.arr[i];
             for (int row = 0; row < 5; row++) {
                 for (int col = 0; col < 9; col++) {
-                    System.out.println(MapController.arr[i]);
-                    if (MapController.arr[i].equals(App.map.getMap()[row][col].getOwner())) {
-                        writer.println(row);
-                        writer.println(col);
-                        if (App.map.getMap()[row][col].getMule() != null) {
-                            writer.println(App.map.getMap()[row][col].getMule().outfit());
-                        } else {
-                            writer.println("0");
+                    if (row != 2 || col != 4) {
+                        if (player.equals(App.map.getMap()[row][col].getOwner())) {
+                            writer.println(row);
+                            writer.println(col);
+                            if (App.map.getMap()[row][col].getMule() != null) {
+                                writer.println(App.map.getMap()[row][col].getMule().outfit());
+                            } else {
+                                writer.println("0");
+                            }
                         }
                     }
                 }
