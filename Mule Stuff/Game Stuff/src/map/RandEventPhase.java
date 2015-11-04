@@ -33,7 +33,7 @@ public class RandEventPhase {
             int chance = rand.nextInt(101); // What is this?
             if (chance <= 80) {             // What is this?
                 RandomEvent[] arr = RandomEvent.values();    //fix... lol
-                int eventChoice = rand.nextInt(arr.length + 1);
+                int eventChoice = rand.nextInt(arr.length);
                 RandomEvent temp = arr[eventChoice];
                 runEvent(temp, nextPlayer);
             } else {
