@@ -9,10 +9,10 @@ public enum Mule {
 
     /**
      * Constructor method for mule
-     * @param outfit
+     * @param outfitArg
      */
-    Mule(String outfit) {
-        this.outfit = outfit;
+    Mule(String outfitArg) {
+        this.outfit = outfitArg;
     }
 
     /**
@@ -25,9 +25,9 @@ public enum Mule {
 
     /**
      * Sets the mule's outfit
-     * @param outfit The desired outfit the player has for him/her mule
+     * @param outfitArg The desired outfit the player has for him/her mule
      */
-    public void setOutfit(String outfit) {
-        this.outfit = outfit;
+    public void setOutfit(String outfitArg) {
+        this.outfit = outfitArg;
     }
 }

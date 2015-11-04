@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GameConfigDisplayController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.5">
+         <image>
+            <Image url="@space.jpg" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="difficulty" layoutX="292.0" layoutY="143.0" prefWidth="150.0" promptText="Difficulty">
+       <items>
+           <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Beginner" />
+               <String fx:value="Advanced" />
+               <String fx:value="Tournament" />
+           </FXCollections>
+       </items>
+       </ComboBox>
+      <Text layoutX="178.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DIFFICULTY">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="mapType" layoutX="292.0" layoutY="194.0" prefWidth="150.0" promptText="Map Type">
+       <items>
+           <FXCollections fx:factory="observableArrayList">
+               <String fx:value="River" />
+               <String fx:value="Mountain 1" />
+               <String fx:value="Mountain 2" />
+               <String fx:value="Mountain 3" />
+               <String fx:value="Plain" />
+           </FXCollections>
+       </items>
+       </ComboBox>
+      <Text layoutX="188.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAP TYPE" textAlignment="RIGHT">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="players" layoutX="292.0" layoutY="250.0" prefWidth="150.0" promptText="Players">
+       <items>
+           <FXCollections fx:factory="observableArrayList">
+               <String fx:value="1 Player" />
+               <String fx:value="2 Players" />
+               <String fx:value="3 Players" />
+               <String fx:value="4 Players" />
+           </FXCollections>
+       </items>
+       </ComboBox>
+      <Text layoutX="201.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAYERS">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Button layoutX="271.0" layoutY="336.0" mnemonicParsing="false" onAction="#toPlayerScreen" text="Okay" />
+   </children>
+</AnchorPane>

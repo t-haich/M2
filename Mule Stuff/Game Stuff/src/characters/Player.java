@@ -18,15 +18,15 @@ public class Player implements Comparable{
 
     /**
      * This constructor instantiates the player
-     * @param name The name of the player
-     * @param col The color the player uses to claim his/her land
-     * @param race The race of the player
+     * @param nameArg The name of the player
+     * @param colArg The color the player uses to claim his/her land
+     * @param raceArg The race of the player
      */
-    public Player(String name, Color col, Race race) {
-        this.name = name;
-        pColor = col;
+    public Player(String nameArg, Color colArg, Race raceArg) {
+        this.name = nameArg;
+        pColor = colArg;
         money = race.money();
-        this.race = race;
+        this.race = raceArg;
         hasMule = false;
         mule = null;
         tiles = 0;
@@ -59,8 +59,8 @@ public class Player implements Comparable{
      * The setter method that officially gives the player a mule
      * @param mule The desired mule to be owned
      */
-    public final void setMule(Mule mule) {
-        this.mule = mule;
+    public final void setMule(Mule muleArg) {
+        this.mule = muleArg;
         hasMule = true;
     }
 

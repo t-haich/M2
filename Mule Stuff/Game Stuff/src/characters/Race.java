@@ -11,12 +11,12 @@ public enum Race {
 
     /**
      * Sets desired race of player
-     * @param race The race desired
-     * @param money The amount of money the race is entitled to
+     * @param raceArg The race desired
+     * @param moneyArg The amount of money the race is entitled to
      */
-    Race(String race, int money) {
-        this.race = race;
-        this.money = money;
+    Race(String raceArg, int moneyArg) {
+        this.race = raceArg;
+        this.money = moneyArg;
     }
 
     /**

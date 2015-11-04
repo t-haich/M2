@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: BCB787;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.TownDisplayController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="1.0">
+         <image>
+            <Image url="@Town.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="255.0" layoutY="351.0" mnemonicParsing="false" onAction="#toMapScreen" prefHeight="35.0" prefWidth="91.0" text="Back to Map" />
+      <Button layoutX="485.0" layoutY="189.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="LAND OFFICES" />
+      <Button layoutX="402.0" layoutY="188.0" mnemonicParsing="false" text="ASSAY" />
+      <Button layoutX="242.0" layoutY="154.0" mnemonicParsing="false" onAction="#toPub" text="PUB" />
+      <Button layoutX="95.0" layoutY="154.0" mnemonicParsing="false" onAction="#toShopScreen" text="STORE" />
+      <Line endX="500.0" layoutX="100.0" layoutY="400.0" startX="-100.0" />
+      <Button layoutX="507.0" layoutY="351.0" mnemonicParsing="false" onAction="#save" prefHeight="35.0" prefWidth="59.0" text="Save" />
+   </children>
+</AnchorPane>
