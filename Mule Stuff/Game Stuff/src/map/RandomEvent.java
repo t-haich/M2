@@ -20,22 +20,23 @@ public enum RandomEvent {
 
     /**
      * Random event constructor
-     * @param smithore current smithore
-     * @param food current food
-     * @param energy current energy
-     * @param money current money
-     * @param label current label
-     * @param arith arith
-     * @param m m
+     * @param smithoreArg current smithore
+     * @param foodArg current food
+     * @param energyArg current energy
+     * @param moneyArg current money
+     * @param labelArg current label
+     * @param arithArg arith
+     * @param mArg m
      */
-    RandomEvent(int smithore, double food, int energy, int money, String label, int arith, int m) {
-        this.energy = energy;
-        this.food = food;
-        this.smithore = smithore;
-        this.label = label;
-        this.arith = arith;
-        this.money = money;
-        this.m = m;
+    RandomEvent(int smithoreArg, double foodArg, int energyArg, int moneyArg,
+                String labelArg, int arithArg, int mArg) {
+        this.energy = energyArg;
+        this.food = foodArg;
+        this.smithore = smithoreArg;
+        this.label = labelArg;
+        this.arith = arithArg;
+        this.money = moneyArg;
+        this.m = mArg;
     }
 
     /**

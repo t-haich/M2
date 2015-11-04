@@ -18,15 +18,15 @@ public class Tile {
     /**
      * The constructor for the tile.
      *
-     * @param type The terrain type
-     * @param x    The x-coordinate of the tile
-     * @param y    The y-coordinate of the tile
+     * @param typeArg The terrain type
+     * @param xArg    The x-coordinate of the tile
+     * @param yArg    The y-coordinate of the tile
      */
-    public Tile(Terrain type, double x, double y) {
-        this.type = type;
+    public Tile(Terrain typeArg, double xArg, double yArg) {
+        this.type = typeArg;
         this.hasMule = false;
-        this.x = x;
-        this.y = y;
+        this.x = xArg;
+        this.y = yArg;
         this.owner = null;
     }
 

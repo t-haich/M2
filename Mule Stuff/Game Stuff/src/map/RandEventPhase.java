@@ -10,12 +10,12 @@ public class RandEventPhase {
 
     /**
      * Creates a random event in the game
-     * @param players The players in the game who will be affected
-     * @param round The current round
+     * @param playersArg The players in the game who will be affected
+     * @param roundArg The current round
      */
-    public RandEventPhase(Player[] players, int round) {
-        this.players = players; // Whats stored directly?
-        this.round = round;
+    public RandEventPhase(Player[] playersArg, int roundArg) {
+        this.players = playersArg;
+        this.round = roundArg;
         runRandomEvent();
     }
 

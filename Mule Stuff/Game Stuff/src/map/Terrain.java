@@ -14,16 +14,16 @@ public enum Terrain {
 
     /**
      * The terrain constructor
-     * @param energy The energy
-     * @param food The food
-     * @param smithore The smithore
-     * @param label The label
+     * @param energyArg The energy
+     * @param foodArg The food
+     * @param smithoreArg The smithore
+     * @param labelArg The label
      */
-    Terrain(int energy, int food, int smithore, String label) {
-        this.energy = energy;
-        this.food = food;
-        this.smithore = smithore;
-        this.label = label;
+    Terrain(int energyArg, int foodArg, int smithoreArg, String labelArg) {
+        this.energy = energyArg;
+        this.food = foodArg;
+        this.smithore = smithoreArg;
+        this.label = labelArg;
     }
 
     /**

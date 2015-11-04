@@ -10,9 +10,11 @@ public class Map {
      * Map constructor
      */
     public Map() {
-        this.map = new Tile[5][9];
-        for (int row = 0; row < 5; row++) {
-            for (int col = 0; col < 9; col++) {
+        final int rowLength = 9;
+        final int columnLength = 5;
+        this.map = new Tile[columnLength][rowLength];
+        for (int row = 0; row < columnLength; row++) {
+            for (int col = 0; col < rowLength; col++) {
                 if ((col == 2 && row == 0 ) || (col == 8 && row == 2) || (col == 1 && row == 1)) {
                     map[row][col] = new Tile(Terrain.MOUNTAIN1, col * WIDE, row * TALL);
                 } else if ((row == 3 && (col ==  1 || col == 6)) || (row == 4 && (col == 2 || col == 8))) {
@@ -37,8 +39,10 @@ public class Map {
      * @return The tile that matches the coordinates
      */
     public final Tile getTile(double x, double y) {
-        for (int row = 0; row < 5; row++) {
-            for (int col = 0; col < 9; col++) {
+        final int rowLength = 9;
+        final int columnLength = 5;
+        for (int row = 0; row < columnLength; row++) {
+            for (int col = 0; col < rowLength; col++) {
                 if (map[row][col] != null) {
                     double xloc = map[row][col].getX();
                     double yloc = map[row][col].getY();
