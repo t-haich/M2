@@ -117,6 +117,7 @@ public class GameData {
                     line = bufferReader.readLine();
                 }
             }
+            PlayerConfigController.players = MapController.arr;
             reader.close();
             toMapScreen();
         }
@@ -125,6 +126,7 @@ public class GameData {
         }
         catch(IOException exe) {
             System.out.println("Quit deleting files dammit");
+            exe.printStackTrace();
         }
     }
 
