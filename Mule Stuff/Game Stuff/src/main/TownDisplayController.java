@@ -20,12 +20,9 @@ import javafx.scene.canvas.GraphicsContext;
 public class TownDisplayController implements Initializable {
     @FXML
     private Canvas canvas = new Canvas();
-    @FXML
-    private Canvas canvasFront = new Canvas();
-    public GraphicsContext g2d;
-    public int storeSmithore = 10;
-    public int storeEnergy = 0;
-    public int storeFood = 0;
+    private int storeSmithore = 10;
+    private int storeEnergy = 0;
+    private int storeFood = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -37,9 +34,7 @@ public class TownDisplayController implements Initializable {
      * @throws IOException just in case there is no input/it failed
      */
     public void toMapScreen() throws IOException {
-        Pane myPane;
-        myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
-        Scene scene = new Scene(myPane);
+        GraphicsContext g2d;
         App.primaryStage.setScene(PlayerConfigController.mapScene);
         g2d = canvas.getGraphicsContext2D();
         for (int i = 0; i < MapController.tiles.size(); i++) {
@@ -53,7 +48,7 @@ public class TownDisplayController implements Initializable {
      * Displays town screen.
      * @throws IOException just in case there is no input/it failed
      */
-    public void toTownScreen() throws IOException {
+    public final void toTownScreen() throws IOException {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Town.fxml"));
         Scene scene = new Scene(myPane);
@@ -64,7 +59,7 @@ public class TownDisplayController implements Initializable {
      * Displays shop screen.
      * @throws IOException just in case there is no input/it failed
      */
-    public void toShopScreen() throws IOException {
+    public final void toShopScreen() throws IOException {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Shop.fxml"));
         Scene scene = new Scene(myPane);
@@ -74,7 +69,7 @@ public class TownDisplayController implements Initializable {
     /**
      * What happens when player enters the pub.
      */
-    public void toPub() {
+    public final void toPub() {
         MapController.timer.cancel();
         MapController.timer.purge();
         long currTime = System.currentTimeMillis();
@@ -112,7 +107,7 @@ public class TownDisplayController implements Initializable {
     /**
      * What happens when player buys a mule.
      */
-    public void buyMule() {
+    public final void buyMule() {
         if (!(MapController.currPlayer.hasMule())
                 && MapController.currPlayer.getMoney() >= 100) {
             MapController.currPlayer.setMule(Mule.EMPTY);
@@ -123,7 +118,7 @@ public class TownDisplayController implements Initializable {
     /**
      * Customize current mule to be a miner.
      */
-    public void outfitMuleMining() {
+    public final void outfitMuleMining() {
         if (MapController.currPlayer.hasMule()
                 && MapController.currPlayer.getMoney() >= 75
                 && !(MapController.currPlayer.getMule()
@@ -136,7 +131,7 @@ public class TownDisplayController implements Initializable {
     /**
      * Customize current mule to work with energy.
      */
-    public void outfitMuleEnergy() {
+    public final void outfitMuleEnergy() {
         if (MapController.currPlayer.hasMule()
                 && MapController.currPlayer.getMoney() >= 50
                 && !(MapController.currPlayer.getMule()
@@ -149,7 +144,7 @@ public class TownDisplayController implements Initializable {
     /**
      * Customize current mule to be a farmer.
      */
-    public void outfitMuleFood() {
+    public final void outfitMuleFood() {
         if (MapController.currPlayer.hasMule()
                 && MapController.currPlayer.getMoney() >= 25
                 && !(MapController.currPlayer.getMule()
@@ -162,7 +157,7 @@ public class TownDisplayController implements Initializable {
     /**
      * What happens when player buys food.
      */
-    public void buyFood() {
+    public final void buyFood() {
         if (MapController.currPlayer.getMoney() >= 30
                 && storeFood > 0) {
             MapController.currPlayer.addMoney(-30);
@@ -174,7 +169,7 @@ public class TownDisplayController implements Initializable {
     /**
      * What happens when player buys smithore.
      */
-    public void buySmithore() {
+    public final void buySmithore() {
         if (MapController.currPlayer.getMoney() >= 50
                 && storeSmithore > 0) {
             MapController.currPlayer.addMoney(-50);
@@ -186,7 +181,7 @@ public class TownDisplayController implements Initializable {
     /**
      * What happens when player buys energy.
      */
-    public void buyEnergy() {
+    public final void buyEnergy() {
         if (MapController.currPlayer.getMoney() >= 25
                 && storeEnergy > 0) {
             MapController.currPlayer.addMoney(-25);
@@ -198,7 +193,7 @@ public class TownDisplayController implements Initializable {
     /**
      * What happens when player sells food.
      */
-    public void sellFood() {
+    public final void sellFood() {
         if (MapController.currPlayer.getFood() > 0) {
             MapController.currPlayer.addFood(-1);
             MapController.currPlayer.addMoney(30);
@@ -209,7 +204,7 @@ public class TownDisplayController implements Initializable {
     /**
      * What happens when player sells smithore.
      */
-    public void sellSmithore() {
+    public final void sellSmithore() {
         if (MapController.currPlayer.getSmithore() > 0) {
             MapController.currPlayer.addSmithore(-1);
             MapController.currPlayer.addMoney(50);
@@ -220,7 +215,7 @@ public class TownDisplayController implements Initializable {
     /**
      * What happens when player sells energy.
      */
-    public void sellEnergy() {
+    public final void sellEnergy() {
         if (MapController.currPlayer.getEnergy() > 0) {
             MapController.currPlayer.addEnergy(-1);
             MapController.currPlayer.addMoney(25);
@@ -231,7 +226,7 @@ public class TownDisplayController implements Initializable {
     /**
      * Function to save game data.
      */
-    public void save() {
+    public final void save() {
         GameData data = new GameData();
         try {
             data.save();
