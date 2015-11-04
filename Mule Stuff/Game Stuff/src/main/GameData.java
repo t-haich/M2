@@ -122,7 +122,7 @@ public class GameData {
             MapController map = new MapController();
             PlayerConfigController.players = MapController.arr;
             reader.close();
-            toMapScreen();
+            cont2.toMapScreen();
         }
         catch(FileNotFoundException ex) {
             System.out.println("File not found!");

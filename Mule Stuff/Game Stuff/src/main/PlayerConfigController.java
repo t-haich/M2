@@ -97,8 +97,8 @@ public class PlayerConfigController implements Initializable {
         Scene scene = new Scene(myPane);
         App.primaryStage.setScene(scene);
         mapScene = scene;
-        System.out.println(color.getValue());
-        System.out.println(name.getText() + race.getValue());
+        //System.out.println(color.getValue());
+        //System.out.println(name.getText() + race.getValue());
     }
 
     /**
