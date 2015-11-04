@@ -55,25 +55,26 @@ public class GameData {
             }
             writer.println(" ");
         }
+        writer.close();
     }
 
     public void load() {
         try {
             FileReader reader = new FileReader("gamedata.txt");
             BufferedReader bufferReader = new BufferedReader(reader);
-            toMapScreen();
+
             MapController.turns = Integer.parseInt(bufferReader.readLine());
             MapController.arr = new Player[Integer.parseInt(bufferReader.readLine())];
             String currPlayer = bufferReader.readLine();
             for (int i = 0; i < MapController.arr.length; i++) {
-                MapController.arr[i] = new Player(null, null, null);
+                MapController.arr[i] = new Player();
                 MapController.arr[i].setName(bufferReader.readLine());
                 if (currPlayer.equals(MapController.arr[i].toString())) {
                     MapController.currPlayer = MapController.arr[i];
                 }
-                MapController.arr[i].setColor(new Color((float) Integer.parseInt(bufferReader.readLine())/255
-                        , (float) Integer.parseInt(bufferReader.readLine())/255
-                        , (float) Integer.parseInt(bufferReader.readLine())/255, (float) 30/100));
+                MapController.arr[i].setColor(new Color( Float.parseFloat(bufferReader.readLine())/255
+                        ,  Float.parseFloat(bufferReader.readLine())/255
+                        ,  Float.parseFloat(bufferReader.readLine())/255, (float) 30/100));
                 MapController.arr[i].setMoney(Integer.parseInt(bufferReader.readLine()));
                 MapController.arr[i].setEnergy(Integer.parseInt(bufferReader.readLine()));
                 MapController.arr[i].setFood(Integer.parseInt(bufferReader.readLine()));
@@ -116,6 +117,8 @@ public class GameData {
                     line = bufferReader.readLine();
                 }
             }
+            reader.close();
+            toMapScreen();
         }
         catch(FileNotFoundException ex) {
             System.out.println("File not found!");

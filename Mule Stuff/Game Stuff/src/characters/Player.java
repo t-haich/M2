@@ -22,16 +22,6 @@ public class Player implements Comparable{
      * @param col The color the player uses to claim his/her land
      * @param race The race of the player
      */
-    /*public Player (String name, Color col, Race race) {
-        this.name = name;
-        pColor = col;
-        money = race.money();
-        this.race = race;
-        hasMule = false;
-        mule = null;
-        tiles = 0;
-    }*/
-
     public Player(String name, Color col, Race race) {
         this.name = name;
         pColor = col;
@@ -40,6 +30,13 @@ public class Player implements Comparable{
         hasMule = false;
         mule = null;
         tiles = 0;
+    }
+
+    /**
+     * No parameter constructor of Player.
+     */
+    public Player() {
+
     }
 
     /**
