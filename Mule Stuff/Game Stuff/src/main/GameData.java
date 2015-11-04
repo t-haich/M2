@@ -81,12 +81,12 @@ public class GameData {
                 MapController.arr[i].setSmithore(Integer.parseInt(bufferReader.readLine()));
                 MapController.arr[i].setTiles(Integer.parseInt(bufferReader.readLine()));
                 String line = bufferReader.readLine();
-                if (line != "0") {
-                    if (line == "Farmer") {
+                if (!line.equals("0")) {
+                    if (line.equals("Farmer")) {
                         MapController.arr[i].setMule(Mule.FARMER);
-                    } else if (line == "Miner") {
+                    } else if (line.equals("Miner")) {
                         MapController.arr[i].setMule(Mule.MINER);
-                    } else if (line == "Energy") {
+                    } else if (line.equals("Energy")) {
                         MapController.arr[i].setMule(Mule.ENERGY);
                     } else {
                         MapController.arr[i].setMule(Mule.EMPTY);
@@ -95,18 +95,18 @@ public class GameData {
                     MapController.arr[i].setHasMule(false);
                 }
                 line = bufferReader.readLine();
-                while (line != " ") {
+                while (!line.equals(" ")) {
                     int row = Integer.parseInt(line);
                     int col = Integer.parseInt(bufferReader.readLine());
                     String mule = bufferReader.readLine();
                     Tile tile = App.map.getMap()[row][col];
                     tile.setOwner(MapController.arr[i]);
-                    if (line != "0") {
-                        if (line == "Farmer") {
+                    if (!mule.equals("0")) {
+                        if (mule.equals("Farmer")) {
                             tile.setMule(Mule.FARMER);
-                        } else if (line == "Miner") {
+                        } else if (mule.equals("Miner")) {
                             tile.setMule(Mule.MINER);
-                        } else if (line == "Energy") {
+                        } else if (mule.equals("Energy")) {
                             tile.setMule(Mule.ENERGY);
                         } else {
                             tile.setMule(Mule.EMPTY);
