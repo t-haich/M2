@@ -72,9 +72,9 @@ public class GameData {
                 if (currPlayer.equals(MapController.arr[i].toString())) {
                     MapController.currPlayer = MapController.arr[i];
                 }
-                MapController.arr[i].setColor(new Color( Float.parseFloat(bufferReader.readLine())/255
-                        ,  Float.parseFloat(bufferReader.readLine())/255
-                        ,  Float.parseFloat(bufferReader.readLine())/255, (float) 30/100));
+                MapController.arr[i].setColor(new Color( Float.parseFloat(bufferReader.readLine())
+                        ,  Float.parseFloat(bufferReader.readLine())
+                        ,  Float.parseFloat(bufferReader.readLine()), (float) 30/100));
                 MapController.arr[i].setMoney(Integer.parseInt(bufferReader.readLine()));
                 MapController.arr[i].setEnergy(Integer.parseInt(bufferReader.readLine()));
                 MapController.arr[i].setFood(Integer.parseInt(bufferReader.readLine()));
