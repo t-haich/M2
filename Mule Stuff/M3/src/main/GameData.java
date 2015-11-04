@@ -39,7 +39,8 @@ public class GameData {
             }
             for (int row = 0; row < 5; row++) {
                 for (int col = 0; col < 9; col++) {
-                    if (App.map.getMap()[row][col].getOwner().equals(MapController.arr[i])) {
+                    System.out.println(MapController.arr[i]);
+                    if (MapController.arr[i].equals(App.map.getMap()[row][col].getOwner())) {
                         writer.println(row);
                         writer.println(col);
                         if (App.map.getMap()[row][col].getMule() != null) {
