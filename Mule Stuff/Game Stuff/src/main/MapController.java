@@ -295,6 +295,7 @@ public class MapController implements Initializable {
      * Checks if a player has any turns left and closes the display.
      */
     public void playerOkay() {
+        currPlayer.endTurnProduction();
         turns();
         playStage.close();
         phase = 2;
