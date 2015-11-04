@@ -25,7 +25,7 @@ public class Player implements Comparable{
     public Player(String nameArg, Color colArg, Race raceArg) {
         this.name = nameArg;
         pColor = colArg;
-        money = race.money();
+        money = (race == null)? 1000 : race.money();
         this.race = raceArg;
         hasMule = false;
         mule = null;
