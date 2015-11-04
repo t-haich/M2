@@ -117,6 +117,9 @@ public class GameData {
                     line = bufferReader.readLine();
                 }
             }
+            GameConfigDisplayController cont1 = new GameConfigDisplayController();
+            PlayerConfigController cont2 = new PlayerConfigController();
+            MapController map = new MapController();
             PlayerConfigController.players = MapController.arr;
             reader.close();
             toMapScreen();
@@ -135,6 +138,6 @@ public class GameData {
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
         Scene scene = new Scene(myPane);
         App.primaryStage.setScene(scene);
-        mapScene = scene;
+        //mapScene = scene;
     }
 }
