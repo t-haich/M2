@@ -175,4 +175,27 @@ public class Tile {
         }
     }
 
+    //Made for testing purposes
+    public final void getProduction(Player p, int k) {
+        double mult = 1;
+        if (this.getMule().outfit().equals("Energy")) {
+            for (int i = 0; i < k; i++) {
+                mult = mult * TILE_MULTI;
+            }
+            p.addEnergy((int) Math.ceil(this.type.energy() * mult));
+        }
+        if (this.getMule().outfit().equals("Miner")) {
+            for (int i = 0; i < k; i++) {
+                mult = mult * TILE_MULTI;
+            }
+            p.addSmithore((int) Math.ceil(this.type.smithore() * mult));
+        }
+        if (this.getMule().outfit().equals("Farmer")) {
+            for (int i = 0; i < k; i++) {
+                mult = mult * TILE_MULTI;
+            }
+            p.addFood((int) Math.ceil(this.type.food() * mult));
+        }
+    }
+
 }
