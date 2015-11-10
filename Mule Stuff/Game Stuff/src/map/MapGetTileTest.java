@@ -18,12 +18,12 @@ public class MapGetTileTest {
         final int rowLength = 9;
         final int columnLength = 5;
         this.right = new Tile[columnLength][rowLength];
-        System.out.println(map.getMap()[4][4].getX());
+        System.out.println(map.getMap()[1][1].getY());
         for (int row = 0; row < columnLength; row++) {
             for (int col = 0; col < rowLength; col++) {
-                if ((col == 2 && row == 0 ) || (col == 8 && row == 2) || (col == 1 && row == 1)) {
+                if ((col == 2 && row == 0) || (col == 8 && row == 2) || (col == 1 && row == 1)) {
                     right[row][col] = new Tile(Terrain.MOUNTAIN1, col * WIDE, row * TALL);
-                } else if ((row == 3 && (col ==  1 || col == 6)) || (row == 4 && (col == 2 || col == 8))) {
+                } else if ((row == 3 && (col == 1 || col == 6)) || (row == 4 && (col == 2 || col == 8))) {
                     right[row][col] = new Tile(Terrain.MOUNTAIN2, col * WIDE, row * TALL);
                 } else if ((row == 0 && col == 6) || (row == 1 && col == 8) || (row == 2 && col == 0)) {
                     right[row][col] = new Tile(Terrain.MOUNTAIN3, col * WIDE, row * TALL);
@@ -40,12 +40,16 @@ public class MapGetTileTest {
 
     @Test
     public void testGetTile() {
-        assertTrue(map.getTile(268, 320).getX() == right[4][4].getX());
-        assertTrue(map.getTile(268, 320).getY() == right[4][4].getY());
-        //null for town tile
-        assertTrue(map.getTile(268, 160) == right[2][4]);
-
-        assertTrue(map.getTile(134, 80).getX() == right[1][2].getX());
-        assertTrue(map.getTile(134, 80).getY() == right[1][2].getY());
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col < 9; col++) {
+                //Check null for town
+                if (row == 2 && col == 4) {
+                    assertTrue(map.getTile(col * 67, row * 80) == right[row][col]);
+                } else {
+                    assertTrue(map.getTile(col * 67, row * 80).getX() == right[row][col].getX());
+                    assertTrue(map.getTile(col * 67, row * 80).getY() == right[row][col].getY());
+                }
+            }
+        }
     }
 }
