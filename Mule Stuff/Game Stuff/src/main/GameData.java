@@ -17,7 +17,7 @@ public class GameData {
     public static Scene mapScene;
 
 
-    public void save() throws FileNotFoundException, UnsupportedEncodingException {
+    public final void save() throws FileNotFoundException, UnsupportedEncodingException {
         PrintWriter writer = new PrintWriter("gamedata.txt", "UTF-8");
         writer.println(MapController.turns);
         writer.println(MapController.arr.length);
@@ -58,7 +58,7 @@ public class GameData {
         writer.close();
     }
 
-    public void load() {
+    public final void load() {
         try {
             FileReader reader = new FileReader("gamedata.txt");
             BufferedReader bufferReader = new BufferedReader(reader);

@@ -17,7 +17,6 @@ public class App extends Application {
 
     @Override
     public final void start(Stage primaryStage) throws Exception {
-        //map = new Map();
         this.primaryStage = primaryStage;
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
 

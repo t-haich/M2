@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
+
 import java.util.Arrays;
 import java.io.IOException;
 import java.net.URL;
@@ -37,34 +38,22 @@ public class PlayerConfigController implements Initializable {
     public static Player[] players;
     public static Scene mapScene;
 
-    /**
-     * Sets previous screen
-     * @param stage screen prior to this one
-     */
-    public void setPrevStage(Stage stage){
-        this.prevStage = stage;
-    }
-
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public final void initialize(URL location, ResourceBundle resources) {
         players = new Player[2];
         String col = color.getValue();
         String rac = race.getValue();
-        color.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()
-        {
-            public void changed(ObservableValue<? extends String> observable,String
-                    oldValue,String newValue)
-            {
+        color.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            public void changed(ObservableValue<? extends String> observable, String
+                    oldValue, String newValue) {
                 player1.setColor(getColor(newValue));
             }
         });
         String col2 = color2.getValue();
         String rac2 = race2.getValue();
-        color2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>()
-        {
-            public void changed(ObservableValue<? extends String> observable,String
-                    oldValue,String newValue)
-            {
+        color2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            public void changed(ObservableValue<? extends String> observable, String
+                    oldValue, String newValue) {
                 player2.setColor(getColor(newValue));
             }
         });
@@ -89,9 +78,10 @@ public class PlayerConfigController implements Initializable {
 
     /**
      * Goes to map screen
+     *
      * @throws IOException just in case there is no input/it failed
      */
-    public void toMapScreen() throws IOException {
+    public final void toMapScreen() throws IOException {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
         Scene scene = new Scene(myPane);
@@ -103,9 +93,10 @@ public class PlayerConfigController implements Initializable {
 
     /**
      * Displays congifuration screen
+     *
      * @throws IOException just in case there is no input/it failed
      */
-    public void toConfigScreen() throws IOException {
+    public final void toConfigScreen() throws IOException {
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/GameConfigDisplay.fxml"));
         Scene scene = new Scene(myPane);
@@ -114,44 +105,52 @@ public class PlayerConfigController implements Initializable {
 
     /**
      * gets the player's color
+     *
      * @param col The color that the player wants for himself/herself
      * @return The chosen color
      */
     private Color getColor(String col) {
         float alpha = (float) 30 / 100;
         float base = 255;
-        if (col.equals("Blue"))
-            return new Color(0/base, 11/base, 229/base, alpha);
-        else if (col.equals("Red"))
+        if (col.equals("Blue")) {
+            return new Color(0 / base, 11 / base, 229 / base, alpha);
+        } else if (col.equals("Red")) {
             return Color.RED;
-        else if (col.equals("Green"))
+        } else if (col.equals("Green")) {
             return Color.GREEN;
-        else
+        } else {
             return Color.PURPLE;
+        }
     }
 
     /**
      * Gets the race of the player
+     *
      * @param rac The requested race
      * @return The desired race
      */
     private Race getRace(String rac) {
         Race raceE;
-        if (rac.equals("Bonzoid"))
+        if (rac.equals("Bonzoid")) {
             raceE = Race.BONZOID;
-        if (rac.equals("Buzzite"))
+        }
+        if (rac.equals("Buzzite")) {
             raceE = Race.BUZZITE;
-        if (rac.equals("Ugaite"))
+        }
+        if (rac.equals("Ugaite")) {
             raceE = Race.UGAITE;
-        if (rac.equals("Humanoid"))
+        }
+        if (rac.equals("Humanoid")) {
             raceE = Race.HUMANOID;
-        else
+        } else {
             raceE = Race.FLAPPER;
+        }
         return raceE;
     }
 
     /**
      * Gets the player order
+     *
      * @param i The numerical value of the player
      * @return The place in line the current player is in
      */
@@ -163,8 +162,9 @@ public class PlayerConfigController implements Initializable {
 
     /**
      * Determines what happens when there is a shortage in the game
+     *
      * @param round The round one is in
-     * @param p The current player
+     * @param p     The current player
      * @return How much time the player actually needs
      */
     private static int shortage(int round, Player p) {
@@ -189,7 +189,8 @@ public class PlayerConfigController implements Initializable {
 
     /**
      * Gets the turn time left of the current player
-     * @param p the current player
+     *
+     * @param p     the current player
      * @param round What round he/she is in
      * @return time left
      */
@@ -203,6 +204,7 @@ public class PlayerConfigController implements Initializable {
 
     /**
      * Gets the time allotted of the entire round
+     *
      * @param round The round that wants to know its overall length
      * @return The overall time for the round
      */
