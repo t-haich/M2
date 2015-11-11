@@ -58,7 +58,7 @@ public class Player implements Comparable{
 
     /**
      * The setter method that officially gives the player a mule
-     * @param mule The desired mule to be owned
+     * @param muleArg The desired mule to be owned
      */
     public final void setMule(Mule muleArg) {
         this.mule = muleArg;
@@ -173,8 +173,8 @@ public class Player implements Comparable{
         return tiles;
     }
 
-    public final Race getRace() {
-        return race;
+    public final void setRace(Race r) {
+        race = r;
     } // Never used
 
     /**

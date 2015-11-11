@@ -1,19 +1,26 @@
 package map;
-package test;
+
+import org.junit.Before;
+
 import characters.*;
 import javafx.scene.paint.Color;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
-public class MuleTests {
+public class RandomEventTest {
 
+    private Player player;
+    private int round;
+    private RandEventPhase randomEvent;
 
 	@Before
 	public void setUp() {
-	private Player player = new Player();
-    private int round = 3;
+    player = new Player();
+    round = 3;
     player.setName("Tester");
     player.setColor(Color.BLUE);
     player.setRace(Race.HUMANOID);
@@ -23,16 +30,18 @@ public class MuleTests {
     player.setEnergy(100);
     player.setTiles(100);
     player.setHasMule(true);
+    Player[] players = {player};
+    randomEvent = new RandEventPhase(players, round);
 	}
 
-	@Test(timeout = TIMEOUT)
+	@Test
 	public void outfitMining() {
 		
 	}
 
-	@Test(timeout = TIMEOUT)
+	@Test
 	public void runRandEventTwo() {
-		RandomEventPhase.runEvent(RandomEvent.TWO, player); //+2 Smithore
+		randomEvent.runEvent2(RandomEvent.TWO, player); //+2 Smithore
 		assertEquals(player.getFood(), 100);
 		assertEquals(player.getEnergy(), 100);
 		assertEquals(player.getMoney(), 100);
@@ -41,23 +50,23 @@ public class MuleTests {
 		assertTrue(player.hasMule());
 	}
 
-	@Test(timeout = TIMEOUT)
+	@Test
 	public void runRandEventThree() {
-		RandomEventPhase.runEvent(RandomEvent.THREE, player); //Money += 8 * round (which is 3)
+		randomEvent.runEvent2(RandomEvent.THREE, player); //Money += 8 * round (which is 3)
 		assertEquals(player.getFood(), 100);
 		assertEquals(player.getEnergy(), 100);
-		assertEquals(player.getMoney(), 116);
+		assertEquals(player.getMoney(), 124);
 		assertEquals(player.getTiles(), 100);
 		assertEquals(player.getSmithore(), 100);
 		assertTrue(player.hasMule());
 		round = 4;
-		RandomEventPhase.runEvent(RandomEvent.THREE, player);
+		randomEvent.runEvent2(RandomEvent.THREE, player);
 		assertEquals(player.getMoney(), 148);
 	}
 
-	@Test(timeout = TIMEOUT)
+	@Test
 	public void runRandEventFive() {
-		RandomEventPhase.runEvent(RandomEvent.FIVE, player); //Money += (-4)* round (which is 3)
+		randomEvent.runEvent2(RandomEvent.FIVE, player); //Money += (-4)* round (which is 3)
 		assertEquals(player.getFood(), 100);
 		assertEquals(player.getEnergy(), 100);
 		assertEquals(player.getMoney(), 88);
@@ -65,13 +74,13 @@ public class MuleTests {
 		assertEquals(player.getSmithore(), 100);
 		assertTrue(player.hasMule());
 		round = 4;
-		RandomEventPhase.runEvent(RandomEvent.THREE, player);
-		assertEquals(player.getMoney(), 72);
+		randomEvent.runEvent2(RandomEvent.THREE, player);
+		assertEquals(player.getMoney(), 112);
 	}
 
-	@Test(timeout = TIMEOUT)
+	@Test
 	public void runRandEventSix() {
-		RandomEventPhase.runEvent(RandomEvent.SIX, player); //Food  = Food / 2;
+		randomEvent.runEvent2(RandomEvent.SIX, player); //Food  = Food / 2;
 		assertEquals(player.getFood(), 50);
 		assertEquals(player.getEnergy(), 100);
 		assertEquals(player.getMoney(), 100);
