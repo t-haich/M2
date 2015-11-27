@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+
+<Pane maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.PlayerConfigController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.39">
+         <image>
+            <Image url="@space.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="name" layoutX="45.0" layoutY="121.0" />
+      <ComboBox fx:id="race" layoutX="224.0" layoutY="121.0" prefWidth="150.0" visibleRowCount="5">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Bonzoid" />
+                <String fx:value="Ugaite" />
+                <String fx:value="Buzzite" />
+                <String fx:value="Humanoid" />
+                <String fx:value="Flapper" />
+            </FXCollections>
+        </items>
+        <value>
+          <String fx:value="Bonzoid" />
+        </value>
+      </ComboBox>
+      <Label layoutX="45.0" layoutY="93.0" text="Character Name:" />
+      <ComboBox fx:id="color" layoutX="406.0" layoutY="121.0" prefWidth="150.0" visibleRowCount="5">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Blue" />
+                <String fx:value="Red" />
+                <String fx:value="Green" />
+                <String fx:value="Purple" />
+            </FXCollections>
+        </items>
+        <value>
+          <String fx:value="Blue" />
+        </value>
+      </ComboBox>
+
+      <Label layoutX="195.0" layoutY="14.0" text="Player Configuration">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button layoutX="20.0" layoutY="17.0" mnemonicParsing="false" onAction="#toConfigScreen" text="Back" />
+      <Button layoutX="249.0" layoutY="308.0" mnemonicParsing="false" onAction="#toMapScreen" text="Begin Game">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="224.0" layoutY="93.0" prefHeight="17.0" prefWidth="40.0" text="Race:" />
+      <Label layoutX="406.0" layoutY="93.0" prefHeight="17.0" prefWidth="40.0" text="Color:" />
+      <TextField fx:id="name2" layoutX="45.0" layoutY="219.0" />
+      <ComboBox fx:id="race2" layoutX="224.0" layoutY="219.0" prefWidth="150.0" value="Bonzoid" visibleRowCount="5">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Bonzoid" />
+               <String fx:value="Ugaite" />
+               <String fx:value="Buzzite" />
+               <String fx:value="Humanoid" />
+               <String fx:value="Flapper" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <Label layoutX="45.0" layoutY="191.0" text="Character Name:" />
+      <ComboBox fx:id="color2" layoutX="406.0" layoutY="219.0" prefWidth="150.0" value="Blue" visibleRowCount="5">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Blue" />
+               <String fx:value="Red" />
+               <String fx:value="Green" />
+               <String fx:value="Purple" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <Label layoutX="224.0" layoutY="191.0" prefHeight="17.0" prefWidth="40.0" text="Race:" />
+      <Label layoutX="406.0" layoutY="191.0" prefHeight="17.0" prefWidth="40.0" text="Color:" />
+      <Label layoutX="45.0" layoutY="73.0" text="Player One:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="171.0" text="Player Two:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

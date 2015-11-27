@@ -6,15 +6,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import map.Map;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 
 
 public class App extends Application {
@@ -44,9 +40,6 @@ public class App extends Application {
             Clip clip = AudioSystem.getClip();
             clip.open(stream);
             clip.start();
-            /*InputStream in = new FileInputStream(new File(System.getProperty("user.dir") + "/src/main/09-the-moon.mp3"));
-            AudioStream audioStream = new AudioStream(in);
-            AudioPlayer.player.start(audioStream);*/
         } catch(Exception ex) {
             System.out.println("Error with playing sound.");
             ex.printStackTrace();
