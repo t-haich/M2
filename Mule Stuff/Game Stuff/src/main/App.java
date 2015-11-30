@@ -39,6 +39,7 @@ public class App extends Application {
             AudioInputStream stream = AudioSystem.getAudioInputStream(new File(System.getProperty("user.dir") + "/src/main/09-the-moon.wav").getAbsoluteFile());
             Clip clip = AudioSystem.getClip();
             clip.open(stream);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
             clip.start();
         } catch(Exception ex) {
             System.out.println("Error with playing sound.");
