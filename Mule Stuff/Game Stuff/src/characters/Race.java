@@ -4,7 +4,10 @@ public enum Race {
     UGAITE("Ugaite", 1000),
     BUZZITE("Buzzite", 1000),
     HUMANOID("Humanoid",600),
-    FLAPPER("Flapper",1600);
+    FLAPPER("Flapper",1600),
+    //Additional Races
+    MECHTRON("Mechtron",1000),
+    GOLLUMER("Gollumer", 1000);
 
     private final String race;
     private final int money;

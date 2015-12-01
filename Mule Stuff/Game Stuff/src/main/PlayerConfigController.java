@@ -49,12 +49,24 @@ public class PlayerConfigController implements Initializable {
                 player1.setColor(getColor(newValue));
             }
         });
+        race.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            public void changed(ObservableValue<? extends String> observable, String
+                    oldValue, String newValue) {
+                player1.setRace(getRace(newValue));
+            }
+        });
         String col2 = color2.getValue();
         String rac2 = race2.getValue();
         color2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             public void changed(ObservableValue<? extends String> observable, String
                     oldValue, String newValue) {
                 player2.setColor(getColor(newValue));
+            }
+        });
+        race2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            public void changed(ObservableValue<? extends String> observable, String
+                    oldValue, String newValue) {
+                player2.setRace(getRace(newValue));
             }
         });
         name.textProperty().addListener(new ChangeListener<String>() {
