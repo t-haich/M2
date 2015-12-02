@@ -14,6 +14,6 @@ public class CloudyRoundEvent extends RoundRandomEvent {
 
     @Override
     void process(Player p) {
-        p.addFood(2);
+        p.addEnergy(-3);
     }
 }

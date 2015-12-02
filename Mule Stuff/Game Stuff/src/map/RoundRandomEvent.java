@@ -13,9 +13,9 @@ public abstract class RoundRandomEvent {
         this.label = labelArg;
     }
 
-    private void runEvent(Player[] players) {
+    public void runEvent(Player[] players) {
         for (Player p : players) {
-            System.out.println(p + ": " + label);
+            System.out.println(label);
             System.out.println("Resources Before: ");
             System.out.println("Energy: " + p.getEnergy() + ",\t Money: "
                     + p.getMoney() + ",\t Food: " + p.getFood()

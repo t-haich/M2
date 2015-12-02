@@ -14,15 +14,11 @@ import javafx.stage.Stage;
 import java.awt.Label;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import map.RandEventPhase;
-import map.Tile;
+import map.*;
 
 public class MapController implements Initializable {
     @FXML
@@ -48,11 +44,15 @@ public class MapController implements Initializable {
     public static Player[] arr;
     public GraphicsContext g2d;
     public GraphicsContext g2dFront;
+    private RoundRandomEvent[] roundEv = new RoundRandomEvent[2];
+    private static Random rand = new Random();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         arr = PlayerConfigController.players;
         currPlayer = arr[0];
+        this.roundEv[0] = new RainRoundEvent();
+        this.roundEv[1] = new CloudyRoundEvent();
     }
 
     /**
@@ -325,6 +325,11 @@ public class MapController implements Initializable {
         phase = 1;
         if (round > 2) {
             RandEventPhase randEvent = new RandEventPhase(arr, turns / 2);
+            int roundChance = rand.nextInt(101);
+            if (roundChance <=50) {
+                int roundChoice = rand.nextInt(roundEv.length);
+                roundEv[roundChoice].runEvent(PlayerConfigController.players);
+            }
         }
         Pane myPane;
         myPane = FXMLLoader.load(getClass().getResource("/fxml/Map.fxml"));
