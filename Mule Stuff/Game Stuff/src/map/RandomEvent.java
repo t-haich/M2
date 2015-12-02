@@ -10,7 +10,7 @@ public enum RandomEvent {
     SIX(0, -0.5, 0, 0, "MISCHIEVOUS UGA STUDENTS BROKE INTO YOUR STORAGE SHED AND STOLE HALF YOUR FOOD.", 1, 0),
     SEVEN(0, 0, 0, -6, "YOUR SPACE GYPSY INLAWS MADE A MESS OF THE TOWN. IT COST YOU $6*m TO CLEAN IT UP.", 1, 1),
     //Additional Random Events
-    EIGHT(0, 0, -2, 0, "SPENT TWO ENERGY UNITS OPERATING A NEW MACHINE", 1, 1);
+    EIGHT(0, 0, -2, 0, "SPENT TWO ENERGY UNITS OPERATING A NEW MACHINE", 0, 0);
 
     private int smithore;
     private double food;

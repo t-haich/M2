@@ -72,8 +72,9 @@ public class RandEventPhase {
             p.addSmithore(e.smithore());
         }
         System.out.println("Resources After: ");
-        System.out.println("Energy: " + p.getEnergy() + ",\t Money: " + p.getMoney() + ",\t Food: " + p.getFood() + ",\t Smithore: " + p.getSmithore());
-
+        System.out.println("Energy: " + p.getEnergy() + ",\t Money: "
+                + p.getMoney() + ",\t Food: " + p.getFood()
+                + ",\t Smithore: " + p.getSmithore());
     }
     public void runEvent2(RandomEvent e, Player p) {
         runEvent(e, p);
