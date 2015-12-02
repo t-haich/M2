@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
@@ -16,7 +17,7 @@
          </image>
       </ImageView>
       <Canvas fx:id="canvas" height="400.0" layoutX="0.0" layoutY="0.0" width="600.0" />
-      <Canvas fx:id="canvasFront" height="400.0" layoutX="0.0" layoutY="0.0" onMouseClicked="#handleMouseClick" width="600.0" />
+      <Canvas fx:id="canvasFront" height="400.0" onMouseClicked="#handleMouseClick" onMouseMoved="#endAnimation" width="600.0" />
       <Button layoutX="273.0" layoutY="160.0" mnemonicParsing="false" onAction="#toTownScreen" opacity="0.02" prefHeight="80.0" prefWidth="66.67" text="Town" />
        <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#endTurn" text="Pass" />
       <Line endX="500.0" layoutX="101.0" layoutY="400.0" startX="-100.0" />
@@ -30,5 +31,6 @@
             <Label id="label2" fx:id="textTwo" prefHeight="42.0" prefWidth="599.0" />
          </children>
       </HBox>
+      <WebView fx:id="web" layoutX="1.0" prefHeight="0" prefWidth="0" />
    </children>
 </AnchorPane>
