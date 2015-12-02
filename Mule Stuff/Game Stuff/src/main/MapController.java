@@ -326,7 +326,7 @@ public class MapController implements Initializable {
         if (round > 2) {
             RandEventPhase randEvent = new RandEventPhase(arr, turns / 2);
             int roundChance = rand.nextInt(101);
-            if (roundChance <=50) {
+            if (roundChance <= 80) {
                 int roundChoice = rand.nextInt(roundEv.length);
                 roundEv[roundChoice].runEvent(PlayerConfigController.players);
             }
