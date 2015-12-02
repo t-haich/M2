@@ -169,12 +169,19 @@ public class MapController implements Initializable {
     private void eraseMule(Tile tile) {
         g2dFront = canvasFront.getGraphicsContext2D();
         g2dFront.clearRect(tile.getX(), tile.getY(), 72, 85);
+        web.setPrefHeight(85);
+        web.setPrefWidth(72);
+        web.setLayoutX(tile.getX());
+        web.setLayoutY(tile.getY());
+        WebEngine engine = web.getEngine();
+        URL url = getClass().getResource("/fxml/crategif.gif");
+        engine.load(url.toExternalForm());
 
     }
 
     public void explodeMule(Tile tile) {
-        web.setPrefHeight(80);
-        web.setPrefWidth(67);
+        web.setPrefHeight(85);
+        web.setPrefWidth(72);
         web.setLayoutX(tile.getX());
         web.setLayoutY(tile.getY());
         WebEngine engine = web.getEngine();
@@ -199,6 +206,13 @@ public class MapController implements Initializable {
      * @param tile The tile the muls is being placed
      */
     private void drawMule(Player player, Tile tile) {
+        web.setPrefHeight(85);
+        web.setPrefWidth(72);
+        web.setLayoutX(tile.getX());
+        web.setLayoutY(tile.getY());
+        WebEngine engine = web.getEngine();
+        URL url = getClass().getResource("/fxml/opencrategif.gif");
+        engine.load(url.toExternalForm());
         g2dFront = canvasFront.getGraphicsContext2D();
         Mule tempMule = player.getMule();
         if (tempMule.outfit().equals("Farmer")) {
