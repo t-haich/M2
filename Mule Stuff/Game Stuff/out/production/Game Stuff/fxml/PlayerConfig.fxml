@@ -23,6 +23,8 @@
                 <String fx:value="Buzzite" />
                 <String fx:value="Humanoid" />
                 <String fx:value="Flapper" />
+                <String fx:value="Mechtron" />
+                <String fx:value="Gollumer" />
             </FXCollections>
         </items>
         <value>
@@ -66,6 +68,8 @@
                <String fx:value="Buzzite" />
                <String fx:value="Humanoid" />
                <String fx:value="Flapper" />
+               <String fx:value="Mechtron" />
+               <String fx:value="Gollumer" />
             </FXCollections>
          </items>
       </ComboBox>

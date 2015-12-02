@@ -11,7 +11,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import java.awt.Label;
+
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -152,7 +153,22 @@ public class MapController implements Initializable {
      */
     private void eraseMule(Tile tile) {
         g2dFront = canvasFront.getGraphicsContext2D();
-        g2dFront.clearRect(tile.getX(), tile.getY(), 67, 80);
+        g2dFront.clearRect(tile.getX(), tile.getY(), 72, 85);
+        /* (int i = 1; i <= 15; i++){
+            g2dFront.drawImage(new Image("/fxml/explosion1.jpg"), tile.getX(), tile.getY());
+            try {
+                Thread.sleep(100);
+            }
+            catch (InterruptedException ex) {
+            }
+            g2dFront.clearRect(tile.getX(), tile.getY(), 72, 85);
+        }
+        try {
+            Thread.sleep(1500);
+        }
+        catch(InterruptedException ex) {
+        }
+        g2dFront.clearRect(tile.getX(), tile.getY(), 72, 85);*/
     }
 
     /**
