@@ -284,6 +284,11 @@ public class Player implements Comparable{
                             } else if (App.map.getMap()[row][col].getMule().outfit().equals("Farmer")) {
                                 System.out.println("Made some food");
                                 System.out.println(this.food);
+                            } if (App.map.getMap()[row][col].getMule().outfit().equals("Thermal")) {
+                                System.out.println("Collected some smithore and generated some energy");
+                                System.out.println(this.smithore);
+                                System.out.println(this.energy);
+
                             }
                         } else {
                             System.out.println("Out of energy!");

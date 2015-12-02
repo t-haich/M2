@@ -3,7 +3,9 @@ public enum Mule {
     FARMER("Farmer"),
     MINER("Miner"),
     ENERGY("Energy"),
+    THERMAL("Thermal"),
     EMPTY("Empty");
+
 
     private String outfit;
 

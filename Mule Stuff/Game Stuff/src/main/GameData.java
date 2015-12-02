@@ -88,7 +88,9 @@ public class GameData {
                         MapController.arr[i].setMule(Mule.MINER);
                     } else if (line.equals("Energy")) {
                         MapController.arr[i].setMule(Mule.ENERGY);
-                    } else {
+                    } else if (line.equals("Thermal")) {
+                        MapController.arr[i].setMule(Mule.THERMAL);
+                    } else  {
                         MapController.arr[i].setMule(Mule.EMPTY);
                     }
                 } else {
@@ -108,7 +110,9 @@ public class GameData {
                             tile.setMule(Mule.MINER);
                         } else if (mule.equals("Energy")) {
                             tile.setMule(Mule.ENERGY);
-                        } else {
+                        } else if (mule.equals("Thermal")) {
+                            tile.setMule(Mule.THERMAL);
+                        } else  {
                             tile.setMule(Mule.EMPTY);
                         }
                     } else {

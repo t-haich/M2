@@ -167,6 +167,8 @@ public class MapController implements Initializable {
             g2dFront.drawImage(new Image("/fxml/food.png"),tile.getX() + 10, tile.getY() + 20);
         } else if (tempMule.outfit().equals("Miner")) {
             g2dFront.drawImage(new Image("/fxml/miner.png"),tile.getX() + 10, tile.getY() + 10);
+        } else if (tempMule.outfit().equals("Thermal")) {
+            g2dFront.drawImage(new Image("/fxml/thermal.png"),tile.getX() + 10, tile.getY() + 10);
         } else {
             g2dFront.drawImage(new Image("/fxml/energy.png"),tile.getX() + 10, tile.getY() + 10);
         }

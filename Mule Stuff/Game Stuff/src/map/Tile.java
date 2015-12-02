@@ -173,6 +173,13 @@ public class Tile {
             }
             p.addFood((int) Math.ceil(this.type.food() * mult));
         }
+        if (this.getMule().outfit().equals("Thermal")) {
+            for (int i = 0; i < this.numAdjacentTiles(); i++) {
+                mult = mult * TILE_MULTI;
+            }
+            p.addEnergy((int) Math.ceil(this.type.energy() * mult));
+            p.addSmithore((int) Math.ceil(this.type.smithore() * mult));
+        }
     }
 
     //Made for testing purposes
@@ -195,6 +202,13 @@ public class Tile {
                 mult = mult * TILE_MULTI;
             }
             p.addFood((int) Math.ceil(this.type.food() * mult));
+        }
+        if (this.getMule().outfit().equals("Thermal")) {
+            for (int i = 0; i < k; i++) {
+                mult = mult * TILE_MULTI;
+            }
+            p.addSmithore((int) Math.ceil(this.type.smithore() * mult));
+            p.addEnergy((int) Math.ceil(this.type.energy() * mult));
         }
     }
 

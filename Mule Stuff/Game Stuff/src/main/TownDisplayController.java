@@ -154,6 +154,16 @@ public class TownDisplayController implements Initializable {
         }
     }
 
+    public final void outfitMuleThermal() {
+        if (MapController.currPlayer.hasMule()
+                && MapController.currPlayer.getMoney() >= 25
+                && !(MapController.currPlayer.getMule()
+                .outfit().equals("Thermal"))) {
+            MapController.currPlayer.setMule(Mule.THERMAL);
+            MapController.currPlayer.addMoney(-25);
+        }
+    }
+
     /**
      * What happens when player buys food.
      */
