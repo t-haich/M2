@@ -2,23 +2,32 @@ package main;
 
 import characters.Mule;
 import characters.Player;
+import javafx.animation.*;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.util.Duration;
 import map.*;
 
 public class MapController implements Initializable {
@@ -30,6 +39,9 @@ public class MapController implements Initializable {
     public static Label textOne;
     @FXML
     public static Label textTwo;
+    @FXML
+    public WebView web;
+
     public static List<Tile> tiles = new ArrayList<Tile>();
     //public static Map map = new Map();
     public static Player currPlayer;
@@ -47,6 +59,7 @@ public class MapController implements Initializable {
     public GraphicsContext g2dFront;
     private RoundRandomEvent[] roundEv = new RoundRandomEvent[2];
     private static Random rand = new Random();
+    public static Timer animate;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -125,8 +138,9 @@ public class MapController implements Initializable {
             } else {
                 if (currPlayer.hasMule()) {
                     currPlayer.removeMule();
-                    System.out.println("Your mule ran away because"
+                    System.out.println("Your mule self-detonated because"
                         + "this isn't your tile!");
+                    explodeMule(tile);
                 } else {
                     System.out.println("You don't own this tile!");
                 }
@@ -147,6 +161,7 @@ public class MapController implements Initializable {
         tiles.add(t);
     }
 
+
     /**
      * Removes a mule from a tile.
      * @param tile Which tile needs a mule removed
@@ -154,21 +169,28 @@ public class MapController implements Initializable {
     private void eraseMule(Tile tile) {
         g2dFront = canvasFront.getGraphicsContext2D();
         g2dFront.clearRect(tile.getX(), tile.getY(), 72, 85);
-        /* (int i = 1; i <= 15; i++){
-            g2dFront.drawImage(new Image("/fxml/explosion1.jpg"), tile.getX(), tile.getY());
-            try {
-                Thread.sleep(100);
-            }
-            catch (InterruptedException ex) {
-            }
-            g2dFront.clearRect(tile.getX(), tile.getY(), 72, 85);
+
+    }
+
+    public void explodeMule(Tile tile) {
+        web.setPrefHeight(80);
+        web.setPrefWidth(67);
+        web.setLayoutX(tile.getX());
+        web.setLayoutY(tile.getY());
+        WebEngine engine = web.getEngine();
+        engine.load("https://s-media-cache-ak0.pinimg.com/originals/76/8d/41/768d41c38389731667cf6972ae5bdd1c.gif");
+    }
+
+    public void endAnimation() {
+        web.setLayoutY(500);
+        web.setLayoutX(500);
+    }
+
+    public void wait(int i) {
+        try{
+            Thread.sleep(i);
+        } catch(InterruptedException ex) {
         }
-        try {
-            Thread.sleep(1500);
-        }
-        catch(InterruptedException ex) {
-        }
-        g2dFront.clearRect(tile.getX(), tile.getY(), 72, 85);*/
     }
 
     /**
