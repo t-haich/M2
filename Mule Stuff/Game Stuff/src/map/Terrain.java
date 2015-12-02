@@ -5,7 +5,8 @@ public enum Terrain {
     RIVER(4, 2, 0, "River"),
     MOUNTAIN1(1, 1, 2, "Mountain1"),
     MOUNTAIN2(1, 1, 3, "Mountain2"),
-    MOUNTAIN3(1, 1, 4, "Mountain3");
+    MOUNTAIN3(1, 1, 4, "Mountain3"),
+    VOLCANO(3,0,3, "Volcano");
 
     private int smithore;
     private int food;

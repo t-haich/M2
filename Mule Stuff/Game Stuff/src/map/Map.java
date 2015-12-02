@@ -26,10 +26,10 @@ public class Map {
                 } else if (!(row == 2 && col == 4)) {
                     map[row][col] = new Tile(Terrain.PLAIN, col * WIDE, row * TALL);
                 }
-
             }
-
         }
+        map[0][2] = new Tile(Terrain.VOLCANO, 2 * WIDE, 0 * TALL);
+        map[3][6] = new Tile(Terrain.VOLCANO, 6 * WIDE, 3 * TALL);
     }
 
     /**
