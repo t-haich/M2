@@ -24,7 +24,6 @@ public class GameConfigDisplayController implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String
                     oldValue, String newValue) {
                 gameDifficulty = newValue;
-                System.out.println("."+gameDifficulty+".");
             }
         });
     }
