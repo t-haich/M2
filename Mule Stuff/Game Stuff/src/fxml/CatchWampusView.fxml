@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="minigames.CatchWampusController">
    <children>
@@ -14,16 +14,26 @@
             <Image url="@Wampus Field.jpg" />
          </image>
       </ImageView>
-      <TextFlow layoutX="314.0" layoutY="50.0" prefHeight="48.0" prefWidth="284.0" />
       <Label layoutX="12.0" layoutY="3.0" prefHeight="47.0" prefWidth="542.0" text="Catch The Wampus" textFill="#b206afcf">
          <font>
             <Font name="Magneto Bold" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="534.0" layoutY="9.0" mnemonicParsing="false" onAction="#exit" prefHeight="44.0" prefWidth="65.0" style="-fx-background-color: transparent;" text="Exit" textAlignment="CENTER" textFill="#970472">
+      <Button layoutX="534.0" layoutY="9.0" mnemonicParsing="false" onAction="#exit" prefHeight="44.0" prefWidth="65.0" style="-fx-background-color: transparent;" text="Exit" textAlignment="CENTER" textFill="#b206af">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
+      <Canvas fx:id="canvasFront" height="296.0" layoutY="104.0" onMouseClicked="#handleMouseClick" width="600.0" />
+      <Label fx:id="timeText" layoutX="14.0" layoutY="53.0" prefHeight="37.0" prefWidth="227.0" text="Time: 30" textFill="#b206af">
+         <font>
+            <Font name="Magneto Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="scoreText" layoutX="373.0" layoutY="53.0" prefHeight="37.0" prefWidth="227.0" text="Score: 0" textFill="#b206af">
+         <font>
+            <Font name="Magneto Bold" size="25.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
