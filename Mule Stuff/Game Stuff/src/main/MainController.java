@@ -5,6 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import minigames.CatchWampusController;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,7 +36,7 @@ public class MainController implements Initializable {
         myPane = FXMLLoader.load(getClass()
                 .getResource("/fxml/GameConfigDisplay.fxml"));
         Scene scene = new Scene(myPane);
-        prevStage.setScene(scene);
+        App.primaryStage.setScene(scene);
     }
 
     /**
@@ -43,5 +45,16 @@ public class MainController implements Initializable {
     public final void load() {
         GameData data = new GameData();
         data.load();
+    }
+
+    public void toMiniGames() {
+        Pane myPane;
+        try {
+            myPane = FXMLLoader.load(getClass().getResource("/fxml/CatchWampusView.fxml"));
+            Scene scene = new Scene(myPane);
+            App.primaryStage.setScene(scene);
+        } catch (IOException e) {
+
+        }
     }
 }
