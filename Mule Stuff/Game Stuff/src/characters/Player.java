@@ -2,6 +2,7 @@ package characters;
 
 import javafx.scene.paint.Color;
 import main.App;
+import main.GameConfigDisplayController;
 
 public class Player implements Comparable{
     private String name;
@@ -27,6 +28,11 @@ public class Player implements Comparable{
         this.name = nameArg;
         pColor = colArg;
         money = (race == null)? defMny : race.money();
+        if (GameConfigDisplayController.gameDifficulty.equals("Advanced")) {
+            money = (int) (money * .8);
+        } else if (GameConfigDisplayController.gameDifficulty.equals("Tournament")) {
+            money = (int) (money * .6);
+        }
         this.race = raceArg;
         hasMule = false;
         mule = null;

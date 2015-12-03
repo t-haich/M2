@@ -35,5 +35,10 @@
             <Font size="20.0" />
          </font>
       </Button>
+      <Button layoutX="236.0" layoutY="305.0" mnemonicParsing="false" onAction="#toMiniGames" text="Mini Games">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
