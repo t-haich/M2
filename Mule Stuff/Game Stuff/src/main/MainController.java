@@ -57,4 +57,14 @@ public class MainController implements Initializable {
 
         }
     }
+    public void toShooterMiniGame() {
+        Pane myPane;
+        try {
+            myPane = FXMLLoader.load(getClass().getResource("/fxml/ShootWampusView.fxml"));
+            Scene scene = new Scene(myPane);
+            App.primaryStage.setScene(scene);
+        } catch (IOException e) {
+
+        }
+    }
 }

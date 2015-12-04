@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="minigames.ShootWampusController">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="600.0">
+         <image>
+            <Image url="@carnival.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="12.0" layoutY="9.0" prefHeight="31.0" prefWidth="542.0" text="Shoot Before Time Runs Out" textFill="#07b027cf">
+         <font>
+            <Font name="Magneto Bold" size="28.0" />
+         </font>
+      </Label>
+      <Button layoutX="521.0" layoutY="13.0" mnemonicParsing="false" onAction="#exit" prefHeight="37.0" prefWidth="66.0" style="-fx-background-color: transparent;" text="Exit" textAlignment="CENTER" textFill="#07b03f">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Canvas fx:id="canvasFront" height="500.0" layoutY="104.0" onMouseClicked="#handleMouseClick" width="600.0" />
+      <Label fx:id="timeText" layoutX="12.0" layoutY="35.0" prefHeight="37.0" prefWidth="227.0" text="Time: 30" textFill="#b00707">
+         <font>
+            <Font name="Magneto Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="scoreText" layoutX="473.0" layoutY="35.0" prefHeight="37.0" prefWidth="227.0" text="Score: 0" textFill="#b00707">
+         <font>
+            <Font name="Magneto Bold" size="25.0" />
+         </font>
+      </Label>
+      <WebView fx:id="web" layoutX="1.0" prefHeight="0" prefWidth="0" />
+   </children>
+</Pane>
