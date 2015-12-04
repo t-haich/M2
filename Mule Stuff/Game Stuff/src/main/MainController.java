@@ -5,7 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import minigames.CatchWampusController;
+import minigames.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -46,25 +46,26 @@ public class MainController implements Initializable {
         GameData data = new GameData();
         data.load();
     }
-
-    public void toMiniGames() {
-        Pane myPane;
-        try {
-            myPane = FXMLLoader.load(getClass().getResource("/fxml/CatchWampusView.fxml"));
-            Scene scene = new Scene(myPane);
-            App.primaryStage.setScene(scene);
-        } catch (IOException e) {
-
-        }
-    }
-    public void toShooterMiniGame() {
+    public final void toShootWampus() {
         Pane myPane;
         try {
             myPane = FXMLLoader.load(getClass().getResource("/fxml/ShootWampusView.fxml"));
             Scene scene = new Scene(myPane);
             App.primaryStage.setScene(scene);
         } catch (IOException e) {
-
+            System.out.println("File Not Found");
         }
     }
+
+    public final void toCatchWampus() {
+        Pane myPane;
+        try {
+            myPane = FXMLLoader.load(getClass().getResource("/fxml/CatchWampusView.fxml"));
+            Scene scene = new Scene(myPane);
+            App.primaryStage.setScene(scene);
+        } catch (IOException e) {
+            System.out.println("File Not Found");
+        }
+    }
+
 }
