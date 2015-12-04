@@ -44,6 +44,7 @@ public class ShootWampusController implements Initializable {
     public static int highScore2;
     private int time = 30, wampusWidth = 99, wampusHeight = 72;
     private static Timer timer;
+    private Random rand = new Random();
 
 
     @Override
@@ -167,15 +168,17 @@ public class ShootWampusController implements Initializable {
     }
 
     public void wampusShot(int i) {
+        int randomPos = rand.nextInt(600 - wampusWidth);
+        int randDirection = (int)Math.pow(-1, rand.nextInt(1));
         if (i == 1) {
             shot1++;
             timer1 = 0;
             g2dFront.clearRect(xpos1, ypos1, wampusWidth, wampusHeight);
             speed1 += 2;
-            speed1 = Math.abs(speed1);
+            speed1 = Math.abs(speed1) * randDirection;
             web1.setLayoutX(xpos1);
             web1.setLayoutY(ypos1);
-            xpos1 = 0;
+            xpos1 = randomPos;
             web1.setPrefHeight(wampusHeight);
             web1.setPrefWidth(wampusWidth);
             WebEngine engine = web1.getEngine();
@@ -186,10 +189,10 @@ public class ShootWampusController implements Initializable {
             timer2 = 0;
             g2dFront.clearRect(xpos2, ypos2, wampusWidth, wampusHeight);
             speed2 += 2;
-            speed2 = Math.abs(speed2);
+            speed2 = Math.abs(speed2) * randDirection;
             web2.setLayoutX(xpos2);
             web2.setLayoutY(ypos2);
-            xpos2 = 0;
+            xpos2 = randomPos;
             web2.setPrefHeight(wampusHeight);
             web2.setPrefWidth(wampusWidth);
             WebEngine engine = web2.getEngine();
@@ -200,10 +203,10 @@ public class ShootWampusController implements Initializable {
             timer3 = 0;
             g2dFront.clearRect(xpos3, ypos3, wampusWidth, wampusHeight);
             speed3 += 2;
-            speed3 = Math.abs(speed3);
+            speed3 = Math.abs(speed3) * randDirection;
             web3.setLayoutX(xpos3);
             web3.setLayoutY(ypos3);
-            xpos3 = 0;
+            xpos3 = randomPos;
             web3.setPrefHeight(wampusHeight);
             web3.setPrefWidth(wampusWidth);
             WebEngine engine = web3.getEngine();
