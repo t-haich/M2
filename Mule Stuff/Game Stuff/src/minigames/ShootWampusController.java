@@ -11,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import main.App;
 
 import java.io.IOException;
@@ -22,6 +24,9 @@ import java.util.TimerTask;
 
 /**
  * Created by Kyle on 12/3/2015.
+ *  * Didn't have much time to make this, so have a lot of repeated code that could be cut down
+ * By having a better backing structure
+ * Also could have made a wampus class with variables: x, y, speed, image, moving image, death
  */
 public class ShootWampusController implements Initializable {
 
@@ -31,9 +36,11 @@ public class ShootWampusController implements Initializable {
     private Label timeText;
     @FXML
     private Label scoreText;
+    @FXML
+    public WebView web1, web2, web3;
     private GraphicsContext g2dFront;
     public static int score2;
-    private int xpos1, xpos2, xpos3, ypos1, ypos2, ypos3, speed1, speed2, speed3;
+    private int xpos1, xpos2, xpos3, ypos1, ypos2, ypos3, speed1, speed2, speed3, shot1, shot2, shot3, timer1, timer2, timer3;
     public static int highScore2;
     private int time = 30, wampusWidth = 99, wampusHeight = 72;
     private static Timer timer;
@@ -41,15 +48,16 @@ public class ShootWampusController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ypos1 = 147 - wampusHeight;
-        ypos2 = 313 - wampusHeight;
-        ypos3 = 470 - wampusHeight;
+        ypos1 = 116 - wampusHeight;
+        ypos2 = 250 - wampusHeight;
+        ypos3 = 376 - wampusHeight;
         xpos1 = 0;
-        xpos2 = 600 - wampusWidth;
+        xpos2 = 0;
         xpos3 = 0;
-        speed1 = 100;
-        speed2 = 100;
-        speed3 = -100;
+        drawWampuses();
+        speed1 = 1;
+        speed2 = 1;
+        speed3 = 1;
         score2 = 0;
         time = 30;
         timer = new Timer();
@@ -75,12 +83,16 @@ public class ShootWampusController implements Initializable {
                 });
             }
         }, 0, 1000);
-        timer.scheduleAtFixedRate(new TimerTask() {
+
+        timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                updateWampuses();
+                Platform.runLater(() -> {
+                    updateWampuses();
+                    updateShot();
+                });
             }
-        }, 0, 100);
+        }, 0, 50);
     }
 
     public void handleMouseClick(MouseEvent e) {
@@ -108,13 +120,13 @@ public class ShootWampusController implements Initializable {
 
     public void updateWampuses() {
         eraseWampuses();
-        if (xpos1 + speed1 >= xpos1 + wampusWidth || xpos1 + speed1 < 0) {
+        if (xpos1 + wampusWidth + speed1 >= 600 || xpos1 + speed1 < 0) {
             speed1 = -1 * speed1;
         }
-        if (xpos2 + speed2 >= xpos2 + wampusWidth || xpos2 + speed2 < 0) {
+        if (xpos2 + speed2 + wampusWidth >= 600 || xpos2 + speed2 < 0) {
             speed2 = -1 * speed2;
         }
-        if (xpos3 + speed3 >= xpos3 + wampusWidth || xpos3 + speed3 < 0) {
+        if (xpos3 + speed3 + wampusWidth >= 600 || xpos3 + speed3 < 0) {
             speed3 = -1 * speed3;
         }
         xpos1 += speed1;
@@ -123,20 +135,82 @@ public class ShootWampusController implements Initializable {
         drawWampuses();
     }
 
+    public void updateShot() {
+        int showTime = 20;
+        if (shot1 > 0 && timer1 > showTime) {
+            web1.setPrefHeight(0);
+            web1.setPrefWidth(0);
+            shot1 = 0;
+        } else if (shot1 > 0){
+            timer1++;
+        } else {
+            timer1 = 0;
+        }
+        if (shot2 > 0 && timer2 > showTime) {
+            web2.setPrefHeight(0);
+            web2.setPrefWidth(0);
+            shot2 = 0;
+        } else if (shot2 > 0){
+            timer2++;
+        } else {
+            timer2 = 0;
+        }
+        if (shot3 > 0 && timer3 > showTime) {
+            web3.setPrefHeight(0);
+            web3.setPrefWidth(0);
+            shot3 = 0;
+        } else if (shot3 > 0){
+            timer3++;
+        } else {
+            timer3 = 0;
+        }
+    }
+
     public void wampusShot(int i) {
         if (i == 1) {
-            speed1 *= 2;
+            shot1++;
+            timer1 = 0;
+            g2dFront.clearRect(xpos1, ypos1, wampusWidth, wampusHeight);
+            speed1 += 2;
             speed1 = Math.abs(speed1);
+            web1.setLayoutX(xpos1);
+            web1.setLayoutY(ypos1);
             xpos1 = 0;
+            web1.setPrefHeight(wampusHeight);
+            web1.setPrefWidth(wampusWidth);
+            WebEngine engine = web1.getEngine();
+            URL url = getClass().getResource("/fxml/wampusShotGif.gif");
+            engine.load(url.toExternalForm());
         } else if (i == 2) {
-            speed2 *= 2;
+            shot2++;
+            timer2 = 0;
+            g2dFront.clearRect(xpos2, ypos2, wampusWidth, wampusHeight);
+            speed2 += 2;
             speed2 = Math.abs(speed2);
+            web2.setLayoutX(xpos2);
+            web2.setLayoutY(ypos2);
             xpos2 = 0;
+            web2.setPrefHeight(wampusHeight);
+            web2.setPrefWidth(wampusWidth);
+            WebEngine engine = web2.getEngine();
+            URL url = getClass().getResource("/fxml/wampusShotGif.gif");
+            engine.load(url.toExternalForm());
         } else {
-            speed3 *= 2;
+            shot3++;
+            timer3 = 0;
+            g2dFront.clearRect(xpos3, ypos3, wampusWidth, wampusHeight);
+            speed3 += 2;
             speed3 = Math.abs(speed3);
+            web3.setLayoutX(xpos3);
+            web3.setLayoutY(ypos3);
             xpos3 = 0;
+            web3.setPrefHeight(wampusHeight);
+            web3.setPrefWidth(wampusWidth);
+            WebEngine engine = web3.getEngine();
+            URL url = getClass().getResource("/fxml/wampusShotGif.gif");
+            engine.load(url.toExternalForm());
         }
+
     }
 
     public void endGame() throws IOException {
