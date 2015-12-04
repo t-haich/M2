@@ -238,6 +238,8 @@ public class ShootWampusController implements Initializable {
     }
 
     public void exit() {
+        timer.cancel();
+        timer.purge();
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
         try {
         Pane myPane = myLoader.load();
